@@ -697,6 +697,18 @@ namespace DOL.GS.PacketHandler
 
 		public virtual void SendObjectGuildID(GameObject obj, Guild guild)
 		{
+			if (obj is GamePlayer target && m_gameClient.Player != null)
+			{
+				// If not in the same group/guild, hide the guild ID to maintain anonymity
+				bool sameGroup = m_gameClient.Player.Group != null && target.Group == m_gameClient.Player.Group;
+				bool sameGuild = m_gameClient.Player.Guild != null && target.Guild == m_gameClient.Player.Guild;
+
+				if (!sameGroup && !sameGuild && m_gameClient.Account.PrivLevel < 2)
+				{
+					guild = null;
+				}
+			}
+
 			using (var pak = new GSTCPPacketOut(GetPacketCode(eServerPackets.ObjectGuildID)))
 			{
 				pak.WriteShort((ushort) obj.ObjectID);
@@ -1684,7 +1696,11 @@ namespace DOL.GS.PacketHandler
 							pak.WriteInt(0x2000);
 							pak.WriteByte(0);
 						}
-						pak.WritePascalString(updateLiving.Name);
+						if (updateLiving is GamePlayer gpTarget)
+							pak.WritePascalString(GameServer.ServerRules.GetPlayerName(m_gameClient.Player, gpTarget));
+						else
+							pak.WritePascalString(updateLiving.Name);
+
 						pak.WritePascalString(updateLiving is GamePlayer ? ((GamePlayer) updateLiving).CharacterClass.Name : "NPC");
 						//classname
 					}

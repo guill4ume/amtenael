@@ -1,4 +1,4 @@
-﻿using DOL.AI;
+using DOL.AI;
 using DOL.AI.Brain;
 using DOL.GS.Commands;
 using DOL.GS.PacketHandler;
@@ -13,7 +13,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
     "&mcreate",
-    ePrivLevel.Player,
+    ePrivLevel.Admin,
     "/mcreate class [level] [class] [spec] [inv] - Create a mimic of a certain level, class, and weapon handedness at your position or ground target, and invite them if desired.")]
     public class MimicCreateCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -93,7 +93,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
        "&mgroup",
-       ePrivLevel.Player,
+       ePrivLevel.Admin,
        "/mgroup - To summon a group of mimics from a realm. Args: realm, amount, level")]
     public class MimicSummonMimicGroupCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -239,7 +239,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
        "&mpvp",
-       ePrivLevel.Player,
+       ePrivLevel.Admin,
        "/mpvp (true/false) - Set PvP mode on targeted mimic or your group with no target.")]
     public class MimicPvPModeCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -291,7 +291,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
    "&mpc",
-   ePrivLevel.Player,
+   ePrivLevel.Admin,
    "/mpc (true/false) [group] - Set PreventCombat on targeted mimic or their group, or your group with no target.")]
     public class MimicCombatPreventCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -358,7 +358,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
     "&mheal",
-    ePrivLevel.Player,
+    ePrivLevel.Admin,
     "/mheal - Toggle whether a mimic will engage in combat or stay back and focus on healing spells")]
     public class MimicHealCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -384,7 +384,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
     "&mbattle",
-    ePrivLevel.Player,
+    ePrivLevel.Admin,
     "/mbattle [Region] (Start/Stop/Clear>)",
     "Regions: Thid. Start - Start spawning. Stop - Stop spawning. Clear - Stop and remove mimics.")]
     public class MimicBattleCommandHandler : AbstractCommandHandler, ICommandHandler
@@ -413,7 +413,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
       "&msummon",
-      ePrivLevel.Player,
+      ePrivLevel.Admin,
       "/msummon - Summons all mimics in your group.")]
     public class MimicSummonCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -448,7 +448,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
        "&mlfg",
-       ePrivLevel.Player,
+       ePrivLevel.Admin,
        "/mlfg - Get a list of Mimics that are looking for a group.")]
     public class MimicLfgCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -551,7 +551,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
         "&mrole",
-        ePrivLevel.Player,
+        ePrivLevel.Admin,
         "/mrole (leader/tank/assist/cc/puller) - Set the role of a group member.")]
     public class MimicRoleCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -586,7 +586,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
         "&mcamp",
-        ePrivLevel.Player,
+        ePrivLevel.Admin,
         "/mcamp (here/set/remove/aggrorange/filter)- Set where the group camp point is, remove the camp point, the range the group will aggro, and the con level the puller will pull.")]
     public class MimicCampCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -700,7 +700,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
      "&mpull",
-     ePrivLevel.Player,
+     ePrivLevel.Admin,
      "/mpull - Set camp and pull points to your location, and have puller pull your target")]
     public class MimicPullCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -737,7 +737,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
         "&mpullfrom",
-        ePrivLevel.Player,
+        ePrivLevel.Admin,
         "/mpullfrom (here/set/remove) - Set where the group puller should try to pull from.")]
     public class MimicPullFromCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -782,7 +782,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
     "&mfollow",
-    ePrivLevel.Player,
+    ePrivLevel.Admin,
     "/mfollow - Clear camp and pull points, and have all grouped mimics follow you")]
     public class MimicFollowCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -802,7 +802,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
     "&mattack",
-    ePrivLevel.Player,
+    ePrivLevel.Admin,
     "/mattack - Have all grouped mimics attack your target")]
     public class MimicAttackCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -823,7 +823,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
    "&mintercept",
-   ePrivLevel.Player,
+   ePrivLevel.Admin,
    "/mintercept [name/class] - Set a target to intercept.")]
     public class MimicInterceptCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -882,7 +882,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
     "&mguard",
-    ePrivLevel.Player,
+    ePrivLevel.Admin,
     "/mguard [name/class] - Set a target to guard.")]
     public class MimicGuardCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -941,7 +941,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
     "&mprotect",
-    ePrivLevel.Player,
+    ePrivLevel.Admin,
     "/mprotect [name/class] - Set a target to protect.")]
     public class MimicProtectCommandHandler : AbstractCommandHandler, ICommandHandler
     {
@@ -1000,7 +1000,7 @@ namespace DOL.GS.Scripts
 
     [CmdAttribute(
       "&mbstats",
-      ePrivLevel.Player,
+      ePrivLevel.Admin,
       "/mbstats [Battleground] - Get stats on a battleground.",
       "[Battleground] - Thid")]
     public class MimicBattleStatsCommandHandler : AbstractCommandHandler, ICommandHandler

@@ -81,9 +81,10 @@ namespace DOL.GS.PacketHandler.Client.v168
 							if (invItem == null)
 								return;
 						}
+						/*
 						else if (objectType == 10)
 						{
-							List<DbInventoryItem> list = client.Player.TempProperties.GetProperty<List<DbInventoryItem>>(MarketExplorer.EXPLORER_ITEM_LIST);
+							List<DbInventoryItem> list = client.Player.TempProperties.GetProperty<List<DbInventoryItem>>("MarketExplorerItemList");
 							if (list == null)
 							{
 								list = client.Player.TempProperties.GetProperty<List<DbInventoryItem>>("TempSearchKey");
@@ -99,6 +100,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							if (invItem == null)
 								return;
 						}
+						*/
 
 						// Aredhel: Start of a more sophisticated item delve system.
 						// The idea is to have every item inherit from an item base class,

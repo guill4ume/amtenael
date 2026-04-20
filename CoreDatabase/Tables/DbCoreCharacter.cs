@@ -187,6 +187,7 @@ namespace DOL.Database
         private bool m_hardcoreCompleted; // set to true if player has reached level 50 as hardcore
         private bool m_receiveROG; // toggle receiving ROGs for the player
         private bool m_boosted; // set to true if player has used a free level/rr NPC
+        private int m_breamorFaction;
 
         /// <summary>
         /// Create the character row in table
@@ -227,6 +228,14 @@ namespace DOL.Database
             m_hardcore = false;
             m_hardcoreCompleted = false;
             m_boosted = false;
+            m_breamorFaction = 0;
+		}
+
+		[DataElement(AllowDbNull = false)]
+		public int BreamorFaction
+		{
+			get => m_breamorFaction;
+			set { m_breamorFaction = value; Dirty = true; }
 		}
 
 		/// <summary>

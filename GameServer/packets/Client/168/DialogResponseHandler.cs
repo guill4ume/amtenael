@@ -350,6 +350,34 @@ namespace DOL.GS.PacketHandler.Client.v168
 							Interval = 0;
 							break;
 						}
+					case eDialogCode.OpenMarket:
+						{
+							if (m_response == 0x01)
+							{
+								if (player.TemporaryConsignmentMerchant == null || player.TemporaryConsignmentMerchant.ObjectState == GameObject.eObjectState.Deleted)
+								{
+									var merchant = new TemporaryConsignmentMerchant();
+									merchant.playerOwner = player;
+									merchant.AddToWorld();
+									player.TemporaryConsignmentMerchant = merchant;
+								}
+							}
+							Interval = 0;
+							break;
+						}
+					case eDialogCode.CloseMarket:
+						{
+							if (m_response == 0x01)
+							{
+								if (player.TemporaryConsignmentMerchant != null)
+								{
+									player.TemporaryConsignmentMerchant.Delete();
+									player.TemporaryConsignmentMerchant = null;
+								}
+							}
+							Interval = 0;
+							break;
+						}
 				}
 
 				return Interval;

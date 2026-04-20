@@ -568,6 +568,8 @@ namespace DOL.GS.PacketHandler
 		WarmapWindowAlbion = 0x31,
 		WarmapWindowMidgard = 0x32,
 		QuestSubscribe = 0x64,
+		OpenMarket = 0x33,
+		CloseMarket = 0x34,
 	}
 
 	public enum eRealmWarmapKeepFlags : byte

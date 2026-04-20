@@ -34,7 +34,11 @@ public enum EGameServerType
     /// </summary>
     GST_Unknown = 6,
     /// <summary>
-    /// The count of server types
+    /// Guild vs Guild mode
     /// </summary>
-    _GST_Count = 7,
+    GST_GvG = 8,
+    /// <summary>
+    /// Amtenael custom mode
+    /// </summary>
+    GST_Amtenael = 9,
 }

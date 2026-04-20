@@ -40,7 +40,7 @@ namespace DOL.GS.Housing
 		private readonly Dictionary<int, IndoorItem> _indoorItems;
 		private readonly Dictionary<int, OutdoorItem> _outdoorItems;
 		private readonly Dictionary<int, DbHousePermissions> _permissionLevels;
-		private GameConsignmentMerchant _consignmentMerchant;
+		// private GameConsignmentMerchant _consignmentMerchant;
 
 		#region Properties
 
@@ -233,11 +233,13 @@ namespace DOL.GS.Housing
 			get { return _permissionLevels; }
 		}
 
+		/*
 		public GameConsignmentMerchant ConsignmentMerchant
 		{
 			get { return _consignmentMerchant; }
 			set { _consignmentMerchant = value; }
 		}
+		*/
 
 		public bool IsOccupied
 		{
@@ -799,7 +801,7 @@ namespace DOL.GS.Housing
 				return false;
 
 			// remove the consignment merchant
-			RemoveConsignmentMerchant();
+			// RemoveConsignmentMerchant();
 
 			// set porch to false, no mo porch!
 			Porch = false;
@@ -811,155 +813,28 @@ namespace DOL.GS.Housing
 			return true;
 		}
 
+		/*
 		public bool AddConsignment(long startValue)
 		{
-			// check to make sure a consignment merchant doesn't already exist for this house.
-			if (ConsignmentMerchant != null)
-			{
-				log.DebugFormat("Add CM: House {0} already has a consignment merchant.", HouseNumber);
-				return false;
-			}
-
-			var houseCM = DOLDB<DbHouseConsignmentMerchant>.SelectObject(DB.Column("HouseNumber").IsEqualTo(HouseNumber));
-			if (houseCM != null)
-			{
-				log.DebugFormat("Add CM: Found active consignment merchant in HousingConsignmentMerchant table for house {0}.", HouseNumber);
-				return false;
-			}
-
-			var obj = DOLDB<DbMob>.SelectObject(DB.Column("HouseNumber").IsEqualTo(HouseNumber));
-			if (obj != null)
-			{
-				log.DebugFormat("Add CM: Found consignment merchant in Mob table for house {0} but none in HousingConsignmentMerchant!  Creating a new merchant.", HouseNumber);
-				GameServer.Database.DeleteObject(obj);
-			}
-
-			if (DatabaseItem.HasConsignment == true)
-			{
-				log.ErrorFormat("Add CM: No Consignment Merchant found but House DB record HasConsignment for house {0}!  Creating a new merchant.", HouseNumber);
-			}
-
-			// now let's try to find a CM with this owner ID and no house and if we find it, attach
-			houseCM = DOLDB<DbHouseConsignmentMerchant>.SelectObject(DB.Column("OwnerID").IsEqualTo(OwnerID));
-
-			if (houseCM != null)
-			{
-				log.Warn($"Re-adding an existing consignment merchant for house {HouseNumber}. The previous house was {houseCM.HouseNumber}");
-				houseCM.HouseNumber = HouseNumber;
-				GameServer.Database.SaveObject(houseCM);
-			}
-			else
-			{
-				// create a new consignment merchant entry, and add it to the DB
-				log.Warn("Adding a consignment merchant for house " + HouseNumber);
-				houseCM = new DbHouseConsignmentMerchant { OwnerID = OwnerID, HouseNumber = HouseNumber, Money = startValue };
-				GameServer.Database.AddObject(houseCM);
-			}
-
-			float[] consignmentCoords = HousingConstants.ConsignmentPositioning[Model];
-			double multi = consignmentCoords[0];
-			var range = (int) consignmentCoords[1];
-			var zaddition = (int) consignmentCoords[2];
-			var realm = (int) consignmentCoords[3];
-
-			double angle = Heading*((Math.PI*2)/360); // angle*2pi/360;
-			var heading = (ushort) ((Heading < 180 ? Heading + 180 : Heading - 180)/0.08789);
-			var tX = (int) ((X + (500*Math.Sin(angle))) - Math.Sin(angle - multi)*range);
-			var tY = (int) ((Y - (500*Math.Cos(angle))) + Math.Cos(angle - multi)*range);
-
-			GameConsignmentMerchant con = GameServer.ServerRules.CreateHousingConsignmentMerchant(this);
-
-			con.CurrentRegionID = RegionID;
-			con.X = tX;
-			con.Y = tY;
-			con.Z = Z + zaddition;
-			con.Level = 50;
-			con.Realm = (eRealm) realm;
-			con.HouseNumber = (ushort)HouseNumber;
-			con.Heading = heading;
-			con.Model = 144;
-
-			con.Flags |= GameNPC.eFlags.PEACE;
-			con.LoadedFromScript = false;
-			con.RoamingRange = 0;
-
-			if (DatabaseItem.GuildHouse)
-				con.GuildName = DatabaseItem.GuildName;
-
-			con.AddToWorld();
-			con.SaveIntoDatabase();
-
-			DatabaseItem.HasConsignment = true;
-			SaveIntoDatabase();
-
+...
 			return true;
 		}
+		*/
 
+		/*
 		public bool RemoveConsignmentMerchant()
 		{
-			if (ConsignmentMerchant == null)
-				return false;
-
-			log.Warn("HOUSING: Removing consignment merchant for house " + HouseNumber);
-
-			// If this is a guild house and the house is removed the items still belong to the guild ID and will show up
-			// again if guild purchases another house and CM
-
-			int count = 0;
-			foreach(DbInventoryItem item in ConsignmentMerchant.DBItems(null))
-			{
-				item.OwnerLot = 0;
-				GameServer.Database.SaveObject(item);
-				count++;
-			}
-
-			if (count > 0)
-			{
-				log.Warn("HOUSING: Cleared OwnerLot for " + count + " items on the consignment merchant!");
-			}
-
-			var houseCM = DOLDB<DbHouseConsignmentMerchant>.SelectObject(DB.Column("HouseNumber").IsEqualTo(HouseNumber));
-			if (houseCM != null)
-			{
-				houseCM.HouseNumber = 0;
-				GameServer.Database.SaveObject(houseCM);
-			}
-
-			ConsignmentMerchant.HouseNumber = 0;
-			ConsignmentMerchant.DeleteFromDatabase();
-			ConsignmentMerchant.Delete();
-
-			ConsignmentMerchant = null;
-			DatabaseItem.HasConsignment = false;
-
-			SaveIntoDatabase();
+...
 			return true;
 		}
+		*/
 
+		/*
 		public void PickUpConsignmentMerchant(GamePlayer player)
 		{
-			if (!CanEmptyHookpoint(player))
-			{
-				ChatUtil.SendSystemMessage(player, "You don't have the permission to remove this consignment merchant.");
-				return;
-			}
-
-			DbItemTemplate itemTemplate = GameServer.Database.FindObjectByKey<DbItemTemplate>("housing_consignment_deed");
-
-			if (itemTemplate == null || !RemoveConsignmentMerchant())
-			{
-				ChatUtil.SendSystemMessage(player, "Couldn't pick up the Consignment Merchant due to an internal error.");
-				return;
-			}
-
-			if (!player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, GameInventoryItem.Create(itemTemplate)))
-			{
-				ChatUtil.SendSystemMessage(player, LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.PickupObject.BackpackFull"));
-				return;
-			}
-
-			InventoryLogging.LogInventoryAction("(HOUSE;" + HouseNumber + ")", player, eInventoryActionType.Loot, itemTemplate);
+...
 		}
+		*/
 
 		public void Edit(GamePlayer player, List<int> changes)
 		{
@@ -1374,6 +1249,8 @@ namespace DOL.GS.Housing
 
 		public bool CanUseConsignmentMerchant(GamePlayer player, ConsignmentPermissions consignPerms)
 		{
+			return false;
+			/*
 			// make sure player isn't null
 			if (player == null)
 				return false;
@@ -1389,6 +1266,7 @@ namespace DOL.GS.Housing
 				return false;
 
 			return ((ConsignmentPermissions) housePermissions.ConsignmentMerchant & consignPerms) > 0;
+			*/
 		}
 
 		public bool CanChangeInterior(GamePlayer player, DecorationPermissions interiorPerms)

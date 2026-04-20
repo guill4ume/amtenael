@@ -29,6 +29,7 @@ using DOL.GS.Utils;
 using DOL.Language;
 using JNogueira.Discord.Webhook.Client;
 using log4net;
+using OpenDAoC_SPB.Custom;
 
 namespace DOL.GS
 {
@@ -78,8 +79,13 @@ namespace DOL.GS
         /// This holds the character this player is
         /// based on!
         /// (renamed and private, cause if derive is needed overwrite PlayerCharacter)
-        /// </summary>
         protected DbCoreCharacter m_dbCharacter;
+
+        public int BreamorFaction
+        {
+            get { return m_dbCharacter != null ? m_dbCharacter.BreamorFaction : 0; }
+            set { if (m_dbCharacter != null) m_dbCharacter.BreamorFaction = value; }
+        }
 
         /// <summary>
         /// The guild id this character belong to
@@ -90,6 +96,10 @@ namespace DOL.GS
         /// Char spec points checked on load
         /// </summary>
         protected bool SpecPointsOk = true;
+
+        /// <summary>
+        /// Temporary Consignment Merchant for trading ability
+        /// </summary>
 
         /// <summary>
         /// Has this player entered the game, will be
@@ -4143,6 +4153,12 @@ namespace DOL.GS
                 double modifier = ServerProperties.Properties.RP_RATE;
                 if (modifier != -1)
                     amount = (long)(amount * modifier);
+
+                // Amtenaël: PvP Bonus Multiplier (21h-23h)
+                if (PvPBonusManager.IsBonusActive)
+                {
+                    amount = (long)(amount * PvPBonusManager.BONUS_MULTIPLIER);
+                }
 
                 //[StephenxPimente]: Zone Bonus Support
                 if (ServerProperties.Properties.ENABLE_ZONE_BONUSES)
@@ -10765,11 +10781,13 @@ namespace DOL.GS
                 return;
             }
 
+            /*
             if (floorObject is GameConsignmentMerchant)
             {
                 floorObject.CurrentHouse.PickUpConsignmentMerchant(this);
                 return;
             }
+            */
 
             if (floorObject is GameHouseVault && floorObject.CurrentHouse != null)
             {
@@ -10788,6 +10806,18 @@ namespace DOL.GS
                 floorObject.CurrentHouse.EmptyHookpoint(this, floorObject);
                 return;
             }
+
+            /*
+            if (floorObject is GameNPC || floorObject is GameStaticItem)
+            {
+                if (ObjectId == tradingTable.consignmentMerchant.OwnerID)
+                {
+                    Out.SendDialogBox(eDialogCode.CloseMarket, 0, 0, 0, 0, eDialogType.YesNo, true,
+                        LanguageMgr.GetTranslation(Client, "Commands.Players.Market.Confirm.Close"));
+                }
+                return;
+            }
+            */
 
             Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.PickupObject.CantGetThat"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
             return;
@@ -11713,8 +11743,8 @@ namespace DOL.GS
         /// <returns>list with string messages</returns>
         public override IList GetExamineMessages(GamePlayer player)
         {
-            // TODO: PvP & PvE messages
-            IList list = base.GetExamineMessages(player);
+            IList list = new ArrayList(4);
+            list.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "GameObject.GetExamineMessages.YouTarget", player.GetName(this)));
 
             string message = string.Empty;
             switch (GameServer.Instance.Configuration.ServerType)
@@ -13800,6 +13830,10 @@ namespace DOL.GS
             get { return m_whistleMountTimer != null && m_whistleMountTimer.IsAlive; }
         }
 
+        protected bool m_isOnFlyingMount;
+        protected eFlyingMountType m_flyingMountType = eFlyingMountType.Dragon;
+        protected GameObject m_originalSteed;
+
         protected bool m_isOnHorse;
         public virtual bool IsOnHorse
         {
@@ -13809,6 +13843,7 @@ namespace DOL.GS
                 if (m_whistleMountTimer != null)
                     StopWhistleTimers();
                 m_isOnHorse = value;
+                if (m_isOnHorse) IsOnFlyingMount = false; // Cannot be on both
                 Out.SendControlledHorse(this, value); // fix very rare bug when this player not in GetPlayersInRadius;
                 foreach (GamePlayer plr in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
                 {
@@ -13823,6 +13858,19 @@ namespace DOL.GS
                     Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.IsOnHorse.DismountSteed"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
                 Out.SendUpdateMaxSpeed();
             }
+        }
+
+        public virtual bool IsOnFlyingMount
+        {
+            get { return false; }
+            set { }
+        }
+
+
+        public virtual eFlyingMountType FlyingMountType
+        {
+            get { return m_flyingMountType; }
+            set { m_flyingMountType = value; }
         }
 
         protected void StopWhistleTimers()
@@ -14631,6 +14679,16 @@ namespace DOL.GS
 
             m_drowningTimer = new ECSGameTimer(this, new ECSGameTimer.ECSTimerCallback(DrowningTimerCallback));
             ChainedActions = new(this);
+        }
+
+        public override void TakeDamage(AttackData ad)
+        {
+            base.TakeDamage(ad);
+            if (ad != null && ad.Damage > 0 && IsOnFlyingMount)
+            {
+                IsOnFlyingMount = false;
+                Out.SendMessage("You have been dismounted by an attack!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+            }
         }
 
         /// <summary>

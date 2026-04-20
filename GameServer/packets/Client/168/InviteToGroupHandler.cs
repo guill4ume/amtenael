@@ -17,11 +17,14 @@
  *
  */
 
+using log4net;
+
 namespace DOL.GS.PacketHandler.Client.v168
 {
 	[PacketHandlerAttribute(PacketHandlerType.TCP, eClientPackets.InviteToGroup, "Handle Invite to Group Request.", eClientStatus.PlayerInGame)]
 	public class InviteToGroupHandler : IPacketHandler
 	{
+		private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public void HandlePacket(GameClient client, GSPacketIn packet)
 		{
 			new HandleGroupInviteAction(client.Player).Start(1);
@@ -45,47 +48,64 @@ namespace DOL.GS.PacketHandler.Client.v168
 			{
 				GamePlayer player = (GamePlayer) timer.Owner;
 
+				if (log.IsDebugEnabled) log.Debug($"[InviteToGroup] {(player?.Name ?? "Unknown")} is attempting to invite target.");
+
 				if (player.TargetObject == null || player.TargetObject == player)
 				{
+					if (log.IsDebugEnabled) log.Debug($"[InviteToGroup] {player.Name} failed: target is null or self.");
 					ChatUtil.SendSystemMessage(player, "You have not selected a valid player as your target.");
 					return 0;
 				}
 
 				if (!(player.TargetObject is GamePlayer))
 				{
+					if (log.IsDebugEnabled) log.Debug($"[InviteToGroup] {player.Name} failed: target {player.TargetObject.Name} is not a GamePlayer.");
 					ChatUtil.SendSystemMessage(player, "You have not selected a valid player as your target.");
 					return 0;
 				}
 
 				var target = (GamePlayer) player.TargetObject;
+				
+				if (log.IsDebugEnabled) log.Debug($"[InviteToGroup] {player.Name} (Realm:{player.Realm}) inviting {target.Name} (Realm:{target.Realm}).");
 
 				if (player.Group != null && player.Group.Leader != player)
 				{
+					if (log.IsDebugEnabled) log.Debug($"[InviteToGroup] {player.Name} failed: not the leader of their group.");
 					ChatUtil.SendSystemMessage(player, "You are not the leader of your group.");
 					return 0;
 				}
 
 				if (player.Group != null && player.Group.MemberCount >= ServerProperties.Properties.GROUP_MAX_MEMBER)
 				{
+					if (log.IsDebugEnabled) log.Debug($"[InviteToGroup] {player.Name} failed: group is full.");
 					ChatUtil.SendSystemMessage(player, "The group is full.");
 					return 0;
 				}
 
 				if (!GameServer.ServerRules.IsAllowedToGroup(player, target, false))
+				{
+					if (log.IsDebugEnabled) log.Debug($"[InviteToGroup] {player.Name} failed: IsAllowedToGroup returned false for {target.Name}.");
 					return 0;
+				}
 
 				if (target.Group != null)
 				{
+					if (log.IsDebugEnabled) log.Debug($"[InviteToGroup] {player.Name} failed: target {target.Name} is already in a group.");
 					ChatUtil.SendSystemMessage(player, "The player is still in a group.");
 					return 0;
 				}
 
-				ChatUtil.SendSystemMessage(player, "You have invited " + target.Name + " to join your group.");
+				if (log.IsDebugEnabled) log.Debug($"[InviteToGroup] All checks passed. Sending invite from {player.Name} to {target.Name}.");
+
+				string targetNameForPlayer = GameServer.ServerRules.GetPlayerName(player, target);
+				string playerNameForTarget = GameServer.ServerRules.GetPlayerName(target, player);
+
+				ChatUtil.SendSystemMessage(player, "You have invited " + targetNameForPlayer + " to join your group.");
 				target.Out.SendGroupInviteCommand(player,
-				                                  player.Name + " has invited you to join\n" + player.GetPronoun(1, false) +
+				                                  playerNameForTarget + " has invited you to join\n" + player.GetPronoun(1, false) +
 				                                  " group. Do you wish to join?");
 				ChatUtil.SendSystemMessage(target,
-				                           player.Name + " has invited you to join " + player.GetPronoun(1, false) + " group.");
+				                           playerNameForTarget + " has invited you to join " + player.GetPronoun(1, false) + " group.");
 
 				return 0;
 			}

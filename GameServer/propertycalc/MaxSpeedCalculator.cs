@@ -42,6 +42,9 @@ namespace DOL.GS.PropertyCalc
                 // - Pets that are not in combat have also received the new run speed, only when they are following, to allow them to keep up with their owners.
 
                 double horseSpeed = player.IsOnHorse ? player.ActiveHorse.Speed * 0.01 : 1.0;
+                
+                if (player.IsOnFlyingMount)
+                    horseSpeed = 1.5; // 150% speed for flying mounts (must be below 2.04)
 
                 if (speed > horseSpeed)
                     horseSpeed = 1.0;

@@ -2013,7 +2013,7 @@ namespace DOL.GS
             else if (Mana > 0 && MaxMana > 0 && Mana < MaxMana)
                 StartPowerRegeneration();
 
-            if (m_houseNumber > 0 && this is not GameConsignmentMerchant)
+            if (m_houseNumber > 0)
             {
                 log.Info("NPC '" + Name + "' added to house " + m_houseNumber);
                 CurrentHouse = HouseMgr.GetHouse(m_houseNumber);

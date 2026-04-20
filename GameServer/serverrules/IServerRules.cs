@@ -444,7 +444,7 @@ namespace DOL.GS.ServerRules
 		/// </summary>
 		/// <param name="house"></param>
 		/// <returns></returns>
-		GameConsignmentMerchant CreateHousingConsignmentMerchant(GS.Housing.House house);
+		// GameConsignmentMerchant CreateHousingConsignmentMerchant(GS.Housing.House house);
 		
 		/// <summary>
 		/// Enable Handling Custom Player Level Up

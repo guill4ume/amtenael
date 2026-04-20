@@ -252,6 +252,7 @@ namespace DOL.GS.Housing
 			return null;
 		}
 
+		/*
 		public static GameConsignmentMerchant GetConsignmentByHouseNumber(int houseNumber)
 		{
 			// search thru each housing region, and if a house is found with
@@ -265,6 +266,7 @@ namespace DOL.GS.Housing
 			// couldn't find the house, return null
 			return null;
 		}
+		*/
 
 		public static void AddHouse(House house)
 		{
@@ -383,11 +385,13 @@ namespace DOL.GS.Housing
 			// change the model of the house
 			house.Model = newModel;
 
+			/*
 			// re-add the merchant if there was one
 			if (merchant != null)
 			{
 				house.AddConsignment(oldMerchantMoney);
 			}
+			*/
 
 			// save the house, and broadcast an update
 			house.SaveIntoDatabase();
@@ -445,7 +449,7 @@ namespace DOL.GS.Housing
 
 		public static void RemoveHouseItems(House house)
 		{
-			house.RemoveConsignmentMerchant();
+			// house.RemoveConsignmentMerchant();
 
 			IList<DbHouseIndoorItem> iobjs = DOLDB<DbHouseIndoorItem>.SelectObjects(DB.Column("HouseNumber").IsEqualTo(house.HouseNumber));
 			GameServer.Database.DeleteObject(iobjs);
@@ -657,6 +661,7 @@ namespace DOL.GS.Housing
 				return false;
 			}
 
+			/*
 			// Demand any consignment merchant inventory is removed before allowing a transfer
 			var consignmentMerchant = house.ConsignmentMerchant;
 			if (consignmentMerchant != null && (consignmentMerchant.DBItems().Count > 0 || consignmentMerchant.TotalMoney > 0))
@@ -664,6 +669,7 @@ namespace DOL.GS.Housing
 				ChatUtil.SendSystemMessage(player, "All items and money must be removed from your consigmment merchant in order to transfer this house!");
 				return false;
 			}
+			*/
 
 			// send house xfer prompt to player
 			player.Out.SendCustomDialog(LanguageMgr.GetTranslation(player.Client.Account.Language, "Scripts.Player.Housing.TransferToGuild", player.Guild.Name), MakeGuildLot);
@@ -760,11 +766,13 @@ namespace DOL.GS.Housing
 						long lockboxAmount = house.KeptMoney;
 						long consignmentAmount = 0;
 
+						/*
 						var consignmentMerchant = house.ConsignmentMerchant;
 						if (consignmentMerchant != null)
 						{
 							consignmentAmount = consignmentMerchant.TotalMoney;
 						}
+						*/
 
 						// try to pull from the lockbox first
 						if (lockboxAmount >= rent)
@@ -777,6 +785,7 @@ namespace DOL.GS.Housing
 						{
 							long remainingDifference = (rent - lockboxAmount);
 
+							/*
 							// not enough was in the lockbox.  see if we have the difference
 							// on the consignment merchant
 							if (remainingDifference <= consignmentAmount)
@@ -788,6 +797,7 @@ namespace DOL.GS.Housing
 								house.SaveIntoDatabase();
 							}
 							else
+							*/
 							{
 								// house can't afford rent, so we schedule house to be repossessed.
 								log.Warn($"[HOUSING] House {house.HouseNumber} owned by {house.Name} can't afford rent and is being repossesed! rentamount: {rent} lockboxAmount: {lockboxAmount} consignmentAmount: {consignmentAmount}");

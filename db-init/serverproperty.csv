@@ -1,0 +1,990 @@
+Category	Key	Description	DefaultValue	Value	LastTimeRowUpdated	ServerProperty_ID
+						
+system	activate_temp_properties_manager_checkup	Do we activate TempProperties manager Checkup on log in?	True	True	2026-03-23 08:24:58	67b0134e-4ac2-46d0-8b13-814d4d52cf49
+						
+log	activate_temp_properties_manager_checkup_debug	Do we activate TempProperties manager Checkup debug?	False	False	2026-03-23 08:24:58	f1304b8c-de83-4d57-9c97-78dd69099604
+						
+pve	adventurewing_time_to_destroy	Set the time before Instanced Adventure Wings (Catacombs) are destroy when empty (in minutes).	5	5	2026-03-23 08:25:08	39c72f11-bf65-409f-af78-ab54dd2a0675
+						
+atlas	advice_slowmode_length	The slowmode duration for /advice in seconds	60	60	2026-03-23 08:25:00	220cb8a5-1242-4234-ae3b-d13c8112d5ef
+						
+guild	alliance_max	Max Guilds In Alliance - Edit this to change the maximum number of guilds in an alliance -1 = unlimited, 0=disable alliances	-1	-1	2026-03-23 08:25:09	1bc2d3b6-2e60-4c4b-893a-8e4a05df868b
+						
+system	allow_all_realms	should we allow characters to be created on all realms using a single account	True	True	2026-03-23 08:24:59	968078f1-b8d2-4189-9656-e7f076649dc9
+						
+pvp	allow_all_realms_df	Should we allow all realms access to DF	True	True	2026-03-23 08:25:06	e43e411d-c699-4be5-99c6-9bbf75adc2bd
+						
+account	allow_auto_account_creation	Allow auto-account creation  This is also set in serverconfig.xml and must be enabled for this property to work.	True	True	2026-03-23 08:25:10	467ed1ca-1bd6-4824-b270-45d5ca880f5b
+						
+controls_automation	allow_auto_backup_styles	Allow players to set a style to be used automatically with /backupstyle.	True	True	2026-03-23 08:25:11	4c46b468-eaac-48c9-91b9-195a8f55cd21
+						
+atlas	allow_bg_claim	Allow claiming of BG keeps	True	True	2026-03-23 08:25:10	18138014-5d58-441e-b9c8-c8008e238d22
+						
+pvp	allow_bps_in_bgs	Allow bounty points to be gained in battlegrounds	True	True	2026-03-23 08:25:06	28a5bcb1-d1d2-40ab-946d-d6be22e950cf
+						
+classes	allow_cata_slash_level	Allow catacombs classes to use /level command	False	False	2026-03-23 08:25:09	01d7b57c-7362-467b-9a35-11beb5210663
+						
+controls_automation	allow_chained_actions	Allow players to chain actions with /chainactions. They will be executed consecutively.	True	True	2026-03-23 10:39:08	3cafa81b-9037-47b6-a0c2-3a4bba3595b7
+						
+system	allow_change_language	Should we allow clients to change their language ?	True	True	2026-03-23 08:24:59	8816f7fc-0a7e-47d1-9eb2-4ca6798dceab
+						
+craft	allow_craft_norealm_items	Allow any realm to craft items with 0 (no) realm.	True	True	2026-03-23 08:25:10	cbb45956-9dc2-4e06-8d47-481a5c1503b3
+						
+guild	allow_cross_realm_guilds	Do we allow guild members from other realms?	True	True	2026-03-23 08:25:09	260ecee4-2d4f-407e-af90-bb6317ef2f5e
+						
+classes	allow_cross_realm_items	Do we want to allow items to be equipped regardless of realm?	True	True	2026-03-23 08:25:09	c1e402bf-5f68-4c06-900d-525a9879daae
+						
+system	allow_customize_face_after_creation	Allow player to change their character face after creation through customizing ?	True	True	2026-03-23 08:24:59	146e7c0a-8c4a-4c7a-8b0f-42c16e78fa2b
+						
+system	allow_customize_stats_after_creation	Allow player to change their character starting stats after creation through customizing ?	True	True	2026-03-23 08:24:59	515caf98-b9f8-41ac-8891-abe5502e0943
+						
+system	allow_dual_logins	Disable to disallow players to connect with more than 1 account at a time.	True	True	2026-03-23 08:24:59	76571c38-0061-4f46-8ec1-bb3c5d9e62a4
+						
+controls_automation	allow_non_anytime_backup_styles	If /backupstyle is enabled, can players set a non-anytime style as their backup?	True	True	2026-03-23 08:25:11	6ed4b49e-9f3a-4265-89e8-71aaaf29797a
+						
+classes	allow_old_archery	Should we allow archers to be able to use arrows from their quiver?	True	True	2026-03-23 08:25:09	f75ea15b-7f26-47c2-af28-0ba17722cc00
+						
+world	allow_personnal_mount_in_regions	CSV Regions where player mount is allowed			2026-03-23 08:25:02	2e7d9668-5f09-416d-9778-2624a9dcb296
+						
+npc	allow_roam	Allow mobs to roam on the server	True	True	2026-03-23 08:25:05	7f2e69ad-d095-4d8a-9a4f-ef57ab5c9689
+						
+keeps	allow_tower_climb	Do you allowed player to climb towers? Set True for yes, False for not.	True	True	2026-03-23 08:25:07	eb2c0592-deaf-4f60-a5a8-41974e5203d7
+						
+classes	allow_train_anywhere	Allow players to use the /train command to open a trainer window anywhere in the world?	True	True	2026-03-23 08:25:09	59d6ce38-0dcd-4498-a6b8-3ba324eaa0b5
+						
+classes	allow_vault_command	Allow players to use the /vault command to open the player's vault anywhere in the world?	True	True	2026-03-23 08:25:09	a2be6bee-adbf-4425-b7ff-017bc43e094e
+						
+atlas	alt_currency_id	The id_nb of the item to use as alternative currency (i.e. Orbs)			2026-03-23 10:39:08	102be958-9521-4393-8567-84f1ec60798f
+						
+server	anon_modifier	Various modifying options for anon, 0 = default, 1 = /who shows player but as ANON, -1 = disabled	1	1	2026-03-23 08:25:00	04e3e287-0d09-4d67-ac01-f1d1f1f67d6c
+						
+atlas	api_password	Set the password to access certain API commands as shutdown			2026-03-23 08:25:10	c3a64e19-5a4c-477e-9241-096d55d547ce
+						
+pve	artifact_xp_rate	Adjust the rate at which all artifacts gain xp.  Higher numbers mean slower XP gain. XP / this = result	350	350	2026-03-23 08:25:08	0389ed34-2462-428c-bffa-51510d9cbf7d
+						
+pve	atlantis_teleport_plvl	Set the minimum privilege level required to enter Atlantis zones.	0	0	2026-03-23 08:25:08	0e30e881-2a19-4c27-968b-414d12476bad
+						
+atlas	atlas_api	Enables the API endpoints on the port :5000	False	False	2026-03-23 08:25:10	35603c71-167b-4e37-b107-427833a3ab69
+						
+atlas	atlas_bread	Text breadcrumbs for players			2026-03-23 10:39:07	b109d535-025b-41c3-ab35-6a1c338cc437
+						
+keeps	autoequip_guards_loaded_from_db	Should guards loaded from db be equipped by Keepsystem? (false=load equipment from db)	True	True	2026-03-23 08:25:07	b26c1d73-c3b1-4183-b856-0162d60eb0a0
+						
+keeps	automodel_guards_loaded_from_db	Should guards loaded from db be modeled by Keepsystem? (false=load from db)	True	True	2026-03-23 08:25:07	d707bab4-edcc-4ed4-8443-e83c73be8162
+						
+server	autoselect_caster	Set to True if you wish beneficial spells to target the caster if the current target isn't valid.  Allows self-healing without changing targets.	False	False	2026-03-23 10:39:06	773463a7-bb0e-4dfc-b2c9-2ad4d5153b52
+						
+controls_automation	auto_select_opening_style	Automatically perform the opening style of the currently selected style if conditions are not met (recursive).	False	False	2026-03-23 08:25:11	2f57e2e5-6a55-47a2-afb5-69487590c01f
+						
+account	backup_deleted_characters	Should we backup deleted characters and not delete associated content?	True	True	2026-03-23 10:39:07	1a29c2eb-3b71-4fa6-b8d2-c54c77c809bd
+						
+pve	baf_additional_chance	Percent chance for a mob to bring a friend for each additional attacker.  Each multiples of 100 guarantee an add, so a cumulative chance of 250% guarantees two adds with a 50% chance of a third.	50	50	2026-03-23 08:25:08	90d95b70-2c2e-4219-ae7a-f47a0b502f72
+						
+pve	baf_initial_chance	Percent chance for a mob to bring a friend when attacked by a single attacker.  Each multiples of 100 guarantee an add, so a cumulative chance of 250% guarantees two adds with a 50% chance of a third.	0	0	2026-03-23 08:25:08	9682268f-45ec-4402-a004-e572077e6ec8
+						
+pve	baf_mobs_attack_bg_members	Do mobs brought by friends attack random nearby players in the puller's battlegroup?  If false, mobs only attack characters in the pulling player's group.	False	False	2026-03-23 08:25:08	481f6dc9-08c6-46a6-bd68-b46b9ea81a5b
+						
+pve	baf_mobs_attack_puller	Do mobs brought by friends only attack the character who pulled them?  If false, mobs attack random players near the puller.	False	False	2026-03-23 08:25:08	ca820421-17bd-42a5-9516-126ef7bc0829
+						
+pve	baf_mobs_count_bg_members	Is the number of mobs brought by a friend based on the number of nearby players in the pulling player's battlegroup?  If false, the number of mobs brought is determined by the number of players in the pulling player's group.	False	False	2026-03-23 08:25:08	eef7df3d-3bc7-47f8-816f-49201d2280d4
+						
+keeps	balance_towers_separate	Balance Towers and Keeps separately?	True	True	2026-03-23 08:25:07	c2ebc49b-b3cd-4f92-b614-c7b57fef55fd
+						
+system	ban_hackers	Should we ban hackers, if set to true, bans will be done, if set to false, kicks will be done	False	False	2026-03-23 08:24:59	e674330c-6f44-49f5-958a-c63fe61f1a1f
+						
+rates	base_largechest_chance	Percentage chance that a mob will drop a large chest of money	5	5	2026-03-23 08:25:02	0b645569-1457-4206-bda7-6ef42e873d8d
+						
+rates	base_smallchest_chance	Percentage chance that a mob will drop a small chest of money	10	10	2026-03-23 08:25:02	0b906e08-3e05-4e51-b749-1e340965c7f6
+						
+server	battlegroup_max_member	Max number of members allowed in a battlegroup.	64	64	2026-03-23 08:25:00	fc1b6145-ac5e-4677-bdc6-e75a4eed0847
+						
+quest	beetle_rvr_reward	Beetle Quest realmpoints reward	0	0	2026-03-23 08:25:06	e60a0854-e278-4247-aca6-36d3a85f1b1d
+						
+pvp	bg_release_to_portal_keep	Whether releasing in a battleground should teleport the player to the portal keep	False	False	2026-03-23 08:25:06	1f50ee93-7138-42db-a6c6-a348b6a9307f
+						
+pvp	bg_zones_closed_message	Message to display to player if BG zones are closed	The battlegrounds are not open on this server.	The battlegrounds are not open on this server.	2026-03-23 08:25:06	3b494946-f931-44dd-a3f9-14383442a125
+						
+pvp	bg_zones_open	Can the players teleport to battleground	True	True	2026-03-23 08:25:06	5a8f11ea-ab0c-4200-b89b-322faa1c5853
+						
+rates	block_cap	Block Rate Cap Modifier - Edit this to change the highest possible block rate against an enemy (Hard Cap) in game e.g .60 = 60%	1	1	2026-03-23 08:25:02	53a3ba38-af64-4081-934c-ba3b322b52eb
+						
+npc	bonedancer_healer_pets_heal_threshold	Bonedancer healer pets heal targets whose health falls below this percentage.	90	90	2026-03-23 08:25:05	d4f855c7-d417-4cb1-b091-043096964205
+						
+bounty	bounty_check_interval	Bounty expire check interval in seconds	60	60	2026-03-23 10:39:07	fa79fb35-cfc6-4f8f-b017-027d71b082ec
+						
+bounty	bounty_duration	Bounty Poster duration in minutes	30	30	2026-03-23 10:39:07	1c1f760d-4aee-4ef8-8227-ecac795789f2
+						
+bounty	bounty_max_reward	Bounty maximum reward in gold	1000	1000	2026-03-23 10:39:07	3d4da4cd-b94f-48ff-bcdc-5cc7df94a958
+						
+bounty	bounty_min_loyalty	Minimum Realm Loyalty in days to post a bounty	3	3	2026-03-23 10:39:07	c06e8293-4abc-4d8f-aa92-76be57379a22
+						
+bounty	bounty_min_reward	Bounty minimum reward in gold	50	50	2026-03-23 10:39:07	1042da52-04b6-4f87-9783-40d06c5545e8
+						
+bounty	bounty_payout_rate	Bounty Reward payout rate - 1 for 100% (no Realm Tax), default is 0.9 for 10% tax	0.9	0.9	2026-03-23 10:39:07	5823b515-80d8-419e-b0c1-7d258785dc01
+						
+pve	bp_exchange_allow	Allow players to exchange special currencies for BPs by giving them to BP merchants?	True	True	2026-03-23 08:25:08	dff1791f-ba2c-4f9b-b705-5e32d347b2f3
+						
+pve	bp_exchange_values	Value of special currencies in BPs.	atlanteanglass|1;aurulite|4;dragonscales|40;BloodSeal|1000	atlanteanglass|1;aurulite|4;dragonscales|40;BloodSeal|1000	2026-03-23 08:25:08	42646474-831e-42fa-96d2-1c716e6204c3
+						
+rates	bp_rate	The Bounty Points Rate Modifier - Edit this to change the rate at which you gain bounty points e.g 1.5 is 50% more 2.0 is twice the amount (100%) 0.5 is half the amount (50%)	1	1	2026-03-23 08:25:02	c347cc48-aec2-40c9-a934-2b93d989a721
+						
+server	broadcast_type	Broadcast Type - Edit this to change what /b does, values 0 = disabled, 1 = area, 2 = visibility distance, 3 = zone, 4 = region, 5 = realm, 6 = server	1	1	2026-03-23 08:25:00	13fe4426-aea3-451f-9de7-d24a40c99ead
+						
+classes	buff_range	The range that concentration buffs can last from the owner before it expires.  0 for unlimited.	0	0	2026-03-23 08:25:09	2b5eb0ee-1293-4c2c-9c7c-ae94f1f9861c
+						
+system	bug_report_email_addresses	set to the email addresses you want bug reports sent to (bug reports will only send if the user has set an email address for his account, multiple addresses seperate with ;			2026-03-23 08:24:59	d4882a76-08d5-4168-b416-977cdb761c91
+						
+craft	capital_city_crafting_skill_gain_bonus	Crafting skill gain bonus % in capital cities; 5 = 5%	5	5	2026-03-23 08:25:10	f45648b2-faa2-4624-b3e0-7a8ec1afe103
+						
+craft	capital_city_crafting_speed_bonus	Crafting speed bonus in capital cities; 2 = 2x, 3 = 3x, ..., 1 = standard	1	1	2026-03-23 08:25:10	669d7526-0109-4823-a38e-591745e248fb
+						
+atlas	carapace_dropchance	The base Beetle Carapace drop chance in %	0.01	0.01	2026-03-23 10:39:07	689653ea-2ecb-45af-850b-25993e7a0b7e
+						
+world	check_los_before_aggro	Should we perform LoS checks before allowing standard NPCs to aggro from proximity.	True	True	2026-03-23 08:25:01	c47b9b38-31c6-4a24-a59a-d5c794183844
+						
+world	check_los_before_aggro_fnf	Should we perform LoS checks before allowing FnF turrets to aggro from proximity. If false, they will attempt to cast behind walls.	True	True	2026-03-23 08:25:01	3c0ff90f-35ff-456e-b29d-016b9e2c1fc9
+						
+world	check_los_before_npc_ranged_attack	Should we perform LoS checks before allowing archer NPCs to attack.	True	True	2026-03-23 08:25:01	73df146a-848f-40f5-bef6-c3ac7667343a
+						
+world	check_los_during_cast	Should we perform LoS checks during spell casts.	True	True	2026-03-23 08:25:01	fd02c2fd-8ffb-4c0f-8906-ac042ee30e9e
+						
+world	check_los_during_cast_interrupt	Should the casting animation be interrupted if a during cast LoS check fails.	False	False	2026-03-23 10:39:06	e43030f5-16cd-4ced-85f9-cc9c8a12bda0
+						
+world	check_los_during_cast_minimum_interval	The minimum interval (milliseconds) between two LoS checks performed during a spell cast.	200	200	2026-03-23 08:25:02	439c1906-61a5-4b02-b1a6-7069e99a4253
+						
+world	check_los_during_ranged_attack_minimum_interval	The minimum interval (milliseconds) between two LoS checks performed during a ranged attack.	200	200	2026-03-23 08:25:01	1c2eb63e-9153-41e0-a6dd-8a922a93f538
+						
+keeps	claim_num	Players Needed For Claim - Edit this to change the amount of players required to claim a keep, towers are half this amount	4	4	2026-03-23 08:25:06	29bbeeae-2515-482d-aa9f-f8fa223d0e73
+						
+system	client_enable_encryption_rc4	Enable client RC4 encryption - Advanced user only, you need a special launcher to enable encryption	False	False	2026-03-23 08:24:58	66790787-262b-424c-96a8-be71707a0bd5
+						
+system	client_type_max	What is the maximum client type allowed to connect	-1	-1	2026-03-23 08:24:58	f6f7a603-d9d8-429a-8292-f7a483c1cef6
+						
+system	client_version_max	Maximum Client Version - Edit this to change which client version at the most have to be used: -1 = any, 1.80 = 180	-1	-1	2026-03-23 08:24:58	8a89a054-703b-4388-aef7-6b3c56c9dcb3
+						
+system	client_version_min	Minimum Client Version - Edit this to change which client version at the least have to be used: -1 = any, 1.80 = 180	-1	-1	2026-03-23 08:24:58	ce36750f-3ee8-4300-8134-7aa34050208a
+						
+rates	cl_xp_rate	The Champion Level Experience Points Rate Modifier - Edit this to change the rate at which you gain CL experience points e.g 1.5 is 50% more 2.0 is twice the amount (100%) 0.5 is half the amount (50%)	1	1	2026-03-23 08:25:02	e0fc54a4-8c25-4d71-8633-6fc01d7ab434
+						
+system	command_spam_delay	The spam delay, default 1500ms before the same command can be issued again.	1500	1500	2026-03-23 08:24:59	b996c48c-00a1-4d65-a8f4-e18dc29f1d62
+						
+conquest	conquest_capture_award	How many RPs/orbs awarded for capturing the conquest target?	1000	1000	2026-03-23 10:39:06	47747255-9484-48fe-9d68-395804733bde
+						
+conquest	conquest_cycle_timer	Time (in minutes) of the overall conquest window and cooldown	90	90	2026-03-23 10:39:07	b41fcea1-a14e-403b-ab21-db3fc1dcc249
+						
+conquest	conquest_tally_interval	Time (in seconds) of the duration between conquest objective point tallies	300	300	2026-03-23 10:39:07	363ac8b3-1f01-4777-b18e-3f68db885a87
+						
+housing	consignment_use_bp	If true the housing consignment merchants use BP instead of money.	False	False	2026-03-23 08:25:09	b1d6a663-e7a3-4e64-9880-8dbea3743911
+						
+system	cps_time_tolerance	Time tolerance for CPS before player is identified as a move hacker?	200	200	2026-03-23 10:39:05	dea81c4f-7848-4727-800d-6d42953dd3d1
+						
+system	cps_tolerance	Coords per second tolerance before player is identified as a hacker?	1000	1000	2026-03-23 10:39:05	a93eead3-c223-420b-b90c-589310484b63
+						
+craft	crafting_adjust_product_price	Change price to recommended value in database for product itemtemplate	False	False	2026-03-23 08:25:10	35c1135a-9880-4dc9-b8dc-3cc2333af2f7
+						
+craft	crafting_max_skills	Set character crafting skills to max level.	True	True	2026-03-23 08:25:10	8aab1793-11c4-4403-a2fa-97b7a9158138
+						
+craft	crafting_max_skills_amount	The amount to which set the crafting skills when using crafting_max_skills	1	1000	2026-03-23 08:25:10	7b00a35f-e880-4cc9-85f5-7a0f4e090df6
+						
+craft	crafting_secondary_sellback_percent	How many percent of raw materials cost is SellBack values	98.572	98.572	2026-03-23 08:25:10	367e3326-1572-4a60-b5fd-eab48ffcde24
+						
+craft	crafting_sellback_percent	How many percent of raw materials cost is SellBack values	95	95	2026-03-23 08:25:10	60b7334a-5674-4c27-b289-f56d46ecafad
+						
+craft	crafting_speed	Crafting Speed Modifier - Edit this to change the speed at which you craft e.g 1.5 is 50% faster 2.0 is twice as fast (100%) 0.5 is half the speed (50%)	1	1	2026-03-23 08:25:10	191ce4b2-dab6-48e0-ad0f-ca342005e55f
+						
+pve	currency_exchange_allow	Allow players to exchange aurulite/blood seals/glass/scales by giving them to a merchant who takes the desired currency, i.e. you can give glass to dragon merchants to get scales?	True	True	2026-03-23 08:25:08	92a0fbfb-25a0-4e1a-bad6-af22611c3ddd
+						
+pve	currency_exchange_values	Value of special currencies for currency conversion.	atlanteanglass|1;aurulite|4;dragonscales|40;BloodSeal|1000	atlanteanglass|1;aurulite|4;dragonscales|40;BloodSeal|1000	2026-03-23 08:25:08	f491a7ba-caf7-4967-91d9-ec0540914679
+						
+server	custom_train	Train is custom pre-1.105 one ? (false set it to livelike 1.105+)	True	True	2026-03-23 08:25:00	8d072c89-22b1-4c23-85e9-5c677e103afe
+						
+quest	daily_rvr_reward	Daily Quest realmpoints reward	0	0	2026-03-23 08:25:06	dfafb31a-d2fb-4b29-bf61-6dd4952e951c
+						
+system	db_language	What language is the DB	EN	EN	2026-03-23 08:24:59	66190171-f448-4a51-a46b-585a31b4eb3a
+						
+server	death_messages_all_realms	Set to true if you want all realms to see other realms death and kill messages	False	False	2026-03-23 08:25:00	a4c3b2ac-b9de-493c-91dd-c9ee76c948e8
+						
+system	debug_load_regions	Serialized list of region IDs that will load objects, separated by semi-colon (leave this blank to load all regions normally)			2026-03-23 08:24:58	5b64229c-ed99-4f2d-b62c-997974e053cb
+						
+classes	disabled_classes	Serialized list of disabled classes, separated by semi-colon or a range with a dash (ie 1-5;7;9)			2026-03-23 08:25:09	342bcb82-4287-4469-b39f-9535858289dd
+						
+server	disabled_commands	Serialized list of disabled commands separated by semi-colon, example /realm;/toon;/quit			2026-03-23 08:25:00	97cabc20-9ca5-499d-998c-bdaf90861e7f
+						
+system	disabled_expansions	Serialized list of disabled expansions IDs, expansion IDs are client type seperated by ;			2026-03-23 08:24:58	e5b3bb74-ded8-4905-a431-51c4842fb1e0
+						
+classes	disabled_races	Serialized list of disabled races, separated by semi-colon or a range with a dash (ie 1-5;7;9)			2026-03-23 08:25:09	78817046-5a71-42eb-bc2e-b1273fa790c7
+						
+world	disabled_regions	Serialized list of disabled region IDs, separated by semi-colon or a range with a dash (ie 1-5;7;9)			2026-03-23 08:25:01	0ff0f3e0-050e-443b-ae12-c34591cd5f6c
+						
+server	disable_appeal_system	Disable the /Appeal System	False	False	2026-03-23 08:25:00	c369551d-9492-458e-ad3c-fe66cf301519
+						
+system	disable_bug_reports	Set to true to disable bug reporting, and false to enable bug reporting	True	True	2026-03-23 08:24:58	a02bcc35-e017-4d44-a41e-85b27cb93c47
+						
+server	disable_instances	Enable or disable instances on the server	False	False	2026-03-23 08:25:00	23371d82-ba7a-4451-927e-84dda0bb2f67
+						
+server	disable_quit_timer	Allow players to log out without waiting?	False	False	2026-03-23 08:24:59	5229f3bf-9657-4e41-9ac2-27113719fac5
+						
+world	disable_tutorial	should the server disable the tutorial zone	False	False	2026-03-23 08:25:01	d6bb2b07-f3b4-48b9-aa62-a13fdacb3585
+						
+atlas	Discord_AlbChat_Webhook_ID	The id of the webhook for all Albion chat			2026-03-23 08:25:00	8c0adb86-bbf2-4646-9be6-52b002a641de
+						
+atlas	Discord_HibChat_Webhook_ID	The id of the webhook for Hibernia chat			2026-03-23 08:25:00	98f13d96-4673-4fe6-a97f-bb193e75c220
+						
+atlas	Discord_MidChat_Webhook_ID	The id of the webhook for Midgard chat			2026-03-23 08:25:00	b05b69d0-3f28-4952-851e-8e67fb777241
+						
+atlas	Discord_RVR_Webhook_ID	The id of the webhook for RvR updates			2026-03-23 08:24:59	a593fd3c-c5dc-47e6-afa9-7d75003ef669
+						
+server	Discord_Webhook_Active	Enable Discord webhook?	False	False	2026-03-23 08:24:59	833c954f-eac7-4e0c-b3b1-0f6f6ca73bc8
+						
+server	Discord_Webhook_ID	The id of the webhook			2026-03-23 08:24:59	17ef4697-8f78-43f4-84c8-c355764bcd79
+						
+system	display_area_enter_screen_desc	Display centered screen messages if a player enters an area.	False	False	2026-03-23 08:24:59	cdb380fd-885d-4c9f-bd9f-3c43e9bce3c2
+						
+keeps	doors_allowpetattack	Allow player pets to attack keep and tower doors?	True	True	2026-03-23 08:25:07	8e3c9183-d18f-41e1-84a7-650ef7d9098d
+						
+npc	doppelganger_bounty_points	Bounty point value of doppelgangers.	250	250	2026-03-23 08:25:03	6a4928cf-87ab-4f3f-a690-c9197515df74
+						
+npc	doppelganger_realm_points	Realm point value of doppelgangers.	400	400	2026-03-23 08:25:03	20b69e27-25c7-4d18-b005-786809d2b6af
+						
+pve	dreadedseals_bp_values	BP values of dreaded seal types before level multiplier and BP rate is applied.	glowing_dreaded_seal|3.334;sanguine_dreaded_seal|3.334;lambent_dreaded_seal|33.334;lambent_dreaded_seal2|33.334;fulgent_dreaded_seal|166.667;effulgent_dreaded_seal|833.334	glowing_dreaded_seal|3.334;sanguine_dreaded_seal|3.334;lambent_dreaded_seal|33.334;lambent_dreaded_seal2|33.334;fulgent_dreaded_seal|166.667;effulgent_dreaded_seal|833.334	2026-03-23 08:25:08	364944c8-7845-44aa-901f-4e637b063412
+						
+pve	dreadedseals_level_multiplier	Level based multipliers for RPs and BPs awarded when turning in dreaded seals.	21|2;26|3;31|5;36|30;41|70;46|150;50|300	21|2;26|3;31|5;36|30;41|70;46|150;50|300	2026-03-23 08:25:08	62c7f26e-63ae-47e9-97a0-cec56a34adde
+						
+pve	dreadedseals_rp_values	RP values of dreaded seal types before level multiplier and RP rate is applied.	glowing_dreaded_seal|10;sanguine_dreaded_seal|10;lambent_dreaded_seal|100;lambent_dreaded_seal2|100;fulgent_dreaded_seal|500;effulgent_dreaded_seal|2500	glowing_dreaded_seal|10;sanguine_dreaded_seal|10;lambent_dreaded_seal|100;lambent_dreaded_seal2|100;fulgent_dreaded_seal|500;effulgent_dreaded_seal|2500	2026-03-23 08:25:08	c4a332fe-ba9c-4b8a-bc20-db9b08916a94
+						
+system	emote_delay	The emote delay, default 3000ms before another emote.	3000	3000	2026-03-23 08:24:59	6c7cbb23-5bd1-4303-bca7-8ddb470acbb6
+						
+server	enable_albion_advanced_weapon_spec	Set to true to determine damage variance for polearms and 2H weapons on 1H crush/slash/thrust spec.	True	True	2026-03-23 08:25:01	055476c5-a22c-4d6e-abf8-ea9ccffa541c
+						
+system	enable_audit_log	Whether or not to enable the audit log	False	False	2026-03-23 08:24:59	1b72f6e8-84ce-43a9-a862-833a9819e3b7
+						
+atlas	enable_corpsesummoner	Whether or not to enable the corpse summoner command	True	True	2026-03-23 08:25:10	39217e20-969c-42f8-a246-318437b905d9
+						
+system	enable_debug	Enable Debug mode? Used to alter some features during server startup to make debugging easier	False	False	2026-03-23 08:24:58	06972e2c-04ae-4e7b-942d-c1ebaef88b72
+						
+server	enable_encumberance_speed_loss	Set to true if you wish to enable the encumberance speed loss	True	True	2026-03-23 08:25:01	e835e564-d066-4c27-ba46-0b497f3a064f
+						
+startup	enable_free_starter_equipment	Enable Startup Free Equipment gifts imported from StarterEquipment Table	True	True	2026-03-23 08:25:11	d77de16a-a383-4771-9f7e-474ddad7fbd3
+						
+keeps	enable_keep_upgrade_timer	Enable the keep upgrade timer to slowly raise keep levels?	False	False	2026-03-23 08:25:06	80353432-a069-4ecb-a51c-eb60bb946c35
+						
+pvp	enable_minotaur_relics	Shall we enable Minotaur Relics ?	True	True	2026-03-23 08:25:06	03695846-2dc7-451d-a9a5-05f109230562
+						
+system	enable_movedetect	Should the move detect code be enabled to kick possible movement hackers?	True	True	2026-03-23 10:39:05	1010ba90-3c8c-4c39-a4ea-182bddc7c9af
+						
+world	enable_pet_ranged_attack_los_checks	Should we perform LoS checks before allowing archer NPCs to attack.	True	True	2026-03-23 10:39:06	1f5884a4-65be-4648-9b15-35a72c3526ce
+						
+server	enable_pve_speed	Set to true if you wish to enable the extra 25% increase to speed when not in combat or an RvR zone	True	True	2026-03-23 08:25:01	ab5e2b45-87c2-476b-b837-3f58e52fd52c
+						
+pvp	enable_warmapmgr	Shall we enable the WarMap manager ?	True	True	2026-03-23 08:25:06	7df6ac63-2779-42a2-a211-4160b675f88c
+						
+world	enable_zone_bonuses	Are Zone Bonuses Enabled?	True	true	2026-03-23 08:25:02	86cd8223-1a5c-49eb-9a11-6487d827e533
+						
+rates	endurance_regen_amount_modifier	Endurance regen amount modifier	1	1	2026-03-23 08:25:03	85213fe9-2dcb-4028-a373-c2c6c84d29d8
+						
+atlas	epicboss_orbs	Atlas Orbs reward for epic boss kills	3000	3000	2026-03-23 10:39:07	4dd072a2-74a4-430e-8ee3-ba1e583766a4
+						
+atlas	epics_dmg_multiplier	Use this to scale up/down the damage of epic mobs	1	1	2026-03-23 10:39:07	9f368fb1-11e9-499c-88b0-d52fa2487e84
+						
+rates	evade_cap	Evade Rate Cap Modifier - Edit this to change the highest possible evade rate against an enemy (Hard Cap) in game e.g .50 = 50%	0.5	0.5	2026-03-23 08:25:02	1bdc3bc4-abdf-4b6a-9fc5-46a0b6c50cd3
+						
+npc	expand_wild_minion	Expand the Wild Minion RA to also improve crit chance for ranged and spell attacks?	False	False	2026-03-23 08:25:05	5c2e4a08-1514-4311-a4d4-63dc07cae4dd
+						
+conquest	flag_capture_radius	How far away can players capture an objective?	750	750	2026-03-23 10:39:06	ed280dd0-59ee-42ee-8c95-5437ad9cb43c
+						
+conquest	flag_capture_time	How long does it take to capture a flag?	20	20	2026-03-23 10:39:06	6fe48b82-fa7a-4465-b051-ce11d9115874
+						
+atlas	force_discord_link	Enforces the check on the link between game account and Discord	False	False	2026-03-23 08:25:10	0b9ec0bf-210f-41cf-afa6-8eb712557d56
+						
+npc	force_mob_autoset_stats	Should standard NPCs have their stat automatically set using server properties (discarding database values).	True	True	2026-03-23 08:25:03	786e8369-887f-4b7a-9052-53107b4c2131
+						
+classes	freelevel_days_albion	days before your elligable for a free level in Albion, use -1 to deactivate	7	7	2026-03-23 08:25:09	7fea78fd-e7e7-402a-a013-8704b62468fb
+						
+classes	freelevel_days_hibernia	days before your elligable for a free level in Hibernia, use -1 to deactivate	7	7	2026-03-23 08:25:09	bb86246e-716c-4fa8-b4fa-2cd91859180e
+						
+classes	freelevel_days_midgard	days before your elligable for a free level in Midgard, use -1 to deactivate	7	7	2026-03-23 08:25:09	d5f5da23-d1de-4065-a92c-8e70294e95de
+						
+server	free_respec	Set to true to always allow respecs	True	True	2026-03-23 08:25:01	09c34112-5b60-4676-aef7-0180071b823c
+						
+npc	gamenpc_chances_to_cast	Change the chance to cast a spell for a mob or a pet	25	25	2026-03-23 10:39:06	3e6d9f31-791b-4f2a-a9dc-1091baf6ec22
+						
+npc	gamenpc_chances_to_style	Change the chance to fire a style for a mob or a pet	20	20	2026-03-23 08:25:05	83d96ebc-2f5d-426f-9247-15fd325bc7e5
+						
+npc	gamenpc_default_classtype	Change the classtype of any npc of classtype DOL.GS.GameNPC to this.	DOL.GS.GameNPC	DOL.GS.GameNPC	2026-03-23 08:25:05	ef8e0dbc-aad9-484f-ad2c-923d98104570
+						
+npc	gamenpc_followcheck_time	How often, in milliseconds, to check follow distance. Lower numbers make NPC follow closer but increase load on server.	100	100	2026-03-23 08:25:05	89065031-e123-4172-8a5f-5d034a3e73b8
+						
+npc	gamenpc_roam_cooldown_max	Maximum duration in seconds between two roams.	40	40	2026-03-23 08:25:05	7310d08a-bc1b-46a3-a2a6-755ce78a8006
+						
+npc	gamenpc_roam_cooldown_min	Minimum duration in seconds between two roams.	5	5	2026-03-23 08:25:05	9cd53183-7b69-41e0-b3f3-2de8fecb5337
+						
+system	game_loop_tick_rate	How many ticks per second the game loop tries to run at. If it can't keep up, the logic will effectively run slower than intended.	30	30	2026-03-23 08:24:59	1a96246d-cf38-46c7-91c9-27bb7ee29110
+						
+startup	give_dol_respec_at_level	What levels does we give a DOL respec ? separated by a semi-colon or a range with a dash (ie 1-5;7;9)	0	0	2026-03-23 08:25:11	7d31d1f5-3118-48e6-9e81-1c8675e3b912
+						
+classes	ground_target_snap_max_distance	Max snap distance for ground-targets onto a walkable surface. Failed checks invalidate the ground target. (0 = disabled)	32	32	2026-03-23 08:25:09	9c0acd74-1068-44f3-b673-1cdc30598b5e
+						
+server	group_max_member	Max number of members allowed in a group.	8	8	2026-03-23 08:25:00	aba7da14-c7e5-417d-aafb-abc30184e0ca
+						
+keeps	guard_autoset_con_base	Base Value to use when auto-setting CON stat. 	30	30	2026-03-23 08:25:07	78f5f808-30e4-4c82-b329-d932fb216780
+						
+keeps	guard_autoset_con_multiplier	Multiplier to use when auto-setting CON stat. 	0	0	2026-03-23 08:25:07	d098f662-6590-4015-825d-3f2062c14f35
+						
+keeps	guard_autoset_dex_base	Base Value to use when auto-setting DEX stat. 	1	1	2026-03-23 08:25:07	561be297-c14f-4047-ba2e-0b8280c33816
+						
+keeps	guard_autoset_dex_multiplier	Multiplier to use when auto-setting DEX stat. 	1	1	2026-03-23 08:25:07	0d946133-3f4d-4c14-acd2-561b80690678
+						
+keeps	guard_autoset_int_base	Base Value to use when auto-setting INT stat. 	30	30	2026-03-23 08:25:07	d3b69a2e-d773-4c1f-826a-e84159674554
+						
+keeps	guard_autoset_int_multiplier	Multiplier to use when auto-setting INT stat. 	1	1	2026-03-23 08:25:07	cc406b01-c1da-4688-8f76-58703a7de57c
+						
+keeps	guard_autoset_qui_base	Base Value to use when auto-setting qui stat. 	40	40	2026-03-23 08:25:07	1f6ba4dc-507f-4571-8973-049c287b3ebb
+						
+keeps	guard_autoset_qui_multiplier	Multiplier to use when auto-setting QUI stat. 	0	0	2026-03-23 08:25:07	8ce7cd8d-97ca-449c-aecd-252f5de36c24
+						
+keeps	guard_autoset_str_base	Base Value to use when auto-setting STR stat. 	20	20	2026-03-23 08:25:07	4acd7b28-c08d-4b6f-800b-19c92e90910b
+						
+keeps	guard_autoset_str_multiplier	Multiplier to use when auto-setting STR stat.  Multiplied by 10 when used.	0.7	0.7	2026-03-23 08:25:07	6d223df5-fd33-4cec-a5bd-17381610c158
+						
+keeps	guard_respawn	Respawn time for keep guards in minutes.	15	15	2026-03-23 08:25:08	18c873e9-4e88-40d8-96e9-7569d99301e3
+						
+keeps	guard_respawn_variance	Respawn variance for keep guards in minutes.	10	10	2026-03-23 08:25:08	459ccc39-af68-4433-be56-27cf3f46ac37
+						
+guild	guilds_claim_limit	How many things do we allow guilds to claim?	1	1	2026-03-23 08:25:09	0911eb61-36a9-4351-a234-1295566ce4e7
+						
+guild	guild_banner_lost_time	When a banner is lost to the enemy how many minutes is the wait before purchase is allowed?	1440	1440	2026-03-23 08:25:10	7c952c3f-988d-4b96-b4c9-2eccc67d4878
+						
+guild	guild_buff_artifact_xp	Extra artifact XP gain percent for the guild artifact XP buff?	5	5	2026-03-23 08:25:10	5cd26d0d-784d-45a8-a17f-92f51944dbaa
+						
+guild	guild_buff_bp	Extra BP gain percent for the guild BP buff?	0	0	2026-03-23 08:25:10	69b5f453-3d84-4577-82ad-badece84736a
+						
+guild	guild_buff_crafting	Percent speed gain for the guild crafting buff?	5	5	2026-03-23 08:25:09	bc677c47-3569-4ad2-b7d0-565fdaa6594e
+						
+guild	guild_buff_masterlevel_xp	Extra masterlevel XP gain percent for the guild masterlevel XP buff?	20	20	2026-03-23 08:25:10	5e41e79c-f711-4a2b-8552-81d36f8777fd
+						
+guild	guild_buff_rp	Extra RP gain percent for the guild RP buff?	2	2	2026-03-23 08:25:10	11916ef6-4eec-49af-9cd1-9be194103942
+						
+guild	guild_buff_xp	Extra XP gain percent for the guild PvE XP buff?	5	5	2026-03-23 08:25:10	b72ce366-295d-4625-8c4f-2d2a97074d12
+						
+guild	guild_dues_max_value	Guild dues can be set from 1-100%	25	25	2026-03-23 08:25:09	a46fb6f9-2b22-46b9-9795-e76ba1be8cc4
+						
+guild	guild_merit_on_dragon_kill	How much merit to reward guild when dragon is killed, if any.	0	0	2026-03-23 08:25:10	b2094209-7685-4a34-826a-5b4d8a53aa74
+						
+guild	guild_merit_on_legion_kill	How much merit to reward guild when legion is killed, if any.	0	0	2026-03-23 08:25:10	9b7925e7-3048-45a4-bb94-f7043b8d9701
+						
+guild	guild_num	Players Needed For Guild Form - Edit this to change the amount of players required to form a guild	5	5	2026-03-23 08:25:09	9e7f56bd-3b04-4d04-8f47-1d5fb2d80aed
+						
+quest	hardcore_rvr_reward	Hardcore Quest realmpoints reward	0	0	2026-03-23 08:25:06	e3bb38f7-c0e2-450e-a149-7336f976d1dd
+						
+rates	health_regen_amount_modifier	Health regen amount modifier	1	1	2026-03-23 08:25:02	25b92a6f-e9cc-4616-bc84-805ed2a3cf2f
+						
+rates	heal_pvp_damage_value_rp	How many % of heal final value is obtained in rps?	8	8	2026-03-23 08:25:02	9a2e16e7-2301-46b4-bf44-766024374e52
+						
+system	hours_uptime_between_shutdown	Hours between a scheduled server shutdown (-1 = no scheduled restart)	24	24	2026-03-23 08:24:59	1ab81d69-49e7-4c2e-83aa-bdd5fe2fd47d
+						
+housing	housing_lot_price_minimum	Minimum lot price.	3000000	3000000	2026-03-23 08:25:09	0439df4c-92ce-4fe2-a3e0-e7d1870c1008
+						
+housing	housing_lot_price_per_hour	Lot price reduction per hour.	12000000	12000000	2026-03-23 08:25:09	1c4032c2-b92d-4412-8320-cf9aadfd0762
+						
+housing	housing_lot_price_start	Starting lot price before per hour reductions	950000000	950000000	2026-03-23 08:25:09	317d4f41-4e15-4d85-93bf-d8106ff312ee
+						
+housing	housing_rent_cottage	Rent price for a cottage.	200000	200000	2026-03-23 08:25:09	c374beac-4cbc-4a5e-8da2-a2e8f4ab7e35
+						
+housing	housing_rent_house	Rent price for a house.	350000	350000	2026-03-23 08:25:09	6150a472-0391-4b13-ad9c-69f40a033a39
+						
+housing	housing_rent_mansion	Rent price for a mansion.	1000000	1000000	2026-03-23 08:25:09	8334a81a-2925-44ee-a922-98cda3ab56cb
+						
+housing	housing_rent_villa	Rent price for a villa.	600000	600000	2026-03-23 08:25:09	63a65d8b-4e7e-40e8-9589-646bb1ef4ebe
+						
+housing	housing_starting_npctemplate_id	The starting NPCTemplate ID to use for housing NPC's	500	500	2026-03-23 08:25:09	ed56905f-5440-4d1b-adec-e6eda41feec5
+						
+world	hps_per_championlevel	The amount of extra HPs gained each time you reach a new Champion's Level	40	40	2026-03-23 08:25:02	996c392d-2660-4001-a4e3-74009e3fce23
+						
+atlas	immunity_timer_adaptive_length	if adapative timers, the modifer to apply to length (i.e. stun length * 6)	6	6	2026-03-23 08:25:10	de0f0332-a546-4b10-b8c6-38682470f3e5
+						
+atlas	immunity_timer_flat_length	if non-adapative timers, the duration (in seconds) for immunity	60	60	2026-03-23 08:25:10	50c8a9a8-66df-47b6-8697-7c813fb438ad
+						
+atlas	immunity_timer_use_adaptive	toggle adaptive vs. flat immunity timers	False	False	2026-03-23 08:25:10	76343a57-d95b-436f-8e03-4dbc1cd12333
+						
+housing	indoor_items_depend_on_size	If true the max number of allowed House indoor items are set like live (40, 60, 80, 100)	True	True	2026-03-23 08:25:09	6f4b7b8e-ddb8-470a-a9e6-720aecbc0c70
+						
+rates	item_condition_loss_chance	What chance does armor or weapon have to lose condition?	5	5	2026-03-23 08:25:03	83c9ba80-5ead-4583-85d1-cf718e535709
+						
+rates	item_sell_ratio	Merchants are buying items at the % of initial value	50	50	2026-03-23 08:25:03	744681ac-d582-48cc-b9ac-1908efb09c29
+						
+system	jump_tolerance	Z distance tolerance before player is identified as a jump hacker?	200	200	2026-03-23 10:39:05	9ca5deb2-f91f-4549-aebc-17dc7e09e082
+						
+keeps	keep_balance_multiplier	Multiplier used to determine keep level changes when balancing.  For each keep above or below normal multiply by this.	1	1	2026-03-23 08:25:07	ba5b1cfa-3823-43cc-acdf-0e965d429e36
+						
+keeps	keep_components_base_health	Keep components base health. Will be multiplied by the keep's base level.	200	200	2026-03-23 08:25:08	fec5ece3-bdb6-4d0f-a7f3-9c723a93f3a0
+						
+keeps	keep_components_health_upgrade_modifier	The modifier used to calculate the extra amount of component health per upgrade.	1	1	2026-03-23 08:25:08	796c4d0b-b3b8-4978-a74a-d10a96a7895b
+						
+craft	keep_crafting_speed_bonus	Crafting speed bonus in the keeps; 2 = 2x, 3 = 3x, ..., 1 = standard	1	1	2026-03-23 08:25:10	60616395-8ac8-4001-bc8c-4331d2057899
+						
+keeps	keep_doors_base_health	Keep doors base health. Will be multiplied by the keep's base level.	200	200	2026-03-23 08:25:08	b89b3a1e-15ed-445c-b28f-3be1a4190624
+						
+keeps	keep_doors_health_upgrade_modifier	The modifier used to calculate the extra amount of door health per upgrade.	1	1	2026-03-23 08:25:08	647634a8-3561-41bc-8b32-1c7f13a0eb22
+						
+keeps	keep_guard_level_multiplier	Multiplier used to determine keep guard levels.  This is applied to the bonus level (usually 4) and added after balance adjustments.	1.6	1.6	2026-03-23 08:25:07	54f6e3c6-12f6-40a2-8867-99383208a535
+						
+keeps	keep_heal_threshold	Keep guards heal targets whose health falls below this value.	60	60	2026-03-23 08:25:07	cb0bdd03-c693-4dce-ab55-824077a4b4d4
+						
+keeps	keep_rp_base	Base RP value of a keep	0	0	2026-03-23 08:25:07	4501a8be-82d0-4f09-aeb5-31338b278a96
+						
+keeps	keep_rp_claim_multiplier	Integer multiplier used in determining RP reward for claiming keeps.	1000	1000	2026-03-23 08:25:07	bcbc0e09-8f5f-4abc-bc9b-96edf60026ff
+						
+keeps	keep_rp_multiplier	Integer multiplier used to increase/decrease RP worth based on keep level difference from 50.	0	0	2026-03-23 08:25:07	81817112-dbe4-467e-8222-04b8688c1321
+						
+rates	largechest_multiplier	The math multiplier for large chest value. Increase for more gold	17	17	2026-03-23 08:25:02	95056500-a7ed-4a15-8b85-603adf2791d4
+						
+atlas	lfg_slowmode_length	The slowmode duration for /lfg in seconds	60	60	2026-03-23 08:25:00	74496447-8141-4fd2-95b3-bc69138840af
+						
+system	load_arrow_summoning	Should the server load Arrow Summoning items, values True,False	True	True	2026-03-23 08:24:58	6a1be3c4-ace8-4987-8e71-c346696c20fd
+						
+system	load_buff_tokens	Should the server load buff tokens (npc and items), values True,False	True	True	2026-03-23 08:24:58	6834866d-f8cb-467d-80ef-2eb33b68e04d
+						
+keeps	load_hookpoints	Load keep hookpoints	True	True	2026-03-23 08:25:06	1bef094c-3578-4aef-8ea5-ef512d5cdf39
+						
+system	load_housing_items	Should the server load Housing items, values True,False	True	True	2026-03-23 08:24:58	b81979e1-a73f-4afa-bc55-b0a84134c7cb
+						
+system	load_housing_npc	Should the server load Housing npc, values True,False	True	True	2026-03-23 08:24:58	0860d23c-0f26-46b3-a915-ee0e407f92fb
+						
+keeps	load_keeps	Load keeps	True	True	2026-03-23 08:25:06	cde0eeec-eb34-46a0-b1f6-ac7e8b044ef7
+						
+system	load_quests	Should the server load quests, values True,False	True	True	2026-03-23 08:24:58	5ac74d73-848f-44a2-8d85-0ab3ddd26544
+						
+system	log_all_gm_commands	Log all GM commands on the server	False	False	2026-03-23 08:24:59	093377ee-967a-47da-a060-21735d96eeb4
+						
+system	log_email_addresses	set to the email addresses you want logs automatically emailed to, multiple addresses seperate with ;			2026-03-23 08:24:59	71c798db-5ea9-4b64-9c4f-2c57d07a2c6d
+						
+log	log_inventory	Enable inventory logging (trade, loot, buy, sell, quests,...)	False	False	2026-03-23 08:24:59	edd11cfa-5b09-4055-96db-0fb1859759f5
+						
+log	log_inventory_craft	Enable craft logging in inventory log (log_inventory must be enabled)	True	True	2026-03-23 08:24:59	adae1954-6c94-4f63-b72b-7bd209e903da
+						
+log	log_inventory_loot	Enable loot logging in inventory log (log_inventory must be enabled)	True	True	2026-03-23 08:24:59	cccb65ef-cc24-4bcf-9cdf-5ab1e64ea7c8
+						
+log	log_inventory_merchant	Enable merchant logging in inventory log (log_inventory must be enabled)	True	True	2026-03-23 08:24:59	16a8203d-1e1c-4fa4-b48a-3a55ecf274cd
+						
+log	log_inventory_other	Enable other logging in inventory log (log_inventory must be enabled)	True	True	2026-03-23 08:24:59	b7b8791f-3696-48d2-8d8f-cc908f7b2dec
+						
+log	log_inventory_quest	Enable quest logging in inventory log (log_inventory must be enabled)	True	True	2026-03-23 08:24:59	983b0430-d30d-48ea-8dea-1e9488db2de7
+						
+log	log_inventory_trade	Enable trade logging in inventory log (log_inventory must be enabled)	True	True	2026-03-23 08:24:59	5d696319-27d3-4376-ab2b-e97380187ab0
+						
+keeps	log_keep_captures	Turn on logging of keep captures?	False	False	2026-03-23 08:25:07	6c954ad0-3e88-4134-aeb9-833ea289765e
+						
+system	log_pvp_kills	Turn on logging of pvp kills?	False	False	2026-03-23 10:39:05	1f9ea50f-3dde-4aa5-95b9-5e6e4f6bc9f6
+						
+system	log_trades	Should the server Log all trades a player makes, values True,False	False	False	2026-03-23 08:24:59	ce8c2525-b013-4b53-accf-feca6c8de752
+						
+pve	lootgenerator_atlanteanglass_base_chance	Base chance for dropping Atlantean Glass using Loot Generator.	20	20	2026-03-23 08:25:08	d98a45c7-094b-439a-a43f-c453dc6854e8
+						
+pve	lootgenerator_atlanteanglass_named_count	Increase count of Atlantean Glass Loot Generator drop for Named mobs. (count * lootgenerator_atlanteanglass_named_count)	1.5	1.5	2026-03-23 08:25:08	5e979bb5-24db-484a-b028-16009dd54a68
+						
+pve	lootgenerator_aurulite_amount_ratio	Modify the final count of Aurulite Loot Generator drop. (TotalCount * lootgenerator_aurulite_amount_ratio)	0.5	0.5	2026-03-23 08:25:08	37691c00-a7b3-4bd2-8611-27c843dc68a5
+						
+pve	lootgenerator_aurulite_base_chance	Base chance for dropping Aurulite using Loot Generator.	10	10	2026-03-23 08:25:08	a8a341ea-1b15-4cc1-8ff8-6aedf8c3d5b2
+						
+pve	lootgenerator_aurulite_named_count	Increase count of Aurulite Loot Generator drop for Named mobs. (count * lootgenerator_aurulite_named_count)	1.5	1.5	2026-03-23 08:25:08	404a35f4-0ace-454a-89f2-39003353fba1
+						
+pve	lootgenerator_dragonscales_base_chance	Base chance for dropping Dragon Scales using Loot Generator.	15	15	2026-03-23 08:25:08	0a9892d3-e794-420c-8819-e2eb85cfeb75
+						
+pve	lootgenerator_dragonscales_named_count	Multiplier for number of scales dropped from named mobs, including named dragons.  Must be an integer.	2	2	2026-03-23 08:25:08	3f4f2e67-6c31-4314-9b66-b20966913b99
+						
+pve	lootgenerator_dreadedseals_base_chance	Base chance to drop a Dreaded Seal, in hundredths of a percent	25	25	2026-03-23 08:25:08	693d4040-7936-416e-9862-33fc8f680cf1
+						
+pve	lootgenerator_dreadedseals_drop_chance_per_level	Increase in Dreaded Glowing Seal drop chance per level, in hundredths of a percent.	25	25	2026-03-23 08:25:08	8f7937ec-8ae0-40e9-8100-66bb83279fcc
+						
+pve	lootgenerator_dreadedseals_named_chance	Increase chance of Dreaded Seals Loot Generator drop for Named mobs. (count * lootgenerator_dreadedseals_named_chance)	1.5	1.5	2026-03-23 08:25:08	0c873a6a-287e-47a7-a299-c14d75e12ecf
+						
+pve	lootgenerator_dreadedseals_starting_level	Mob level to start dropping Dreaded Glowing Seals	25	25	2026-03-23 08:25:08	310f6190-bd49-466d-b6aa-09bc141c34d0
+						
+keeps	lord_autoset_con_base	Base Value to use when auto-setting CON stat. 	30	30	2026-03-23 08:25:07	4ac1c915-5404-412f-a612-426f76ae9144
+						
+keeps	lord_autoset_con_multiplier	Multiplier to use when auto-setting CON stat. 	0	0	2026-03-23 08:25:07	358531ea-3930-43d5-b6db-006c5ef992c4
+						
+keeps	lord_autoset_dex_base	Base Value to use when auto-setting DEX stat. 	2	2	2026-03-23 08:25:07	62921592-c9a0-4149-a5b7-d762598be880
+						
+keeps	lord_autoset_dex_multiplier	Multiplier to use when auto-setting DEX stat. 	2	2	2026-03-23 08:25:07	ff8d901d-3cdb-48bc-8a55-91fd0c2f3ac0
+						
+keeps	lord_autoset_int_base	Base Value to use when auto-setting INT stat. 	30	30	2026-03-23 08:25:07	75145118-d7a9-48a2-8b32-cf0c5300df2c
+						
+keeps	lord_autoset_int_multiplier	Multiplier to use when auto-setting INT stat. 	1	1	2026-03-23 08:25:07	f605f853-5b85-4c55-96fd-5ac9ef4b6faa
+						
+keeps	lord_autoset_qui_base	Base Value to use when auto-setting qui stat. 	60	60	2026-03-23 08:25:07	b749bdcd-d15b-4d95-aa0f-ff0f82ff11ac
+						
+keeps	lord_autoset_qui_multiplier	Multiplier to use when auto-setting QUI stat. 	0	0	2026-03-23 08:25:07	3699220a-e97e-4044-bb55-194e53cb0066
+						
+keeps	lord_autoset_str_base	Base Value to use when auto-setting STR stat. 	20	20	2026-03-23 08:25:07	23d60d60-50dd-4cab-96ab-2cf531f78e3d
+						
+keeps	lord_autoset_str_multiplier	Multiplier to use when auto-setting STR stat.  Multiplied by 10 when used.	0.8	0.8	2026-03-23 08:25:07	04f3a076-4940-4091-bebb-ce53953f84a9
+						
+keeps	lord_rp_worth_seconds	The number of seconds from last kill the this lord is worth no RP.	300	300	2026-03-23 08:25:07	d346b628-99b8-4bd7-aa30-92c40d9bc5ee
+						
+world	los_check_timeout	After how long (milliseconds) should a los check timeout. If less than 0, the default ECS timer interval will be used.	1500	1500	2026-03-23 08:25:02	4d10560d-88ef-4c25-a85e-46f80a66337e
+						
+rates	mana_regen_amount_halved_below_50_percent	Should the mana regen amount be halved below 50%? Affects list casters only.	True	True	2026-03-23 08:25:03	5f94e74f-50da-4274-a0c0-90e870744bb2
+						
+rates	mana_regen_amount_modifier	Mana regen amount modifier	1	1	2026-03-23 08:25:03	ccf14c0a-ebad-4d30-a4a3-e7a8b8bb1e2d
+						
+housing	market_enable	If true the market explorers are enabled and the cache is initialized on server start.	True	True	2026-03-23 08:25:09	8f8cc55c-f741-40a0-9c73-48cdf66f499c
+						
+housing	market_enabled	If true the market explorers are enabled and the cache is initialized on server start.	True	True	2026-03-23 08:25:09	e94eafde-cf6f-40fb-bfe2-51a64aae3988
+						
+housing	market_enable_log	Enable debug logging of all market activity	False	False	2026-03-23 08:25:09	efdb7127-f72e-46c5-a96d-992797a43853
+						
+housing	market_fee_percent	What is the additional fee (%) charged to players using the market explorer?	20	20	2026-03-23 08:25:09	aa3946ab-7a46-4bfd-9efe-dd4412a80b16
+						
+housing	market_search_limit	How many items can the market search return?	300	300	2026-03-23 08:25:09	8d8e0959-2ff5-47ea-a65b-6094b826c661
+						
+system	max_bugreport_queue	Maximum number of bug reports allowed in queue.  0 to disabled max check	100	100	2026-03-23 08:24:58	4918a19c-d204-4d2a-bedf-53619ec1fa53
+						
+pve	max_camp_bonus	Max camp bonus, 0.55 = 55%	0.55	0.55	2026-03-23 08:25:08	a29f4f09-279e-413e-8d5d-42bddc6f4759
+						
+atlas	max_charge_items	Maximum number of charges allowed	2	2	2026-03-23 08:25:10	720ba638-5f8a-4045-9c44-3def65f643fb
+						
+conquest	max_conquest_range	Max range to contribute to a conquest target	15000	15000	2026-03-23 10:39:07	edcde83e-663e-4b91-a5fe-421d3135ee15
+						
+conquest	max_conquest_task_duration	Max duration of a Conquest Task in minutes	90	90	2026-03-23 10:39:07	4f3ba7a0-e7f5-4b9d-8ec1-e9ebd2a90699
+						
+atlas	max_craft_time	The maximum craft time allowed in seconds. All timers above this value will be normalised to the input value	0	0	2026-03-23 08:25:10	d9066763-4622-4e62-bdad-d5cd03f677e2
+						
+pve	max_dungeon_camp_bonus	Max camp bonus, 0.55 = 55%	0.66	0.66	2026-03-23 08:25:08	7da7f540-2d6b-47c7-8c39-ddd53001dc27
+						
+server	max_entities	Maximum numbers of entities allowed	150000	150000	2026-03-23 08:25:10	f401f0d9-2d2f-4604-b292-17f4237c1dc9
+						
+housing	max_indoor_house_items	Max number of items allowed inside a players house.	40	40	2026-03-23 08:25:09	19633d1f-ca65-4cce-a62d-19f8c1c7a239
+						
+system	max_items_per_packet	Max number of inventory items sent per packet.	30	30	2026-03-23 08:24:59	3bf91964-6426-4ed2-a817-f6d50a945d06
+						
+conquest	max_keep_conquest_rp_reward	Max reward (in RP value) for a keep capture	25000	25000	2026-03-23 10:39:07	be7724ed-37d7-407b-aa68-3b24f32d9f72
+						
+keeps	max_keep_level	The maximum keep level.	5	5	2026-03-23 08:25:06	5f045e19-8300-4bc2-b8f7-853d9c853814
+						
+housing	max_num_houses	Max number of houses supported on this server.	5000	5000	2026-03-23 08:25:08	bb84635c-16b4-489c-b481-b50c68097288
+						
+housing	max_outdoor_house_items	Max number of items allowed in a players garden.	30	30	2026-03-23 08:25:09	6a07e582-980f-49fd-92e1-9a1e0b66f872
+						
+system	max_players	Max Players - Edit this to set the maximum players allowed to connect at the same time	4000	4000	2026-03-23 08:24:58	3279a68d-156c-4437-bd66-03c56cf23571
+						
+system	max_rewardquest_description_length	Maximum length for reward quest description text to prevent client crashes.	1000	1000	2026-03-23 08:24:58	51bcaf65-f7df-46e0-8b56-8394956cd630
+						
+conquest	max_subtask_rp_reward	Max reward (in RP value) for any given subtask interval	5000	5000	2026-03-23 10:39:07	668eb57b-cd50-441b-84ca-5ee18b019727
+						
+server	minutes to kick	How many minutes before kicking inactive player to char screen <Default 1hr> 	60	60	2026-03-23 08:24:59	33e505d4-acaa-458d-a8a2-d67862d2eb35
+						
+pve	missrate_reduction_per_attackers	Adjustment to missrate per number of attackers	0	0	2026-03-23 08:25:08	e0506957-a793-4635-a6f2-0d0d4da9cf36
+						
+npc	mob_autoset_con_base	Base Value to use when auto-setting CON stat.	30	30	2026-03-23 08:25:03	433b2510-f27a-481c-955f-88dba8e4ece5
+						
+npc	mob_autoset_con_multiplier	Multiplier to use when auto-setting CON stat.	1	1	2026-03-23 08:25:03	561e46e2-ecc0-431f-9b67-47c87101d36c
+						
+npc	mob_autoset_dex_base	Base Value to use when auto-setting DEX stat.	30	30	2026-03-23 08:25:03	1b63d46c-b790-4f14-9b38-b2ce7e795782
+						
+npc	mob_autoset_dex_multiplier	Multiplier to use when auto-setting DEX stat.	1	1	2026-03-23 08:25:03	87eeb26f-25db-4be3-981c-440ab7482c7a
+						
+npc	mob_autoset_int_base	Base Value to use when auto-setting INT stat.	30	30	2026-03-23 08:25:04	544b801b-852e-4e96-ae45-e67554d9ac88
+						
+npc	mob_autoset_int_multiplier	Multiplier to use when auto-setting INT stat.	1	1	2026-03-23 08:25:04	456beb81-6d1a-498e-b863-77dcd55f0e03
+						
+npc	mob_autoset_qui_base	Base Value to use when auto-setting qui stat.	30	30	2026-03-23 08:25:03	ddbabaeb-bc65-4100-b0c7-c50ee663d5fc
+						
+npc	mob_autoset_qui_multiplier	Multiplier to use when auto-setting QUI stat.	1	1	2026-03-23 08:25:03	aab3d348-d40b-49e6-8764-327d357261d1
+						
+npc	mob_autoset_str_base	Base Value to use when auto-setting STR stat.	30	30	2026-03-23 08:25:03	fa800320-7db5-4c5f-8031-429fe3e03a66
+						
+npc	mob_autoset_str_multiplier	Multiplier to use when auto-setting STR stat. Multiplied by 10 when applied.	1	1	2026-03-23 08:25:03	2c8e91d2-427a-4958-a2ab-d6b6357e2389
+						
+rates	money_drop	Money Drop Modifier - Edit this to change the amount of money which is dropped e.g 1.5 is 50% more 2.0 is twice the amount (100%) 0.5 is half the amount (50%)	1	1	2026-03-23 08:25:02	c1c8623e-8d06-4936-8d6f-8a9a45f6a621
+						
+quest	monthly_rvr_reward	Monthly Quest realmpoints reward	0	0	2026-03-23 08:25:06	0ae7ecd3-fdbe-4b4e-90c0-738c5643e3ee
+						
+server	motd	The Server Message of the Day - Edit this to set what is displayed when a level 2+ character enters the game for the first time, set to  for nothing	bienvenue sur AmtenaTEST	bienvenue sur AmtenaTEST	2026-03-23 08:25:00	9eea6970-a567-4ca1-adb3-a22f25f8034a
+						
+rates	mount_over_level_35_speed	What is the speed of player controlled mounts over level 35?	145	145	2026-03-23 08:25:03	880d31f1-09d4-40d4-89ed-ed0326b09a73
+						
+rates	mount_under_level_35_speed	What is the speed of player controlled mounts under level 35?	135	135	2026-03-23 08:25:03	6bd0145d-4637-48a1-b770-257b2e917453
+						
+keeps	NearKeepRelogGracePeriod	The grace period in minutes, to allow to relog near an enemy structure.	3	3	2026-03-23 08:25:07	00484054-7fb6-438e-8c56-ceda03f1cf4b
+						
+npc	necro_greater_pet_con_base	Base value to use when setting constitution for greater necroservant pets.	60	60	2026-03-23 08:25:04	b5e120a7-4e81-4bf6-bda4-52cd3e0920a4
+						
+npc	necro_greater_pet_con_multiplier	Multiplier to use when setting constitution for greater necroservant pets.	0.3333	0.3333	2026-03-23 08:25:04	7dfef315-1fbc-40e1-9116-5a12a4e64338
+						
+npc	necro_greater_pet_dex_base	Base value to use when setting dexterity for greater necroservant pets.	60	60	2026-03-23 08:25:05	4a82cb29-a8d5-42cf-b274-093223d2b261
+						
+npc	necro_greater_pet_dex_multiplier	Multiplier to use when setting dexterity for greater necroservant pets.	0.5	0.5	2026-03-23 08:25:05	9ab44d04-461d-46cb-b066-7600cc574deb
+						
+npc	necro_greater_pet_int_base	Base value to use when setting intelligence for greater necroservant pets.	60	60	2026-03-23 08:25:05	82796a85-1597-4a10-a90d-5ac6b72a132e
+						
+npc	necro_greater_pet_int_multiplier	Multiplier to use when setting intelligence for greater necroservant pets.	0.3333	0.3333	2026-03-23 08:25:05	d21a3b3b-f70e-4096-8057-ec370d12038e
+						
+npc	necro_greater_pet_qui_base	Base value to use when setting quickness for greater necroservant pets.	60	60	2026-03-23 08:25:05	bf5db64c-4f24-498f-81d0-e2a634ef5cfa
+						
+npc	necro_greater_pet_qui_multiplier	Multiplier to use when setting quickness for greater necroservant pets.	1	1	2026-03-23 08:25:05	6620d601-1d47-4d6c-8702-91f7b63cb473
+						
+npc	necro_greater_pet_str_base	Base value to use when setting strength for greater necroservant pets.	60	60	2026-03-23 08:25:04	55e3f7a5-e300-49f6-bd04-8ab6844039a3
+						
+npc	necro_greater_pet_str_multiplier	Multiplier to use when setting strength for greater necroservant pets.	0	0	2026-03-23 08:25:04	646dccea-ec96-4cdf-8799-e3677fe3191f
+						
+npc	necro_pet_con_base	Base value to use when setting constitution for most necromancer pets.	60	60	2026-03-23 08:25:04	fd951239-8420-4c85-b73e-6508e6d9e4d5
+						
+npc	necro_pet_con_multiplier	Multiplier to use when setting constitution for most necromancer pets.	0.5	0.5	2026-03-23 08:25:04	4545d622-c0a9-4e04-9041-4e005f1eb3f2
+						
+npc	necro_pet_dex_base	Base value to use when setting dexterity for most necromancer pets.	60	60	2026-03-23 08:25:04	1eaa6e3f-22f8-4584-854c-be9581351406
+						
+npc	necro_pet_dex_multiplier	Multiplier to use when setting dexterity for most necromancer pets.	0	0	2026-03-23 08:25:04	9a6fcc88-f95d-4844-81cc-f9f2dff1bcc4
+						
+npc	necro_pet_int_base	Base value to use when setting intelligence for most necromancer pets.	60	60	2026-03-23 08:25:04	15d13edc-1334-4689-a8d9-5f72311fb573
+						
+npc	necro_pet_int_multiplier	Multiplier to use when setting intelligence for most necromancer pets.	0.3333	0.3333	2026-03-23 08:25:04	4a8a81e1-7d9d-4580-86f3-7315c955a176
+						
+npc	necro_pet_qui_base	Base value to use when setting quickness for most necromancer pets.	60	60	2026-03-23 08:25:04	3f87a387-a681-4b0a-9f66-c69512cf0cbd
+						
+npc	necro_pet_qui_multiplier	Multiplier to use when setting quickness for most necromancer pets.	0.3333	0.3333	2026-03-23 08:25:04	9f0d7d1b-cf62-4597-956e-f5d19bdd8af7
+						
+npc	necro_pet_str_base	Base value to use when setting strength for most necromancer pets.	60	60	2026-03-23 08:25:04	b2e2e50c-330a-4aca-be50-76dc9ef5a381
+						
+npc	necro_pet_str_multiplier	Multiplier to use when setting strength for most necromancer pets.	1	1	2026-03-23 08:25:04	8b049314-c79c-4310-b9c2-424fb7d4ae82
+						
+guild	new_guild_dues	Guild dues can be set from 1-100% if enabled, or standard 2% if not	True	True	2026-03-23 08:25:09	f53d184d-2a3b-4957-ac7e-f950c3ef4547
+						
+npc	npc_heal_threshold	NPCs heal targets whose health falls below this percentage.	75	75	2026-03-23 08:25:05	25e48c54-8975-4a93-916a-820d2788cb88
+						
+npc	npc_min_respawn_interval	Minimum respawn time, in minutes, for npc's without a set respawninterval	5	5	2026-03-23 08:25:05	89149b1e-6aea-45e6-bf4a-3c217a86c398
+						
+atlas	of_teleport_interval	The seconds between OF porting ceremonies	120	120	2026-03-23 08:25:10	8e29bd52-b2f2-4ee9-be74-4b59803d5a68
+						
+beta	orbs_fire_sale	All items at the orbs merchant will be free if set to true	False	False	2026-03-23 10:39:07	24f2bc24-6809-43e3-97be-489294cccc5b
+						
+predator	out_of_bounds_timeout	Time a player is allowed to leave a valid hunting zone before disqualification, in seconds	180	180	2026-03-23 10:39:07	d468a378-206a-491e-9372-cee9c9e3ef94
+						
+system	override_deck_rng	Should we use raw RNG instead of Deck-Of-Cards normalization?	False	False	2026-03-23 08:24:58	2a74d3f7-059e-4b00-8c78-011edf3ec740
+						
+rates	parry_cap	Parry Rate Cap Modifier - Edit this to change the highest possible parry rate against an enemy (Hard Cap) in game e.g .50 = 50%	0.5	0.5	2026-03-23 08:25:02	de7ec167-ef0e-4ca5-98c4-b3d3fe14ab95
+						
+atlas	patch_notes_url	The URL of the remote patch notes .txt to display with /sn			2026-03-23 08:25:10	c8205fd4-f9a3-4734-8d77-2ca7b8854746
+						
+npc	pet_autoset_con_base	Base Value to use when auto-setting Pet CON stat.	30	30	2026-03-23 08:25:04	74d6fcca-8902-4557-9c4b-3f96e7a95245
+						
+npc	pet_autoset_con_multiplier	Multiplier to use when auto-setting Pet CON stat.	1	1	2026-03-23 08:25:04	7b53bfbe-cd3f-462a-a1b6-b363033840ae
+						
+npc	pet_autoset_dex_base	Base Value to use when auto-setting Pet DEX stat.	30	30	2026-03-23 08:25:04	65acd25b-cf82-463f-80f2-b9767a92391f
+						
+npc	pet_autoset_dex_multiplier	Multiplier to use when auto-setting Pet DEX stat.	1	1	2026-03-23 08:25:04	85424daf-80d3-47a1-94ee-bed9b182c552
+						
+npc	pet_autoset_int_base	Multiplier to use when auto-setting Pet INT stat.	30	30	2026-03-23 08:25:04	15162eb5-f80f-4626-8a9a-4f556ae7a720
+						
+npc	pet_autoset_int_multiplier	Multiplier to use when auto-setting Pet INT stat.	1	1	2026-03-23 08:25:04	40a4ab56-2317-45ef-b839-de1a80bbd6af
+						
+npc	pet_autoset_qui_base	Base Value to use when auto-setting Pet QUI stat.	30	30	2026-03-23 08:25:04	df48959c-2a92-44b2-a829-0e7c27f15192
+						
+npc	pet_autoset_qui_multiplier	Multiplier to use when auto-setting Pet QUI stat. 	1	1	2026-03-23 08:25:04	03d6d97e-5c15-421f-b689-958d8488d71b
+						
+npc	pet_autoset_str_base	Base Value to use when auto-setting Pet STR stat.	30	30	2026-03-23 08:25:04	e9c8a696-2fa3-4c93-8e7d-9fd1e119a626
+						
+npc	pet_autoset_str_multiplier	Multiplier to use when auto-setting Pet STR stat. Multiplied by 10 when applied.	1	1	2026-03-23 08:25:04	0af5547b-51c7-480b-9e23-016fd546c029
+						
+npc	pet_bd_commander_taunt_multiplier	Percentage of damage that BD commanders get as extra aggro when taunting, e.g. a taunting BD commander gets 150% normal aggro at 50, 200% at 100, 250% at 150 etc. 	150	150	2026-03-23 08:25:05	573fc812-a562-476a-9686-fc785f2d9d9b
+						
+npc	pet_cap_bd_minion_spell_scaling_by_spec	When scaling BD minion spells, do we cap the level they scale do by the BD's spec level?  This provides an incentive to spec darkness and suppression and use items that boost them.	False	False	2026-03-23 10:39:06	b2bf72ed-0d12-4c0e-90cf-86d19b255eb8
+						
+keeps	pet_damage_multiplier	Modifier used to adjust damage for pets classes.	1	1	2026-03-23 08:25:07	91727e40-ce1b-4c60-a8c0-97e61e2e2e1c
+						
+npc	pet_heal_threshold	Pets (including charmed NPCs, excluding Bonedancer pets) heal targets whose health falls below this percentage.	50	50	2026-03-23 08:25:05	22a1c413-a78f-4819-97be-24487c22acf9
+						
+npc	pet_levels_with_owner	Do pets level up with their owner? 	False	False	2026-03-23 10:39:06	1e03ceab-5b48-4da9-a199-3ee52fb6de7a
+						
+npc	pet_scale_spell_max_level	Disabled if 0 or less. If greater than 0, this value is the level at which pets cast their spells at 100% effectivness, so choose spells for pets assuming they're at the level set here. Live is max pet level, 44 or 50 depending on patch.	0	0	2026-03-23 10:39:06	58f1dd5f-f33c-436f-85c5-a0b464e879b9
+						
+keeps	pet_spam_damage_multiplier	Modifier used to adjust damage for pet spam classes (currently animist and theurgist).	1	1	2026-03-23 08:25:07	1f9718aa-5fb0-4c13-9451-d3457aed63ab
+						
+npc	pet_think_interval	How often should pets think?	600	600	2026-03-23 08:25:05	81106aee-3d81-483a-8f17-d5c1a8930646
+						
+server	player idle kick	Enable auto kick for inactive players	False	False	2026-03-23 08:24:59	da31f4de-b7a1-4a4b-9761-d597b213b546
+						
+system	player_class	What class should the server use for players	DOL.GS.GamePlayer	DOL.GS.GamePlayer	2026-03-23 08:24:58	c064391f-d4bb-4204-9c60-6b531884c3e6
+						
+predator	predator_abuse_timeout	Time a player is prevented from rejoining Predator after leaving RvR/joining group, in minutes	10	10	2026-03-23 10:39:07	f1183684-669e-427d-bdb5-496e8cb0257a
+						
+predator	predator_reward_multiplier	Multiplier applied to normal RP value.	1.5	1.5	2026-03-23 10:39:07	45381324-0295-4cd1-ba03-638da4fef92d
+						
+pve	pve_con_loss_level	Which level should players killed in PvE start losing constitution?	6	6	2026-03-23 08:25:08	2c436155-ddd7-4ddc-8274-61d37aa7a777
+						
+pve	pve_exp_loss_level	Which level should players killed in PvE start losing experience?	6	6	2026-03-23 08:25:08	f3e86c65-f42c-4411-88b7-f5537267306c
+						
+rates	pve_melee_damage	The PvE Melee Damage Modifier - Edit this to change the amount of melee damage done when fighting mobs e.g 1.5 is 50% more damage 2.0 is twice the damage (100%) 0.5 is half the damage (50%)	1	1	2026-03-23 08:25:02	bf9c3bf0-2b89-4659-9ea9-3f8545db3dfb
+						
+atlas	pve_mob_damage_f1	The first factor in the PVE mob damage equation. Lower hits harder.	3.2	3.2	2026-03-23 08:25:00	1dfa1631-e3a6-464e-8ee0-e6f7f2553fc0
+						
+atlas	pve_mob_damage_f2	The second factor in the PVE mob damage equation. Lower hits harder.	150	150	2026-03-23 08:25:00	d1eb4983-5ac9-4ebd-b448-eb7defe4dc09
+						
+rates	pve_spell_damage	The PvE Spell Damage Modifier - Edit this to change the amount of spell damage done when fighting mobs e.g 1.5 is 50% more damage 2.0 is twice the damage (100%) 0.5 is half the damage (50%)	1	1	2026-03-23 08:25:02	c5fc1c65-e70e-4656-a2ac-a44ad63f24ce
+						
+pvp	pvp_death_con_loss	Loose con on pvp death on PvP servertype	True	True	2026-03-23 08:25:06	23e7cc46-f19c-4b02-adee-48bf9022f77e
+						
+rates	pvp_melee_damage	The PvP Melee Damage Modifier - Edit this to change the amount of melee damage done when fighting players e.g 1.5 is 50% more damage 2.0 is twice the damage (100%) 0.5 is half the damage (50%)	1	1	2026-03-23 08:25:02	0cbb2459-1146-4f51-907d-21bfbc82c277
+						
+pvp	pvp_realm_timer_minutes	# of minutes an account must wait to change realms after PvP combat. 0 disables the timer	0	0	2026-03-23 08:25:06	03f7ac0b-8701-4ed5-b7b7-744ca8d9b3a0
+						
+rates	pvp_spell_damage	The PvP Spell Damage Modifier - Edit this to change the amount of spell damage done when fighting players e.g 1.5 is 50% more damage 2.0 is twice the damage (100%) 0.5 is half the damage (50%)	1	1	2026-03-23 08:25:02	900c32d9-9b48-44e0-bfe0-6f79e89c69ab
+						
+keeps	pvp_unclaimed_keeps_enemy	Are unclaimed keeps considered the enemy in PvP mode?	False	False	2026-03-23 08:25:07	77cf662a-200b-4d1c-bad2-bd08bcbea9b5
+						
+predator	queued_player_insert_interval	How long to wait between trying to insert new players into system, in seconds	10	10	2026-03-23 10:39:07	12b44373-cf8d-412c-a2ed-addb26e1ca2c
+						
+server	queue_api_url	Provide the URL for the queue service endpoint - blank to disable			2026-03-23 08:24:59	6e1107ca-da33-48e8-a9af-879b65bf3f2c
+						
+server	record_news	Record News in database?	True	True	2026-03-23 08:25:00	c8db42b5-7fbe-494a-9cf7-4d7c16647dd2
+						
+server	region_max_objects	Set the maximum number of objects allowed in a region.  Smaller numbers offer better performance.  This can't be changed while the server is running. (256 - 65535)	30000	30000	2026-03-23 08:25:00	708b6aca-db79-4fbd-9f85-e5904f4e2c19
+						
+keeps	relic_doors_health	Relic gates health value	180000	180000	2026-03-23 08:25:08	7b1fa4f7-0424-48c9-b114-9b3776ed3a4b
+						
+rates	relic_owning_bonus	Relic Owning Bonus in percent per relic (default 10%) in effect when owning enemy relic	10	10	2026-03-23 08:25:03	b96d0e06-2829-46f1-945e-22e4668d9f6f
+						
+pvp	relic_players_required_on_pad	How many players are required on the relic pad to trigger the pillar?	16	16	2026-03-23 08:25:06	dc0b39b7-7e87-48e8-8f74-006c64a0351f
+						
+pvp	Relic_Return_Time	A lost relic will automatically returns to its defined point, in seconds	1200	1200	2026-03-23 08:25:06	c11159e2-4caf-4c3e-b164-1e1f114ad82d
+						
+housing	rent_bounty_point_to_gold	The worth of 1 (one) bounty point in gold (e.g. 1 bp = 1g -> 10000, 1bp = 10g -> 100000)	10000	10000	2026-03-23 08:25:09	eb2e781b-32d0-451c-a480-622c98c31e01
+						
+housing	rent_check_interval	How often, in minutes, do we check for rent?	120	120	2026-03-23 08:25:09	47afd9f7-a37e-46e2-9d0a-404fdbcc854c
+						
+housing	rent_due_days	How often, in days, is rent due?  0 for never, negative for testing repossession.	7	7	2026-03-23 08:25:09	0e459277-7bf4-4679-a0b7-cf7ce6de5258
+						
+housing	rent_lockbox_payments	How many rent payments can be stored in the lockbox?	4	4	2026-03-23 08:25:09	2eadcbec-dbe2-4e40-a472-122f4029a33a
+						
+classes	ress_sickness_level	What level should ress sickness start to apply?	6	6	2026-03-23 08:25:09	229261de-11ef-481d-b620-7b8fb5254bb2
+						
+atlas_rog	rog_armor_weight	chance of armor being included in the roll (in %)	50	50	2026-03-23 08:25:10	3c91bbdb-e822-4ac0-8ab1-bd0a1ec35ff8
+						
+atlas_rog	rog_cap_qual	max item quality (in %)	99	99	2026-03-23 08:25:11	28383cc8-dc23-42fc-9358-33a87672d940
+						
+atlas_rog	rog_item_allskill_weight	all skills bonus weight (in %)	0	0	2026-03-23 08:25:11	7065652f-c880-4ea7-988c-5f29cf135252
+						
+atlas_rog	rog_item_resist_weight	resist bonus (body, matter, etc) weight (in %)	48	48	2026-03-23 08:25:11	fed42049-c04c-49bc-95c0-358f58621d81
+						
+atlas_rog	rog_item_skill_weight	skill bonus (Celtic Spear, Dual Wield, etc) weight (in %)	25	25	2026-03-23 08:25:11	7f1d92c5-4c7b-4f07-b7b4-25255670a555
+						
+atlas_rog	rog_item_stat_weight	stat bonus (str, con, dex, etc) weight (in %)	45	45	2026-03-23 08:25:11	56054fdb-2f97-41c3-b72c-21b1f77d44e1
+						
+atlas_rog	rog_magical_item_offset	base chance to get a magical RoG item (in %) [Level*2 is added to get final value]	60	60	2026-03-23 08:25:11	a3f700d4-ccca-4bbf-9310-7149aac42cb2
+						
+atlas_rog	rog_magical_weight	chance of jewelry/magical being included in the roll (in %)	40	40	2026-03-23 08:25:10	aac88b17-6466-44bf-98e1-856da9c4d023
+						
+atlas_rog	rog_starting_qual	base item quality (in %)	95	95	2026-03-23 08:25:11	7347e26d-e875-43a3-802f-5d6897db7390
+						
+atlas_rog	rog_toa_item_chance	chance of generating an object with TOA stats (in %)	0	0	2026-03-23 08:25:10	4a4caf39-46f0-45a9-8b4b-e499d80f0959
+						
+atlas_rog	rog_toa_stat_weight	toa specific stat weight (in %)	0	0	2026-03-23 08:25:11	3d57aaa6-6caa-4b2f-b68a-dc4fd41d1c4d
+						
+atlas_rog	rog_use_weighted_generation	toggle weighted rolls vs. simple generation	False	False	2026-03-23 08:25:11	ed2393ba-6c9b-41d0-9db4-a99825850ab6
+						
+atlas_rog	rog_weapon_weight	chance of weapons being included in the roll (in %)	40	40	2026-03-23 08:25:10	65f094be-74d0-4f66-a198-840c9b99e1c8
+						
+rates	rp_rate	The Realm Points Rate Modifier - Edit this to change the rate at which you gain realm points e.g 1.5 is 50% more 2.0 is twice the amount (100%) 0.5 is half the amount (50%)	1	1	2026-03-23 08:25:02	7c76dd43-5b40-4b9c-a980-8ab24bf160b1
+						
+rates	rp_worth_seconds	Realm Points Worth Seconds - Edit this to change how many seconds until a player is worth RPs again after being killed 	300	300	2026-03-23 08:25:02	eb3ff763-7722-4cda-91bb-1a26a39cede7
+						
+pvp	RvRLinkDeathRelogGracePeriod	The Grace Period in minutes, to allow to relog near enemy structure after a link death.	20	20	2026-03-23 10:39:06	bc2977e4-f403-4d61-ae15-fb4e364d95cc
+						
+rates	rvr_zones_xp_rate	The RvR zones Experience Points Rate Modifier	1	1	2026-03-23 08:25:02	cb567005-acee-49f1-86f0-6d9c960df999
+						
+atlas	salvage_yield_multiplier	The salvage yield multiplier	0.5	0.5	2026-03-23 08:25:10	19aa8a6d-6fa9-4d4d-a814-d53e316bd98c
+						
+system	save_packets	Save packets and print the last sent/received ones when a client crashes. For debugging purpose.	False	False	2026-03-23 10:39:05	b254068c-7e36-45ba-8516-406137144454
+						
+server	save_quest_mobs_into_database	set false if you don't want this	True	True	2026-03-23 08:25:00	ef3e1bca-e8b1-439d-b0b7-40fa67fa5d2d
+						
+pve	scroll_drop_rate	Adjust the drop rate (percent chance) for scrolls.	25	25	2026-03-23 08:25:08	9de90a7d-23db-4772-b352-dbd314fee305
+						
+server	serverlistupdate_enabled	Enable in-built serverlistupdate script?	False	False	2026-03-23 08:25:00	4aa01b82-4542-4b10-a909-8ee87826288e
+						
+server	serverlistupdate_password	Password for serverlistupdate.			2026-03-23 08:25:00	12bc5900-e9eb-49c8-855b-2ca55eeca745
+						
+server	serverlistupdate_user	Username for serverlistupdate.			2026-03-23 08:25:00	6e7de11a-6c9f-43c8-9a87-0a9552ad37eb
+						
+system	server_language	Language of your server. It can be EN, FR or DE.	FR	FR	2026-03-23 08:24:59	1ff9dba5-fe9f-49e0-a845-f0ec9575a0d2
+						
+world	set_difficulty_on_epic_encounters	Tune encounters taggued <Epic Encounter>. 0 means auto adaptative, others values are % of the initial difficulty (100%=initial difficulty)	100	100	2026-03-23 08:25:01	dc096591-7874-48ae-a8ec-6eef42c3bd56
+						
+npc	set_epic_encounter_weapon_damage_cap	Maximum damage cap multipler for epic encounters that use melee weapons	1.5	1.5	2026-03-23 08:25:05	e15a770f-e423-4b51-85a6-82bbdde745f7
+						
+world	set_epic_game_encounter_respawninterval	Respawn Time, in minutes, for Normal Epic Game Encounters	60	60	2026-03-23 08:25:05	be9ab519-ef83-4182-94b9-31d5c9ec9763
+						
+world	set_epic_quest_encounter_respawninterval	Respawn Time, in minutes, for Epic Quest Encounters	30	30	2026-03-23 08:25:05	545b325f-d87d-4f1c-9de5-71a454fa344c
+						
+keeps	set_keep_door_toughness	This value is % of total damages inflicted to level 1 door. (100=full damages)	100	100	2026-03-23 08:25:06	87084bc6-a79e-4127-908d-3d94cfc8681e
+						
+world	set_si_epic_encounter_respawninterval	Respawn Time, in minutes, for Epic Encounters in Shrouded Isles	60	60	2026-03-23 08:25:05	54ee3b90-0855-4ca0-b55d-1671cf98d864
+						
+keeps	set_structures_toughness	This value is % of total damages inflicted to walls. (100=full damages)	100	100	2026-03-23 08:25:06	6ba56dda-8779-42d8-9bce-bde202cedd0f
+						
+keeps	set_tower_door_toughness	This value is % of total damages inflicted to level 1 door. (100=full damages)	100	100	2026-03-23 08:25:06	bab9d43d-7765-4918-8edf-11cde7c26051
+						
+server	show_logins	Show login messages when players log in and out of game?	True	True	2026-03-23 08:25:00	26588d62-52ff-4bc2-a37c-f4ec09681892
+						
+server	show_logins_channel	What channel should be used for login messages? See eChatType, default is System.	0	0	2026-03-23 08:25:00	ade305ae-d41d-4ac0-a3ac-76a2ebd6085a
+						
+classes	slash_level_requirement	What level should you have on your account be able to use /level?	1	1	2026-03-23 08:25:09	9c99ce1c-b659-451d-bae8-4d7f9de33a6a
+						
+classes	slash_level_target	What level should /level bring you to? 0 is disabled.	50	50	2026-03-23 08:25:09	255cd46e-12d8-4813-9e45-5459ca1fe9f4
+						
+rates	smallchest_multiplier	The math multiplier for small chest value. Increase for more gold	10	10	2026-03-23 08:25:02	2fa0f6cf-1c98-494e-a9b7-6d965a19f715
+						
+system	speedhack_tolerance	Number of times speed hack detected before banning.  Multiples of 5 (20, 25, 30, etc)	20	20	2026-03-23 10:39:05	63dec20e-20b5-4dba-b59b-94bd05571bb1
+						
+spells	spell_charm_named_check	Prevents charm spell to work on Named Mobs, 0 = disable, 1 = enable	1	1	2026-03-23 08:25:09	76ca69ad-2a22-4ac1-8f52-0f675f35f58c
+						
+pve	spell_hitchance_damage_reduction_multiplier	Spell damage reduction multiplier based on hitchance if < 55%. Lower numbers reduce damage reduction.	4.3	4.3	2026-03-23 08:25:08	ed7e0a7d-7ef5-4892-88f1-e7bcbe90d89d
+						
+spells	spell_interrupt_again		100	100	2026-03-23 10:39:07	2ba74997-ddf1-46e9-a143-d5ac4d06e9a4
+						
+spells	spell_interrupt_duration		3000	3000	2026-03-23 08:25:09	c9219154-1de3-4d2a-8d98-f3abf5f7c91b
+						
+spells	spell_interrupt_maxstagelength	Max length of stage 1 and 3, 1000 = 1 second	1500	1500	2026-03-23 10:39:07	f202060a-355c-4fe0-9b17-b11694904b9c
+						
+system	staff_login	Staff Login Only - Edit this to set weather you wish staff to be the only ones allowed to Log in values True,False	False	False	2026-03-23 08:24:58	597cc08e-b9ac-4723-a8aa-5dcd04c3bab1
+						
+startup	starting_bps	Starting Bounty Points - Edit this to change the amount of Bounty Points the new characters start the game with	0	0	2026-03-23 08:25:11	ca0de648-1f6e-449a-8bde-eae47aa2f625
+						
+startup	starting_guild	Starter Guild - Edit this to enable/disable the starter guilds	False	False	2026-03-23 08:25:11	29634a6b-cf9f-401c-8b5d-7fb947123939
+						
+keeps	starting_keep_claim_level	The level a claimed keep starts at.	5	5	2026-03-23 08:25:06	04930492-6da6-435a-a218-c82bb62cc747
+						
+keeps	starting_keep_level	The level an unclaimed keep starts at.	4	4	2026-03-23 08:25:06	85c9f306-1d89-4225-acb7-32b7d217dd26
+						
+startup	starting_level	Starting Level - Edit this to set which levels experience a new player start the game with	50	50	2026-03-23 08:25:11	65ce16d7-c771-42f5-b626-29e2d4322455
+						
+startup	starting_money	Starting Money - Edit this to change the amount in copper of money new characters start the game with, max 214 plat	0	0	2026-03-23 08:25:11	d943c469-9978-4125-965d-25dfc13b272f
+						
+server	starting_msg	The Starting Mesage - Edit this to set what is displayed when a level 1 character enters the game for the first time, set to  for nothing	Bienvenue sur AmtenaTEST	Bienvenue sur AmtenaTEST	2026-03-23 08:25:00	8653cd4b-1247-4709-a10c-77f44561a8db
+						
+startup	starting_realm_level	Starting Realm level - Edit this to set which realm level a new player starts the game with	0	0	2026-03-23 08:25:11	b21a2ad0-429f-4127-a7c4-0ca1e52581fa
+						
+startup	start_as_base_class	Should we start all players as their base class? true if yes (e.g. Armsmen become Fighters on Creation)	True	True	2026-03-23 08:25:11	067902d1-fbef-4012-a590-b0872016d507
+						
+system	statprint_frequency	Interval (in milliseconds) at which performance statistics are gathered and print to the server console. 0 or less to deactivate.	30000	30000	2026-03-23 08:24:59	3018f8e9-7f68-401b-a000-8cf424ee823d
+						
+system	statsave_interval	Interval (in minutes) at which performance statistics are saved to the database. 0 or less to deactivate.	0	0	2026-03-23 08:24:59	ec16aceb-48a9-4d8d-a9b6-42cdaa99b97b
+						
+keeps	structures_allowpetattack	Allow player pets to attack keep and tower walls?	True	True	2026-03-23 08:25:07	d1f38d6d-1e85-491e-8359-726463b62469
+						
+conquest	subtick_rp_award	How many RPs awarded for a participation tick?	200	200	2026-03-23 10:39:06	97d55f33-5877-42fe-8a06-6092b48f2550
+						
+world	task_give_random_item	Task is also rewarded with ROG ?	False	False	2026-03-23 08:25:02	d03d11f8-c8de-4ce5-9738-6c30fb355bf3
+						
+world	task_pause_ticks	Time player must wait after failed task check to get new chance for a task, in milliseconds	300000	300000	2026-03-23 08:25:02	1b4fd8b8-a6f4-44a9-916e-a30436ada68d
+						
+keeps	teleport_login_bg_level_exceeded	Should players that exceed BG level cap be moved out of BG when logging in?	True	True	2026-03-23 08:25:07	79754cb0-41ee-4d5b-8287-f57198c352b6
+						
+keeps	teleport_login_near_enemy_keep	Should players that log near enemy keeps be teleported to a safe area?	True	True	2026-03-23 10:39:06	3f0904f3-c510-4519-9032-13f463665422
+						
+system	tempproperties_to_register	Serialized list of tempprop string, separated by semi-colon for be registered when a player disconnect	LastPotionItemUsedTick;SpellAvailableTime;ItemUseDelay;LastChargedItemUsedTick	LastPotionItemUsedTick;SpellAvailableTime;ItemUseDelay;LastChargedItemUsedTick	2026-03-23 08:24:58	b52e6d7b-65f9-4690-a9ca-23dce3ba1e9c
+						
+atlas	tester_login	Allow only testers and staff to login	False	False	2026-03-23 08:25:00	b3f10a8f-6699-41af-b6d7-da7fdd996aa7
+						
+classes	theurgist_pet_cap	Sets the maximum number of pets a Theurgist can summon	16	16	2026-03-23 08:25:09	4bd74cfd-6a7d-4283-a7ab-8a48b65e3476
+						
+pvp	Timer_Game_Entered	Immunity Timer when player enters the game, in seconds	10	10	2026-03-23 08:25:06	78b34657-1f00-4e47-bf84-4fb47e1aa522
+						
+pvp	Timer_Killed_By_Mob	Immunity Timer When player killed in PvP, in seconds	10	10	2026-03-23 08:25:05	c8630370-812a-4c76-8849-8571a358f28f
+						
+pvp	Timer_Killed_By_Player	Immunity Timer When player killed in PvP, in seconds	10	10	2026-03-23 08:25:05	e6fdd90c-c6ed-4ae2-ba8a-ef4868fce9db
+						
+pvp	Timer_PvP_Teleport	Immunity Timer when player teleports within the same region, in seconds	10	10	2026-03-23 08:25:06	9371f84a-19f2-4322-95d6-7169e82f9941
+						
+pvp	Timer_Region_Changed	Immunity Timer when player changes regions, in seconds	10	10	2026-03-23 08:25:06	b97215c8-ce24-4e1f-8048-1f751620443c
+						
+account	time_between_account_creation	The time in minutes between 2 accounts creation. This avoid account bombing with dynamic ip. 0 to disable	0	0	2026-03-23 08:25:10	2b05dbc4-6283-4a3d-bed8-3ac6490edab8
+						
+account	time_between_account_creation_sameip	The time in minutes between accounts creation from the same ip.	15	15	2026-03-23 08:25:10	6f2061dc-072a-4ac7-84bf-3e6bf55db350
+						
+account	total_accounts_allowed_sameip	Total number of account allowed for the same IP	20	20	2026-03-23 08:25:10	a891cc4d-4b14-465e-853c-019c603ba273
+						
+keeps	tower_balance_multiplier	Multiplier used to determine tower level changes when balancing.  For each keep above or below normal multiply by this.	0.15	0.15	2026-03-23 08:25:07	efdd56f4-09f8-4859-9511-2a64aa4b5763
+						
+keeps	tower_guard_level_multiplier	Multiplier used to determine tower guard levels.  This is applied to the bonus level (usually 4) and added after balance adjustments.	1	1	2026-03-23 08:25:07	19f30a4f-a634-4a12-a976-f58894a97e68
+						
+keeps	tower_rp_base	Base RP value of a tower	0	0	2026-03-23 08:25:07	6f1f32b1-cc66-42ef-bbe8-e6dd3b976a3d
+						
+keeps	tower_rp_claim_multiplier	Integer multiplier used in determining RP reward for claiming towers.	100	100	2026-03-23 08:25:07	cc9a1d1d-f9aa-4c9f-98aa-02c7564e845b
+						
+keeps	tower_rp_multiplier	Integer multiplier used to increase/decrease RP worth based on tower level difference from 50.	0	0	2026-03-23 08:25:07	e3a71e32-f99e-4e75-a61b-2ff03578d5f2
+						
+atlas	trade_slowmode_length	The slowmode duration for /trade in seconds	60	60	2026-03-23 08:25:00	61d3a7ad-fed3-4a0d-9623-8e71a782ab71
+						
+classes	turret_area_cap_count	Sets the cap of the Area for turrets	10	10	2026-03-23 08:25:09	16dae8cb-4d87-439a-a7c0-a72411bbb72d
+						
+classes	turret_area_cap_radius	Sets the Radius which is checked for the turret area cap	1000	1000	2026-03-23 08:25:09	6d40b606-3b2c-43ac-a968-dd0c6ff4f0ce
+						
+classes	turret_player_cap_count	Sets the cap of turrets for a Player	12	12	2026-03-23 08:25:09	95a119d1-865b-4dfe-a395-2886836d104e
+						
+server	update_existing_db_system_sentences_from_files	Update existing rows within the LanguageSystem table from language files.	True	True	2026-03-23 08:25:00	5221bc08-8812-4c73-8aa0-604526ad4d6d
+						
+keeps	upgrade_multiplier	Integer multiplier used to increase/decrease RP worth based on upgrade level (0..10)	100	100	2026-03-23 08:25:07	be5b6953-5810-4184-aeaf-adb891b3716d
+						
+server	use_dblanguage	Use Database Language datas instead of files (if empty = build the table from files)	False	False	2026-03-23 08:25:00	9062d10d-9efe-4f25-8f68-11cd60081d59
+						
+keeps	use_keep_balancing	Set to true if you want keeps to be higher level in NF the less you have, and lower level the more you have	False	False	2026-03-23 08:25:06	7cd32cb3-4cef-496a-af80-0a4b76c42054
+						
+keeps	use_live_keep_bonuses	Set to true if you want to use the live keeps bonuses, for example 3% extra xp	False	False	2026-03-23 08:25:06	1e047ecb-2b64-4244-b301-0ba3a7fd03c1
+						
+server	use_new_actives_ras_scaling	Use new actives realmabilities (5-Tiers) scaling (1.108+) ?	False	False	2026-03-23 08:25:00	3bc24b53-cda0-4ec5-84f8-db747555ea1e
+						
+keeps	use_new_keeps	Appearance Keeps Components to load. 0 for Old Appearance Keeps Components, 1 for New Appearance Keeps Components. 2 is no longer used but load 0 for compatibility.	1	1	2026-03-23 08:25:07	14178d0c-3eb1-4113-8575-0338290a3759
+						
+server	use_new_passives_ras_scaling	Use new passives realmabilities scaling (1.108+) ?	False	False	2026-03-23 08:25:00	c9b8cf07-76ad-48c9-944b-e9d8f099bbc7
+						
+salvage	use_new_salvage	Enable to use a new system calcul of salvage count based on object_type.	False	False	2026-03-23 08:25:10	7dad1289-f234-4b15-a2f8-5ee4d71880dc
+						
+server	use_new_tooltip_forcedupdate	Set to true if you wish to enable the new 1.110+ Tooltip Forced update each time the server send a skill to a new client.	True	True	2026-03-23 08:25:01	6e1a2185-4963-4319-89b2-ca82f26677ee
+						
+system	use_npcguildscripts	Use the NPC Guild Scripts	True	True	2026-03-23 08:24:59	bb970eed-f994-42f6-ab19-17b34ceba226
+						
+salvage	use_salvage_per_realm	Enable to get back material to use in chars realm. Disable to get back the same material in all realms.	False	False	2026-03-23 08:25:10	021972c9-8f21-424f-8102-bbe0c7d74acb
+						
+keeps	use_supply_chain	Set to true if you want to use the live supply chain for keep teleporting, set to false to allow teleporting to any keep that your realm controls (and towers)	False	False	2026-03-23 08:25:06	9fb79dfb-edc1-492c-98e1-723ca53856c9
+						
+classes	volley_roof_check	Enables roof obstruction checks for Volley	False	False	2026-03-23 08:25:09	71800ffb-dcb1-4480-a75b-ce46724f6ac0
+						
+world	weather_chance	What is the chance of starting a storm.	5	5	2026-03-23 08:25:01	724b98aa-4097-456d-b38c-e32bd2323c5e
+						
+world	weather_check_interval	How often (milliseconds) will weather be checked for a chance to start a storm.	300000	300000	2026-03-23 08:25:01	ff8de053-0c35-4089-860d-f8dd237235c9
+						
+world	weather_log_events	Should weather events be shown in the Log (and on the console).	True	True	2026-03-23 08:25:01	bf220906-3abb-4e5b-a61f-93d561e0e1b2
+						
+quest	weekly_rvr_reward	Weekly Quest realmpoints reward	0	0	2026-03-23 08:25:06	ec4b4941-3781-46e6-97b8-6cfcebee9987
+						
+world	world_day_increment	Larger increments make shorter days. Because night time is 25% faster, it should ideally be a multiple of 4.	24	24	2026-03-23 08:25:01	1ed82c2c-8e4d-470a-86d7-8ec6eb4c9975
+						
+world	world_item_decay_time	How long (milliseconds) will an item dropped on the ground stay in the world.	180000	180000	2026-03-23 08:25:01	862eb818-b709-4734-890c-6d1c173d1ad9
+						
+world	world_npc_update_interval	How often (milliseconds) will npc's broadcast updates to the clients.	5000	5000	2026-03-23 08:25:01	a6e8bf54-a39b-4cea-aeb8-2dff5ed1fbb9
+						
+world	world_object_update_interval	How often (milliseconds) will objects (static, housing, doors) broadcast updates to the clients.	30000	30000	2026-03-23 08:25:01	286a2dac-92d1-400d-814d-cdc100069bc5
+						
+world	world_pickup_distance	How far before you can no longer pick up an object (loot for example).	256	256	2026-03-23 08:25:01	4e7d3924-cb10-4c42-a11c-2a8419368618
+						
+world	world_player_update_interval	How often (milliseconds) will players be checked for updates.	1000	1000	2026-03-23 08:25:01	456e344f-4f5a-4711-8606-df7474329eec
+						
+xmlautoload	xml_autoload_update_enable	Enable or disable Auto XML Dataase Update Packages (Should be enabled for first run...)	True	True	2026-03-23 08:25:11	c1b80357-cb89-42bd-92e1-7cc211c9ff35
+						
+xmlautoload	xml_load_insert_directory	Enforce directory path where the XML Insert Packages are Loaded To Database (Relative to Scripts or Absolute...)	dbupdater/insert	dbupdater/insert	2026-03-23 08:25:11	a92bf480-7b5d-4df0-90e5-915b1ddf1086
+						
+xmlautoload	xml_load_replace_directory	Enforce directory path to where the XML Replace Packages are Loaded To Database (Relative to Scripts or Absolute...)	dbupdater/replace	dbupdater/replace	2026-03-23 08:25:11	f35cbebe-9157-4a02-af01-3d280e4ceca4
+						
+xmlautoload	xml_unload_db_directory	Enforce directory path where the XML Packages are Unloaded From Database (Relative to Scripts or Absolute...)	dbupdater/unload	dbupdater/unload	2026-03-23 08:25:11	4a91800e-7d2e-41ff-83ec-6c37405b54fc
+						
+rates	XP_Cap_Percent	Maximum XP a player can earn given in percent of their level. Default is 125%	125	125	2026-03-23 08:25:02	1e23afac-2c42-4dfe-a303-f11b057c545d
+						
+rates	XP_Group_Cap_Percent	Maximum XP a player can earn while in a group, given in percent of their level. Default is 125%	125	125	2026-03-23 10:39:06	1c16ef2a-e00f-428b-8c5e-b46a98dbef6a
+						
+rates	XP_PVP_Cap_Percent	Maximum XP a player can earn killing another player, given in percent of their level. Default is 125%	125	125	2026-03-23 08:25:02	866e9331-d7f4-445c-8db2-919c019a4f74
+						
+rates	xp_rate	The Experience Points Rate Modifier - Edit this to change the rate at which you gain experience points e.g 1.5 is 50% more 2.0 is twice the amount (100%) 0.5 is half the amount (50%)	1	1	2026-03-23 08:25:02	41762435-2a6a-482e-86f4-cf8839b475ab
+						
+world	zonepoint_npctemplate	Display the zonepoint with the following npctemplate. 0 for no display	1	1	2026-03-23 08:25:02	a3f32108-777d-42e5-ace3-309fcc7b2cad
+						

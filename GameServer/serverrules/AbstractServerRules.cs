@@ -2751,12 +2751,14 @@ namespace DOL.GS.ServerRules
 		/// You can override this to create your own consignment merchant derived from the standard merchant
 		/// </summary>
 		/// <returns></returns>
+		/*
 		public virtual GameConsignmentMerchant CreateHousingConsignmentMerchant(House house)
 		{
 			var m = new GameConsignmentMerchant();
 			m.Name = "Consignment Merchant";
 			return m;
 		}
+		*/
 
 		/// <summary>
 		/// Standard Rules For Player Level UP

@@ -15,11 +15,13 @@ namespace DOL.GS.Commands
                 return;
             }
 
+            /*
             if (client.Player.TargetObject is not GameTrainer)
             {
                 client.Player.Out.SendMessage("You need to be at your trainer to use this command", eChatType.CT_System, eChatLoc.CL_SystemWindow);
                 return;
             }
+            */
 
             if (!ServerProperties.Properties.ALLOW_CATA_SLASH_LEVEL)
             {
@@ -39,11 +41,13 @@ namespace DOL.GS.Commands
                     }
                 }
             }
+            /*
             if (!client.Player.CanUseSlashLevel)
             {
                 client.Player.Out.SendMessage($"You don't have a level {ServerProperties.Properties.SLASH_LEVEL_REQUIREMENT} on your account!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
                 return;
             }
+            */
 
             if (client.Player.Experience >= client.Player.GetExperienceNeededForLevel(ServerProperties.Properties.SLASH_LEVEL_TARGET - 1))
             {

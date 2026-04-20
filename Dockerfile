@@ -13,7 +13,7 @@ COPY . .
 RUN apt-get update && \
     apt-get install -y unzip git sed && \
     git config --global http.sslVerify false && \
-    git clone https://github.com/OpenDAoC/OpenDAoC-Database.git /tmp/opendaoc-db && \
+    git clone --depth 1 https://github.com/OpenDAoC/OpenDAoC-Database.git /tmp/opendaoc-db && \
     rm -rf /var/lib/apt/lists/*
 
 # Combine the SQL files
@@ -39,6 +39,9 @@ RUN apk add --no-cache icu-libs su-exec
 
 # Set the working directory in the container
 WORKDIR /app
+
+# Ensure the config directory and default files exist
+RUN mkdir -p /app/config && touch /app/config/invalidnames.txt
 
 # Copy the build output from the build stage
 COPY --from=build /build/Release /app

@@ -391,6 +391,11 @@ namespace DOL.GS
 		
 		public const string StunImmunity = "StunImmunity";
 
+		/// <summary>
+		/// Trading Ability
+		/// </summary>
+		public const string Trading = "Trading";
+
 		public static eObjectType AbilityToWeapon( string abilityKeyName )
 		{
 			eObjectType type = eObjectType.GenericItem;

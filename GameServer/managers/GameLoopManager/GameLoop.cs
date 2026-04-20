@@ -108,6 +108,7 @@ namespace DOL.GS
                 TimerService.Tick();
                 NpcService.Tick();
                 AttackService.Tick();
+                StealingService.Tick();
                 CastingService.Tick();
                 EffectService.Tick();
                 EffectListService.Tick();

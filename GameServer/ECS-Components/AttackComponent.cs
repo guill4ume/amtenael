@@ -1,4 +1,4 @@
-﻿using DOL.AI.Brain;
+using DOL.AI.Brain;
 using DOL.Database;
 using DOL.GS.Effects;
 using DOL.GS.Keeps;
@@ -593,6 +593,9 @@ namespace DOL.GS
 
                 if (player.IsOnHorse)
                     player.IsOnHorse = false;
+
+                if (player.IsOnFlyingMount)
+                    player.IsOnFlyingMount = false;
 
                 if (player.Steed is GameSiegeRam)
                 {

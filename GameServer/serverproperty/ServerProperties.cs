@@ -2892,5 +2892,13 @@ namespace DOL.GS.ServerProperties
 				}
 			}
 		}
+		#region TRADING
+		/// <summary>
+		/// Set the tax percentage of trading
+		/// </summary>
+		[ServerProperty("trading", "trading_tax", "Set the tax percentage of trading", 10)]
+		public static int TRADING_TAX;
+		#endregion
+
 	}
 }

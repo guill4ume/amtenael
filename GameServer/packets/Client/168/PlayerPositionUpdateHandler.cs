@@ -48,10 +48,11 @@ namespace DOL.GS.PacketHandler.Client.v168
 
             // Don't allow movement if the player isn't close to the NPC they're supposed to be riding.
             // Instead, teleport them to it and send an update packet (the client may then ask for a create packet).
-            if (client.Player.Steed != null && client.Player.Steed.ObjectState is GameObject.eObjectState.Active)
+            // Skip this check for flying mounts as they are controlled by the player.
+            if (client.Player.Steed != null && client.Player.Steed.ObjectState is GameObject.eObjectState.Active && !client.Player.IsOnFlyingMount)
             {
                 GamePlayer rider = client.Player;
-                GameNPC steed = rider.Steed;
+                GameNPC steed = rider.Steed as GameNPC;
 
                 // The rider and their steed are never at the exact same position (made worse by a high latency).
                 // So the radius is arbitrary and must not be too low to avoid spamming packets.

@@ -182,6 +182,9 @@ namespace DOL.GS
 				case "test":
 					m_serverType = EGameServerType.GST_Test;
 					break;
+				case "gvg":
+					m_serverType = EGameServerType.GST_GvG;
+					break;
 				default:
 					m_serverType = EGameServerType.GST_Normal;
 					break;
@@ -285,6 +288,9 @@ namespace DOL.GS
 					break;
 				case EGameServerType.GST_Test:
 					serverType = "Test";
+					break;
+				case EGameServerType.GST_GvG:
+					serverType = "GvG";
 					break;
 				default:
 					serverType = "Normal";

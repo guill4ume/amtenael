@@ -34,6 +34,8 @@ namespace DOL.GS.Commands
 			{
 				if (client.Player.IsOnHorse)
 					client.Player.IsOnHorse = false;
+				else if (client.Player.IsOnFlyingMount)
+					client.Player.IsOnFlyingMount = false;
 				else
 					DisplayMessage(client, (LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Players.Dismount")));
 			}
