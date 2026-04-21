@@ -1,0 +1,16 @@
+# Ignorer les sous-projets déjà gérés par leurs propres dépôts
+OpenDAoC-Core-master/
+ProjetsAnnexes/OpenDAoC-SPB/
+ProjetsAnnexes/OpenDAoC-Database/
+ProjetsAnnexes/Breamor/
+
+# Ignorer les données lourdes et temporaires
+sauvegardesPROD/
+ProjetsAnnexes/SauvegardesSPB/
+.gemini/
+.vscode/
+node_modules/
+bin/
+obj/
+*.log
+*.tmp
