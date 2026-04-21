@@ -24,6 +24,8 @@ Everything is currently very command based. Bracketed commands are required, par
 
 /msummon - Summons your group to you. Used to summon your group if you zone into a dungeon or teleport somewhere.
 
+/gjoin [playername] - Allows you to join another player's group directly. This bypasses the client-side cross-realm invitation block and is the recommended way to form cross-realm groups.
+
 /mpvp [true/false] - Sets PvPMode for mimics. PvPMode bots ignore mobs unless you are attacked. When false, bots will immediately attack mobs when you cast or go into attack mode with one targeted.
 	- With a target: Sets PvPMode for target mimic.
 	- With no target: Sets PvPMode for any grouped mimics.	

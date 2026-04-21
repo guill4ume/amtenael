@@ -1,4 +1,5 @@
 using DOL.GS.PacketHandler;
+using DOL.GS.ServerRules;
 
 namespace DOL.GS.Commands
 {
@@ -121,7 +122,7 @@ namespace DOL.GS.Commands
             else
             {
                 client.Out.SendMessage($"You have invited {target.Name} to join your group.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-                target.Out.SendGroupInviteCommand(client.Player, $"{client.Player.Name} has invited you to join\n{client.Player.GetPronoun(1, false)} group. Do you wish to join?");
+                AmtenaelRules.SendGroupInvite(client.Player, target);
                 target.Out.SendMessage($"{client.Player.Name} has invited you to join {client.Player.GetPronoun(1, false)} group.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
             }
         }

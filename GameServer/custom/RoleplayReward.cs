@@ -65,7 +65,7 @@ namespace OpenDAoC_SPB.Custom
 			"dragon", "troll", "elfe", "nain", "orc", "gobelin", "géant", "vampire", "spectre", "griffon", "licorne",
 			"hydre", "wyrm", "fée", "celte", "breton", "nordique", "loup", "démon", "fantôme", "goule", "squelette",
 			"mort-vivant", "monstre", "bête", "créature", "minotaure", "centaure", "gargouille", "harpie", "golem",
-			"luridien", "firbolg", "sylvestre", "sarrazin", "highlander", "kobold", "valkyrie", "berserker", "skald",
+			"lurikeen", "firbolg", "sylvestre", "sarrazin", "highlander", "kobold", "valkyrie", "berserker", "skald",
 			"thane", "runiste", "druide", "barde", "eldritch", "enchanteur", "mentaliste", "animiste", "faucheur",
 			
 			// Exclamations et mots typiques DAoC / Médiéval

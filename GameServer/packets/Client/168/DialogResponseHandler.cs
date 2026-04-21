@@ -84,12 +84,13 @@ namespace DOL.GS.PacketHandler.Client.v168
 						{
 							if (m_data2 == 0x01)
 							{
-								CustomDialogResponse callback;
 								lock (player)
 								{
 									callback = player.CustomDialogCallback;
 									player.CustomDialogCallback = null;
 								}
+
+								System.Console.WriteLine($"[DIALOG] Custom callback for {player.Name} is {(callback == null ? "NULL" : "VALID")}");
 
 								if (callback == null)
 									return 0;

@@ -18,6 +18,7 @@
  */
 
 using log4net;
+using DOL.GS.ServerRules;
 
 namespace DOL.GS.PacketHandler.Client.v168
 {
@@ -101,9 +102,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				string playerNameForTarget = GameServer.ServerRules.GetPlayerName(target, player);
 
 				ChatUtil.SendSystemMessage(player, "You have invited " + targetNameForPlayer + " to join your group.");
-				target.Out.SendGroupInviteCommand(player,
-				                                  playerNameForTarget + " has invited you to join\n" + player.GetPronoun(1, false) +
-				                                  " group. Do you wish to join?");
+				AmtenaelRules.SendGroupInvite(player, target);
 				ChatUtil.SendSystemMessage(target,
 				                           playerNameForTarget + " has invited you to join " + player.GetPronoun(1, false) + " group.");
 

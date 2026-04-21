@@ -96,6 +96,8 @@ namespace DOL.GS.GameEvents
 		/// <param name="args"></param>
 		public static void AddNewbieToStarterGuild(DOLEvent e, object sender, EventArgs args)
 		{
+            		return; // Desactivation de la guilde de test
+			
 			if (!STARTING_GUILD)
 				return;
 			

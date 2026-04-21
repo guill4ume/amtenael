@@ -5,6 +5,7 @@ using DOL.GS.PacketHandler;
 using DOL.GS.Scripts.Custom.Factions;
 using DOL.GS.Keeps;
 using DOL.AI.Brain;
+using DOL.GS;
 using DOL.Events;
 
 namespace DOL.GS.ServerRules
@@ -12,6 +13,123 @@ namespace DOL.GS.ServerRules
 	[ServerRules(EGameServerType.GST_PvP)]
 	public class AmtenaelRules : PvPServerRules
 	{
+		/// <summary>
+		/// Sends a group invitation bypass for cross-realm grouping using CustomDialog.
+		/// This avoids the DAoC client blocking Invitations from other realms.
+		/// </summary>
+		public static void SendGroupInvite(GamePlayer inviter, GamePlayer target)
+		{
+			if (inviter == null || target == null) return;
+
+			string playerNameForTarget = GameServer.ServerRules.GetPlayerName(target, inviter);
+			string inviteMessage = playerNameForTarget + " has invited you to join\n" + inviter.GetPronoun(1, false) + " group. Do you wish to join?";
+
+			target.Out.SendMessage("DEBUG: Invitation sent to " + target.Name, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+
+			target.Out.SendCustomDialog(inviteMessage, (player, response) =>
+			{
+				System.Console.WriteLine($"[GROUP] Lambda triggered for {player.Name} (Response: {response})");
+				player.Out.SendMessage("DEBUG: Lambda received response: " + response, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				if (response != 0x01) return;
+
+				if (inviter.ObjectState != GameObject.eObjectState.Active || target.ObjectState != GameObject.eObjectState.Active)
+				{
+					player.Out.SendMessage("DEBUG: One of the players is not Active (inv=" + inviter.ObjectState + ", tar=" + target.ObjectState + ")", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					System.Console.WriteLine($"[GROUP] Failure: One of the players is not active.");
+					return;
+				}
+
+				if (target.Group != null)
+				{
+					player.Out.SendMessage("DEBUG: Target is already in a group.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					System.Console.WriteLine($"[GROUP] Failure: Target already in group.");
+					return;
+				}
+
+				bool allowed = GameServer.ServerRules.IsAllowedToGroup(inviter, target, false);
+				player.Out.SendMessage("DEBUG: IsAllowedToGroup check: " + allowed, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				if (!allowed)
+				{
+					System.Console.WriteLine($"[GROUP] Failure: IsAllowedToGroup returned FALSE.");
+					return;
+				}
+
+				if (inviter.Group != null)
+				{
+					player.Out.SendMessage("DEBUG: Inviter has an existing group. Leader=" + inviter.Group.Leader?.Name, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					if (inviter.Group.Leader != inviter)
+					{
+						player.Out.SendMessage("DEBUG: Inviter is not the leader.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						return;
+					}
+
+					if (inviter.Group.MemberCount >= ServerProperties.Properties.GROUP_MAX_MEMBER)
+					{
+						player.Out.SendMessage("DEBUG: Group is full.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						return;
+					}
+
+					bool res = inviter.Group.AddMember(target);
+					player.Out.SendMessage("DEBUG: Added to existing group. Success=" + res, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					System.Console.WriteLine($"[GROUP] Added {player.Name} to existing group. Success={res}");
+				}
+				else
+				{
+					player.Out.SendMessage("DEBUG: Creating NEW group...", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					Group group = new Group(inviter);
+					GroupMgr.AddGroup(group);
+					bool res1 = group.AddMember(inviter);
+					bool res2 = group.AddMember(target);
+					player.Out.SendMessage("DEBUG: New group created. res1=" + res1 + ", res2=" + res2, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					System.Console.WriteLine($"[GROUP] Created new group for {inviter.Name} and {target.Name}. res1={res1}, res2={res2}");
+				}
+
+				GameEventMgr.Notify(GamePlayerEvent.AcceptGroup, target);
+			});
+		}
+
+		/// <summary>
+		/// Programmatically forces a player to join another's group.
+		/// Used as a fallback when the client invitation UI fails.
+		/// </summary>
+		public static void ForceJoin(GamePlayer joiner, GamePlayer target)
+		{
+			if (joiner == null || target == null) return;
+
+			if (joiner.Group != null)
+			{
+				joiner.Out.SendMessage("You must leave your current group first.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				return;
+			}
+
+			if (target.Group != null && target.Group.MemberCount >= ServerProperties.Properties.GROUP_MAX_MEMBER)
+			{
+				joiner.Out.SendMessage("The target's group is full.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				return;
+			}
+
+			if (!GameServer.ServerRules.IsAllowedToGroup(joiner, target, false))
+			{
+				joiner.Out.SendMessage("You are not allowed to group with this player.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				return;
+			}
+
+			if (target.Group != null)
+			{
+				target.Group.AddMember(joiner);
+			}
+			else
+			{
+				Group group = new Group(target);
+				GroupMgr.AddGroup(group);
+				group.AddMember(target);
+				group.AddMember(joiner);
+			}
+
+			joiner.Out.SendMessage("You have successfully joined " + target.Name + "'s group (Bypass).", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+			target.Out.SendMessage(joiner.Name + " has joined your group (Bypass).", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+		}
+
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 		public static ushort HousingRegionID = 202;
