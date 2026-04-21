@@ -37,12 +37,6 @@ namespace DOL.GS.Commands
 				return;
 			}
 
-			if (player.GetDistance(target) > 2000)
-			{
-				player.Out.SendMessage("You are too far from " + target.Name + ".", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-				return;
-			}
-
 			AmtenaelRules.ForceJoin(player, target);
 		}
 	}

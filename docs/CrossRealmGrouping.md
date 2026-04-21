@@ -26,7 +26,8 @@ Modified `Group.cs` and `PacketLib168.SendGroupWindowUpdate`.
 ### 4. Direct Join Command: `/gjoin`
 Since the UI response (0x0F) can still be unreliable due to lag or client-side timing out, a programmatic fallback was added.
 - **Command**: `/gjoin <TargetPlayerName>`
-- **Logic**: Directly calls `AmtenaelRules.ForceJoin`. It performs all security checks (proximity, grouping allowed by ruleset) and then manually adds the caller to the target's group without requiring a dialog.
+- **Logic**: Directly calls `AmtenaelRules.ForceJoin`. It performs security checks (grouping allowed by ruleset) and then manually adds the caller to the target's group without requiring a dialog.
+- **Range**: **Global**. No distance or region restriction (except the RvR grouping ruleset).
 - **Reference**: `GameServer\scripts\commands\gjoin.cs`.
 
 ## Maintenance
