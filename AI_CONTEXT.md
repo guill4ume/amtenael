@@ -17,7 +17,7 @@ Le projet est scindé en deux serveurs distincts :
   - **Conséquence** : Les scripts C# custom sont compilés par le SDK Microsoft local lors du `docker compose build`. C'est robuste et ça empêche le lancement du serveur si le code C# contient la moindre faute de syntaxe.
 
 ## 3. Règles C# pour les Scripts Personnalisés
-- **Emplacement** : Tous les scripts maison DOIVENT être placés dans le dossier `GameServer/custom/`.
+- **Emplacement** : Tous les scripts maison DOIVENT être placés dans le dossier `GameServer/custom/` ou `GameServer/scripts/customnpc/`.
 - **Librairies obsolètes** : NE PAS UTILISER `log4net` (ex: `ILog log = ...`). Le moteur moderne tourne sous `NLog`. Utiliser `Console.WriteLine` ou les adaptateurs NLog.
 - **Requêtes Joueurs** : 
   - En Prod, pour itérer sur tous les joueurs connectés, utiliser : `foreach (GamePlayer player in ClientService.Instance.GetPlayers())`.
@@ -26,6 +26,7 @@ Le projet est scindé en deux serveurs distincts :
 Les deux serveurs sont unifiés sur un dépôt "Fork" GitHub unique (ex: `https://github.com/guill4ume/amtenael`), avec deux branches distinctes :
 - La branche `master` pour la Production (Core).
 - La branche `spb` pour le server de Test (SPB).
+- La branche `global` pour la racine (`C:\OpenDAOC_server`) : Documentation, TODO et scripts de pilotage.
 - **Mises à jour Officielles** : Les deux serveurs peuvent synchroniser le code officiel via un `git pull upstream master` (OpenDAoC).
 - **Mise à jour en Production** : Le fichier `C:\OpenDAOC_server\Mettre_A_Jour_Prod.bat` gère la mise à jour (git add, git commit local automatique des modifs, pull de l'upstream, push sur GitHub origin, et rebuild Docker). **Finis les `git stash` fragiles qui perdaient les données.**
 
