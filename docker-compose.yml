@@ -67,3 +67,18 @@ services:
       - ./db-init:/tmp/opendaoc-db:ro
     networks:
       - opendaoc-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: openbots-phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: my-secret-pw
+    depends_on:
+      - db
+    networks:
+      - opendaoc-network
