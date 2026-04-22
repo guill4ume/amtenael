@@ -20,7 +20,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] Mettre en place un PNJ "Instant 50" (Héraut des dieux : Niveau 50, Richesse, Artisanat).
   - [x] Réparer l'encodage UTF-8 des noms de PNJs (Région 51).
   - [x] Remettre en place les menus et inventaires des marchands (Zone 51). ✅ Validé en jeu (187 marchands chargés en région 51).
-  - [ ] Retirer la guilde de base automatiquement attribuée aux nouveaux personnages.
+  - [x] Retirer la guilde de base automatiquement attribuée aux nouveaux personnages. ✅ Désactivé via ServerProperty `starting_guild`.
   - [ ] Virer le portail rouge téléporteur
   - [ ] Passer tous les gardes dans la faction "Gardes" sur la carte 51 (créer la faction)
 - [ ] **Infrastructure & QA** :
