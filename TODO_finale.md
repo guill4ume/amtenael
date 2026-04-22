@@ -22,7 +22,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] Remettre en place les menus et inventaires des marchands (Zone 51). ✅ Validé en jeu (187 marchands chargés en région 51).
   - [x] Retirer la guilde de base automatiquement attribuée aux nouveaux personnages. ✅ Désactivé via ServerProperty `starting_guild`.
   - [x] Virer le portail rouge téléporteur. ✅ ZonePoint 154 supprimé (visuel conservé).
-  - [ ] Passer tous les gardes dans la faction "Gardes" sur la carte 51 (créer la faction)
+  - [x] Passer tous les gardes dans la faction "Gardes" sur la carte 51. ✅ Faction ID 1000 créée et assignée.
 - [ ] **Infrastructure & QA** :
   - [x] Script PowerShell de sauvegarde/restauration automatisé.
   - [ ] Diagnostiquer la lenteur au démarrage de la branche SPB (36s vs OpenDAOC natif).
