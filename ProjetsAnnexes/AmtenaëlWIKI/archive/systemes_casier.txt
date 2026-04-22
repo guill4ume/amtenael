@@ -1,0 +1,17 @@
+====== Votre Casier Disciplinaire ======
+
+Chaque compte sur Amtenaël possède un casier où sont enregistrées les observations du staff concernant votre comportement ou vos éventuelles sanctions.
+
+===== Consulter son Casier =====
+
+Vous pouvez consulter votre propre casier à tout moment en tapant la commande suivante en jeu :
+<code>/casier info</code>
+
+Cette commande ouvrira une fenêtre affichant l'historique de vos entrées.
+
+===== Fonctionnement =====
+
+  * **Entrées Publiques** : Ce sont les remarques ou sanctions que vous pouvez voir.
+  * **Entrées Privées (Staff)** : Certaines notes sont réservées à l'usage interne du Staff et ne sont pas visibles par les joueurs (staff uniquement).
+
+Le casier sert de référence pour le staff lors de récidives ou pour le suivi des dossiers de joueurs. Il est lié au compte et non au personnage.

@@ -49,8 +49,14 @@ Pour exporter la base historique d'Amtenaël vers le nouveau serveur :
     ```powershell
     Get-Content breamor_export.sql | docker exec -i openbots-db mysql -u root -pmy-secret-pw opendaoc
     ```
-3. **Migration Scripts (si nécessaire)** : 
-    - En cas de perte de comportements (ex: menus textuels), migrer les scripts C# correspondants dans `GameServer/custom/` et s'assurer que le `ClassType` en base de données correspond bien au script (ex: `DOL.GS.Scripts.TextNPCMerchant`).
+3. **Système TextNPC (Menus & Échanges)** :
+    - Les scripts sont situés dans `GameServer/custom/TextNPC/`.
+    - **Dépendance critique** : Utilise les tables `textnpc` et `echangeur` en base de données.
+    - **Refactorisation Core** : En cas de mise à jour du Core OpenDAoC, veiller à :
+        - Utiliser `WhereClause` pour les requêtes DB.
+        - Utiliser `X, Y, Z` pour les coordonnées d'objets.
+        - Utiliser `log4net` pour les logs sur SPB (et `NLog` sur Prod).
+        - Compiler via Docker build (runtime compilation désactivée pour la stabilité).
 
 ---
 

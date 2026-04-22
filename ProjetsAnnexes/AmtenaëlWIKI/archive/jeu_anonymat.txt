@@ -1,0 +1,26 @@
+====== Anonymat et Noms ======
+
+Sur Amtenaël, l'immersion Roleplay est renforcée par un système d'anonymat. Par défaut, l'identité des autres joueurs vous est inconnue.
+
+===== Le Concept =====
+
+Lorsque vous croisez un autre joueur que vous ne connaissez pas :
+  * Vous ne voyez pas son **Nom**, son **Nom de famille**, son **Titre** ou sa **Guilde**.
+  * À la place du nom, vous verrez sa race suivie d'un numéro unique (exemple : //"Lurikeen 42"// ou //"Celte 101"//).
+  * Cela encourage les interactions RP pour se présenter et faire connaissance.
+
+===== Révéler son Identité =====
+
+Pour voir le nom d'un autre joueur (ou lui montrer le vôtre), vous devez utiliser le système de permissions.
+
+  * **Demander le nom** : Sélectionnez le joueur et tapez la commande :
+<code>/name ask</code>
+  * **Accepter de révéler son nom** : Si un joueur vous demande votre nom, vous recevrez un message système. Pour accepter, tapez :
+<code>/name accept</code>
+
+Une fois la permission accordée, l'identité complète du joueur devient visible pour vous de façon permanente (sauvegardée en base de données).
+
+===== Exceptions =====
+
+  * **Membres du Groupe / Guilde** : (À vérifier si l'anonymat s'applique aussi au sein de la guilde/groupe dans la version actuelle, mais généralement le nom est visible pour les proches).
+  * **Commandes Administrateurs** : Le staff peut voir l'identité de tous les joueurs pour la modération.

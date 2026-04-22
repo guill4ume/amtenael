@@ -1,0 +1,25 @@
+====== Les PNJ Interactifs (TextNPC) ======
+
+Le système **TextNPC** est le moteur de dialogue iconique d'Amtenaël. Il permet des interactions riches et dynamiques avec les personnages non-joueurs.
+
+===== Dialogue et Mots-Clés =====
+
+La plupart des PNJs sur Amtenaël ne se contentent pas de phrases prédéfinies. Ils réagissent à ce que vous leur dites (ou leur chuchotez).
+
+  * **Interaction de base** : Un clic droit sur le PNJ ouvre la fenêtre de dialogue initiale.
+  * **Mots-clés** : Dans le texte du PNJ, certains mots sont mis en évidence ou entre crochets. Ce sont des mots-clés auxquels le PNJ réagira si vous lui chuchotez.
+  * **Chuchoter** : Utilisez la commande ''/w'' suivie du nom du PNJ et de votre message.
+    * Exemple : Si le PNJ mentionne une //"quête"//, tapez : ''/w NomDuPNJ quête''
+
+===== Les Échangeurs =====
+
+Certains PNJs fonctionnent comme des échangeurs spécialisés.
+  * **Don d'objet** : Vous pouvez donner un objet à un PNJ en le faisant glisser sur lui (Drag & Drop).
+  * **Récompenses** : En échange d'un ou plusieurs objets spécifiques, le PNJ peut vous offrir :
+    * De l'Expérience (XP).
+    * Des pièces d'or.
+    * Un objet de remplacement ou de récompense.
+
+===== Avantages du Système =====
+
+Le système TextNPC est entièrement piloté par la base de données. Cela signifie que les quêtes et les dialogues peuvent être mis à jour, corrigés ou étendus par l'équipe d'Amtenaël instantanément, offrant un monde vivant et évolutif.

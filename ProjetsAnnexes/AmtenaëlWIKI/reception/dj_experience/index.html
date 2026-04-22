@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ BLUETOOTH EXTREME - Amtenaël Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="experience" class="vibe-stage" data-vibe="chill">
+        <div class="background-overlay"></div>
+        <div class="strobe-layer"></div>
+        
+        <header>
+            <div class="logo">BT-DJ <span class="badge">PRO</span></div>
+            <div class="server-status">SERVER: <span id="status-text">SYNCING...</span></div>
+        </header>
+
+        <main>
+            <div class="main-visual">
+                <div class="dj-container">
+                    <img src="dj_performance_background.png" alt="Legendary DJ" id="dj-avatar">
+                    <div class="energy-pulse"></div>
+                </div>
+                <div class="subtitle-container">
+                    <h2 id="subtitle" class="subtitle">CLIQUEZ POUR LANCER LE SET</h2>
+                </div>
+            </div>
+
+            <div class="deck-controls">
+                <div class="deck-display">
+                    <div class="bpm">128 BPM</div>
+                    <div class="track-info">THE BLUETOOTH DROP (EXTENDED)</div>
+                    <div class="progress-bar"><div id="hype-progress"></div></div>
+                </div>
+                <div class="buttons">
+                    <button id="btn-sync" class="control-btn">SYNC BLUETOOTH</button>
+                    <button id="btn-drop" class="control-btn accent">THE DROP</button>
+                    <button id="btn-amtenael" class="control-btn">AMTENÄEL HYPER</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="vibration-layer"></div>
+    </div>
+
+    <!-- Modal for initial energy -->
+    <div id="intro-overlay" class="overlay">
+        <div class="intro-content">
+            <h1>LA CONNEXION EST TOTALE</h1>
+            <p>Préparez-vous pour la version longue de l'expérience Bluetooth.</p>
+            <button id="start-btn">ENTRER DANS LE CLUB</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

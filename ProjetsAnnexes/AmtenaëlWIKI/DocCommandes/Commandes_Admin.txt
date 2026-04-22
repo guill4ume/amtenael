@@ -1,0 +1,15 @@
+====== Commandes Admin ======
+
+^ Commande ^ Alias ^ Description ^ Utilisation ^
+| **/summonmerchant** |  | // Set to player.
+        "/summonmerchant - summon a merchant at the cost of 10g |  |
+| **/serverproperties** |  | Reloads or clean up server properties from the database | /serverproperties <refresh | cleanup> |
+| **/refresh** |  | Refresh some specific static data cache stored in scripts or other objects | /refresh list | ClassName 'dot' MethodName |
+| **/unloadxmldb** |  | Unload your Database Tables to a local XML File Repository. | Usage: /unloadxmldb [FULL|TableName] |
+| **/keepdoorteleport** |  | Manage keepdoor teleport destinations | '/keepdoorteleport add <enter|exit> <in|out> add a teleport destination"/* \\ '/keepdoorteleport reload' reload all teleport locations from the db"*/ |
+| **/dfowner** |  | Changes the Realm owning access to Darkness Falls | &dfowner <Realm> |
+| **/achievement** |  | /achievement add <MobName> ie: /achievement add Organic-Energy Mechanism | /achievement addbg <MobName> ie: /achievement addbg Olcasgean \\ /achievement addgroup <MobName> ie: /achievement addgroup Cuuldurach the Glimmer King |
+| **/suicide** |  | Kill yourself. You can't suicide while in combat! |  |
+| **/Reload** |  | Reload various elements | /reload mob|object|specs|spells|teleports |
+| **/code** |  | Permet l'exécution de code à partir du jeu! | /code <code> |
+| **/freeze** |  | Freeze The region timer you're in. (Test purpose only) | /freeze {seconds} |

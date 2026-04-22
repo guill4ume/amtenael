@@ -1,0 +1,25 @@
+====== Livres et Parchemins ======
+
+Le système de livres d'Amtenaël permet aux joueurs de rédiger, lire et diffuser des écrits au sein de la communauté. Que ce soit pour des chroniques RP, des contrats ou des poèmes, ces objets sont persistants et échangeables.
+
+===== Lire un Livre =====
+
+Pour lire le contenu d'un parchemin ou d'un livre :
+  * Placez l'objet dans votre barre de raccourcis ou utilisez-le directement depuis votre inventaire.
+  * Une fenêtre de dialogue s'ouvrira, affichant :
+    * L'**Auteur** de l'écrit.
+    * Le **Titre**.
+    * Le type d'**Encre** utilisée.
+    * Le **Texte** intégral.
+
+===== Création et Duplication =====
+
+  * **Rédaction** : (Détails sur comment écrire un livre initialement, généralement via un PNJ Libraire ou un objet spécifique).
+  * **Le Copiste** : Si vous êtes l'auteur d'un livre et que vous souhaitez en diffuser des copies, vous pouvez rendre visite au **Copiste**.
+    * **Condition** : Seul l'auteur d'un livre peut en demander la duplication.
+    * **Coût** : Le Copiste demande une petite somme d'or (environ 2 pièces d'or) pour chaque copie réalisée.
+    * **Procédure** : Donnez le livre original au Copiste (Drag & Drop) pour recevoir une copie conforme.
+
+===== La Bibliothèque =====
+
+Le **Libraire** est le PNJ de référence pour tout ce qui concerne l'écriture. Il propose généralement le matériel nécessaire (parchemins vierges, encres) pour les futurs auteurs d'Amtenaël.

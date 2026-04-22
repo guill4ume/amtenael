@@ -1,0 +1,45 @@
+====== Les Grades des Factions ======
+
+Le système de faction d'Amtenaël oppose les **Constructeurs** aux **Destructeurs**. Votre alignement dépend de vos actions en jeu, principalement le PvP.
+
+===== Seuils d'Alignement =====
+
+  * **Destructeurs** : Inférieur à -10 000 points.
+  * **Neutres** : Entre -10 000 et +10 000 points.
+  * **Constructeurs** : Supérieur à +10 000 points.
+
+===== Grades des Destructeurs =====
+
+^ Seuil ^ Titre ^ Description ^
+| -10 001 | Feal | Fidèle de la destruction |
+| -20 000 | Kigerien | Equarisseurs |
+| -40 000 | Mestr | Maître des crânes |
+| -65 000 | Mestr | Maître du sang |
+| -100 000 | Kastizer | Bourreau de la destruction |
+| -150 000 | Evour | Buveur de sang |
+| -250 000 | Llygad | Yeux des abysses |
+| -400 000 | Aotrou | Seigneur de sang |
+| -600 000 | Priñs | Prince démon |
+| -850 000 | Diwaller | Gardien de la destruction |
+
+===== Grades des Constructeurs =====
+
+^ Seuil ^ Titre ^ Description ^
+| +10 001 | Krouer | Bâtisseur |
+| +20 000 | Artizan | Artisan |
+| +40 000 | Tisour | Architecte |
+| +65 000 | Rener | Planificateur |
+| +100 000 | Diazezer | Fondateur |
+| +150 000 | Krouer | Créateur |
+| +250 000 | Ardivizer | Artificier |
+| +40 000 | Geniver | Géniteur |
+| +600 000 | Uhel | Ordre Suprême |
+| +850 000 | Lugan | Lumière |
+
+===== Évolution de la Faction =====
+
+La faction évolue principalement via le **PvP** :
+  * Tuer un joueur de la faction opposée vous fait gagner des points vers votre propre camp.
+  * **Attention** : Tuer un joueur de votre **propre faction** entraîne une pénalité massive (**10x plus importante**).
+  * Le gain ou la perte de points dépend de la faction de la victime et du ratio de dégâts infligés.
+  * Les personnages de bas niveau (gris) ne rapportent pas de points de faction.

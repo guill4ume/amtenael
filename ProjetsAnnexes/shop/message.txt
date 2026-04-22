@@ -1,0 +1,290 @@
+/// <summary>
+        /// Called when the player picks up an item from the ground
+        /// </summary>
+        /// <param name="floorObject"></param>
+        /// <param name="checkRange"></param>
+        /// <returns></returns>
+        public virtual bool PickupObject(GameObject floorObject, bool checkRange)
+        {
+            if (floorObject == null)
+            {
+                Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.MustHaveTarget"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                return false;
+            }
+            if (floorObject.ObjectState != eObjectState.Active)
+                return false;
+
+            if (floorObject is GameStaticItemTimed && ((GameStaticItemTimed)floorObject).IsOwner(this) == false && Client.Account.PrivLevel == (int)ePrivLevel.Player)
+            {
+                Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.LootDoesntBelongYou"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                return false;
+            }
+
+            if ((floorObject is GameBoat == false) && !checkRange && !floorObject.IsWithinRadius2D(this, GS.ServerProperties.Properties.WORLD_PICKUP_DISTANCE))
+            {
+                Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.ObjectTooFarAway", floorObject.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                try
+                {
+                    log.DebugFormat("Pickup error: {0}  object x{1}, y{2}, z{3}, r{4} - player x{5}, y{6}, z{7}, r{8}",
+                                    Name,
+                                    floorObject.Position.X, floorObject.Position.Y, floorObject.Position.Z, floorObject.Position.RegionID,
+                                    Position.X, Position.Y, Position.Z, Position.RegionID);
+                }
+                catch
+                {
+                }
+                return false;
+            }
+
+            if (floorObject is WorldInventoryItem)
+            {
+                WorldInventoryItem floorItem = floorObject as WorldInventoryItem;
+
+                lock (floorItem!)
+                {
+                    if (floorItem.ObjectState != eObjectState.Active)
+                        return false;
+
+                    if (floorItem.Item == null || floorItem.Item.IsPickable == false)
+                    {
+                        Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.CantGetThat"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        return false;
+                    }
+                    if (floorItem.GetPickupTime > 0)
+                    {
+                        Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.WaitToPickup", floorItem.GetPickupTime / 1000, floorItem.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        return false;
+                    }
+
+                    Group group = Group;
+                    BattleGroup mybattlegroup = (BattleGroup)TempProperties.getProperty<object>(BattleGroup.BATTLEGROUP_PROPERTY, null);
+                    if (mybattlegroup != null && mybattlegroup.GetBGLootType() == true && mybattlegroup.GetBGTreasurer() != null)
+                    {
+                        GamePlayer theTreasurer = mybattlegroup.GetBGTreasurer();
+                        if (theTreasurer.CanSeeObject(floorObject))
+                        {
+                            bool good = false;
+                            if (floorItem.Item.IsStackable)
+                                good = theTreasurer.Inventory.AddTemplate(floorItem.Item, floorItem.Item.Count, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack);
+                            else
+                                good = theTreasurer.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, floorItem.Item);
+
+                            if (!good)
+                            {
+                                theTreasurer.Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.BackpackFull"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                                return false;
+                            }
+                            theTreasurer.Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.YouGet", floorItem.Item.GetName(1, false)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.INFO_DISTANCE))
+                            {
+                                if (!(this == player))
+                                {
+                                    player.MessageFromArea(this, LanguageMgr.GetTranslation(player.Client.Account.Language, "GameObjects.GamePlayer.PickupObject.GroupMemberPicksUp",
+                                        player.GetPersonalizedName(this), floorItem.Item.GetName(1, false)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                                }
+                            }
+                            InventoryLogging.LogInventoryAction("", "(ground)", this, eInventoryActionType.Loot, floorItem.Item, floorItem.Item.IsStackable ? floorItem.Item.Count : 1);
+                        }
+                        else
+                        {
+                            mybattlegroup.SendMessageToBattleGroupMembers(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.NoOneWantsThis", floorObject.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        }
+                    }
+                    else if (group != null && group.AutosplitLoot)
+                    {
+                        List<GameObject> owners = new List<GameObject>((GameObject[])floorItem.Owners);
+                        List<GamePlayer> eligibleMembers = new List<GamePlayer>(8);
+                        foreach (GamePlayer ply in group.GetPlayersInTheGroup())
+                        {
+                            if (ply.IsAlive
+                                && ply.CanSeeObject(floorObject)
+                                && this.IsWithinRadius(ply, WorldMgr.MAX_EXPFORKILL_DISTANCE)
+                                && (ply.ObjectState == eObjectState.Active)
+                                && (ply.AutoSplitLoot)
+                                && (owners.Contains(ply) || owners.Count == 0)
+                                && (ply.Inventory.FindFirstEmptySlot(eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack) != eInventorySlot.Invalid))
+                            {
+                                eligibleMembers.Add(ply);
+                            }
+                        }
+
+                        if (eligibleMembers.Count <= 0)
+                        {
+                            Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.NoOneWantsThis", floorObject.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            return false;
+                        }
+
+                        int i = Util.Random(0, eligibleMembers.Count - 1);
+                        GamePlayer eligibleMember = eligibleMembers[i];
+                        if (eligibleMember != null)
+                        {
+                            bool good = false;
+                            if (floorItem.Item.IsStackable) // poison ID is lost here
+                                good = eligibleMember.Inventory.AddTemplate(floorItem.Item, floorItem.Item.Count, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack);
+                            else
+                                good = eligibleMember.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, floorItem.Item);
+
+                            if (!good)
+                            {
+                                eligibleMember.Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.BackpackFull"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                                return false;
+                            }
+                            foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.INFO_DISTANCE))
+                            {
+                                if (!(this == player))
+                                {
+                                    player.MessageFromArea(this, LanguageMgr.GetTranslation(player.Client.Account.Language, "GameObjects.GamePlayer.PickupObject.GroupMemberPicksUp",
+                                        player.GetPersonalizedName(this), floorItem.Item.GetName(1, false)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                                }
+                            }
+                            group.SendMessageToGroupMembers(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.Autosplit", floorItem.Item.GetName(1, true), eligibleMember.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            InventoryLogging.LogInventoryAction("", "(ground)", this, eInventoryActionType.Loot, floorItem.Item, floorItem.Item.IsStackable ? floorItem.Item.Count : 1);
+                        }
+                    }
+                    else
+                    {
+                        bool good = false;
+                        if (floorItem.Item.IsStackable)
+                            good = Inventory.AddTemplate(GameInventoryItem.Create(floorItem.Item), floorItem.Item.Count, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack);
+                        else
+                            good = Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, floorItem.Item);
+
+                        if (!good)
+                        {
+                            Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.BackpackFull"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            return false;
+                        }
+                        Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.YouGet", floorItem.Item.GetName(1, false)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.INFO_DISTANCE))
+                        {
+                            if (!(this == player))
+                            {
+                                player.MessageFromArea(this, LanguageMgr.GetTranslation(player.Client.Account.Language, "GameObjects.GamePlayer.PickupObject.GroupMemberPicksUp",
+                                    player.GetPersonalizedName(this), floorItem.Item.GetName(1, false)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            }
+                        }
+                        InventoryLogging.LogInventoryAction("", "(ground)", this, eInventoryActionType.Loot, floorItem.Item, floorItem.Item.IsStackable ? floorItem.Item.Count : 1);
+                    }
+                    floorItem.RemoveFromWorld();
+                }
+                return true;
+            }
+            else if (floorObject is GameMoney)
+            {
+                GameMoney moneyObject = floorObject as GameMoney;
+                lock (moneyObject!)
+                {
+                    if (moneyObject.ObjectState != eObjectState.Active)
+                        return false;
+
+                    if (Group != null && Group.AutosplitCoins)
+                    {
+                        //Spread the money in the group
+                        var eligibleMembers = from p in Group.GetPlayersInTheGroup()
+                                              where p.IsAlive && p.CanSeeObject(floorObject) && p.ObjectState == eObjectState.Active
+                                              select p;
+                        if (!eligibleMembers.Any())
+                        {
+                            Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.NoOneGroupWantsMoney"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            return false;
+                        }
+
+                        long moneyToPlayer = moneyObject.TotalCopper / eligibleMembers.Count();
+                        foreach (GamePlayer eligibleMember in eligibleMembers)
+                        {
+                            if (eligibleMember.Guild != null && eligibleMember.Guild.IsGuildDuesOn())
+                            {
+                                long moneyToGuild = moneyToPlayer * eligibleMember.Guild.GetGuildDuesPercent() / 100;
+                                if (eligibleMember.Guild.GetGuildDuesPercent() != 100)
+                                {
+                                    eligibleMember.AddMoney(Currency.Copper.Mint(moneyToPlayer));
+                                    eligibleMember.SendSystemMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.YourLootShare", Money.GetString(moneyToPlayer)));
+                                }
+                                else
+                                    eligibleMember.AddMoney(Currency.Copper.Mint(moneyToPlayer));
+
+                                InventoryLogging.LogInventoryAction("", "(ground)", eligibleMember, eInventoryActionType.Loot, moneyToPlayer);
+                                eligibleMember.Guild.SetGuildBank(eligibleMember, moneyToGuild);
+                            }
+                            else
+                            {
+
+                                eligibleMember.AddMoney(Currency.Copper.Mint(moneyToPlayer));
+                                eligibleMember.SendSystemMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.YourLootShare", Money.GetString(moneyToPlayer)));
+                                InventoryLogging.LogInventoryAction("", "(ground)", eligibleMember, eInventoryActionType.Loot, moneyToPlayer);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Add money only to picking player
+                        if (Guild != null && Guild.IsGuildDuesOn() && moneyObject.TotalCopper > 0 && Guild.GetGuildDuesPercent() > 0)
+                        {
+                            long moneyToGuild = moneyObject.TotalCopper * Guild.GetGuildDuesPercent() / 100;
+                            if (Guild.GetGuildDuesPercent() != 100)
+                            {
+                                AddMoney(Currency.Copper.Mint(moneyObject.TotalCopper));
+                                SendSystemMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.YouPickUp", Money.GetString(moneyObject.TotalCopper)));
+                            }
+                            else
+                            {
+                                AddMoney(Currency.Copper.Mint(moneyObject.TotalCopper));
+                            }
+                            InventoryLogging.LogInventoryAction("", "(ground)", this, eInventoryActionType.Loot, moneyObject.TotalCopper);
+                            Guild.SetGuildBank(this, moneyToGuild);
+                            Out.SendMessage(LanguageMgr.GetTranslation(Client, "GameObjects.GamePlayer.PickupObject.GuildDueTax", Money.GetString(moneyToGuild)), eChatType.CT_Loot, eChatLoc.CL_SystemWindow);
+                        }
+                        else
+                        {
+                            AddMoney(Currency.Copper.Mint(moneyObject.TotalCopper));
+                            SendSystemMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.YouPickUp", Money.GetString(moneyObject.TotalCopper)));
+                            InventoryLogging.LogInventoryAction("", "(ground)", this, eInventoryActionType.Loot, moneyObject.TotalCopper);
+                        }
+                    }
+                    moneyObject.Delete();
+                    return true;
+                }
+            }
+            else if (floorObject is GameBoat)
+            {
+                if (!this.IsWithinRadius(floorObject, 1000))
+                {
+                    Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.TooFarFromBoat"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    return false;
+                }
+
+                if (!InCombat)
+                    MountSteed(floorObject as GameBoat, false);
+
+                return true;
+            }
+            else if (floorObject is GameHouseVault && floorObject.CurrentHouse != null)
+            {
+                GameHouseVault houseVault = floorObject as GameHouseVault;
+                if (houseVault!.Detach(this))
+                {
+                    ItemTemplate template = GameServer.Database.FindObjectByKey<ItemTemplate>(houseVault.TemplateID);
+                    Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, GameInventoryItem.Create(template));
+                    InventoryLogging.LogInventoryAction(floorObject.CurrentHouse.DatabaseItem.ObjectId, "(HOUSE;" + floorObject.CurrentHouse.HouseNumber + ")", this, eInventoryActionType.Other, template);
+                }
+                return true;
+            }
+            else if ((floorObject is GameNPC || floorObject is GameStaticItem) && floorObject.CurrentHouse != null)
+            {
+                floorObject.CurrentHouse.EmptyHookpoint(this, floorObject);
+                return true;
+            }
+            else if (floorObject is GameTradingTable)
+            {
+                GameTradingTable tradingObject = floorObject as GameTradingTable;
+                if (ObjectId == tradingObject!.consignmentMerchant.OwnerID)
+                    Out.SendDialogBox(eDialogCode.CloseMarket, 0, 0, 0, 0, eDialogType.YesNo, true,
+                        LanguageMgr.GetTranslation(Client, "Commands.Players.Market.Confirm.Close"));
+                return true;
+            }
+            else
+            {
+                Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GameObjects.GamePlayer.PickupObject.CantGetThat"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                return false;
+            }
+        }

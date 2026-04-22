@@ -1,0 +1,20 @@
+====== Événements de Boss Automatisés ======
+
+Pour dynamiser la vie sur le serveur, Amtenaël dispose d'un système d'événements automatisés qui font apparaître de puissantes créatures à travers le monde sans intervention humaine.
+
+===== Fonctionnement =====
+
+  * **Apparition** : Les boss apparaissent selon des créneaux horaires prédéfinis tout au long de la journée mais à des moments aléatoires au sein de ces créneaux.
+  * **Annonce** : Lorsqu'un boss surgit, un message système prévient tous les joueurs connectés.
+    * Exemple : //"Des rumeurs courent qu'une terrible présence serait apparue à [Lieu] !"//
+  * **Localisation** : Le lieu de l'apparition est choisi aléatoirement parmi une liste de points de spawn prédéfinis pour chaque type d'événement.
+
+===== Combat et Récompenses =====
+
+  * **Difficulté** : Ces boss sont des défis majeurs destinés à être affrontés en groupe (ou en raid). Ils possèdent souvent des intelligences artificielles personnalisées.
+  * **Temps Limité** : Si le boss n'est pas vaincu dans un délai d'**une heure** après son apparition, il s'échappe et l'événement se termine.
+  * **Distribution des Gains** : La victoire contre un boss d'événement octroie des récompenses (Expérience, Or, Objets) à l'ensemble des joueurs ayant participé activement au combat (ceux figurant dans sa liste d'agressivité).
+
+===== Importance pour le Serveur =====
+
+Ces événements réguliers sont des moments clés pour le regroupement de la communauté et l'obtention de butins exclusifs nécessaires à la progression à haut niveau.

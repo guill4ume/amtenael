@@ -1,0 +1,212 @@
+====== Commandes Joueur ======
+
+^ Commande ^ Alias ^ Description ^ Utilisation ^
+| **/cheer** |  | Cheer with both hands in the air | /cheer |
+| **/battlechat** | /bc, /bchat | Battle group command | /bc <text> |
+| **/appea** |  | Use /appeal to file an appeal |  |
+| **/shrug** |  | Shrug your shoulders | /shrug |
+| **/salvage** |  | You can salvage one or multiple item(s) when you are a crafter | /salvage \\ /salvage all \\ /salvage <bag> \\ /salvage <bag-bag> \\ Add 'Qxx' to specify the minimum quality of the items to salvage (Q98) |
+| **/clap** |  | Make a clapping gesture | /clap |
+| **/relics** | /relic | Displays the current relic status. | /relics |
+| **/pray** |  | You can pray on your gravestones to get some experience back | /pray |
+| **/beg** |  | Plea for items or money | /beg |
+| **/induct** |  | Make a ceremonial induction gesture | /induct |
+| **/victory** |  | Make a victory cheer | /victory |
+| **/hcladder** |  | Displays the Hardcore Ladder. | /hcladder |
+| **/smile** |  | Make a big smile | /smile |
+| **/horse** |  | Horse emotes | /horse <emote> |
+| **/roll** |  | simulates a dice roll. | /roll [#] to throw with a specified number of dice |
+| **/checkappeal** |  | Checks the status of your appeal or cancels it. | Usage: \\ /checkappeal view - View your appeal status. \\ /checkappeal cancel - Cancel your appeal and remove it from the queue. \\ Use /appeal to file an appeal. |
+| **/report** |  | 'Reports a bug | 'Usage: /report <message>  Please be as detailed as possible. |
+| **/level** |  | Allows you to level 20 instantly if you have a level 50 | /level |
+| **/lookfar** |  | Lets you look into the distance | /lookfar |
+| **/language** |  | Change your language. | Use '/language current' to see your current used language. \\ Use '/language set [language]' to set your language. \\ Use '/language show' to show all available languages and to see your current used language. |
+| **/stats** |  | Displays player statistics |  |
+| **/makeleader** | /m | Set a new group leader (can be used by current leader). | /m <playerName> |
+| **/gtrange** |  | Gives a range to a ground target | /gtrange |
+| **/shiver** |  | shiver | /shiver |
+| **/genuniques** |  | /genuniques ([TOA] || [L51] || [self] || [suit] || [objecttype]) [itemtype] : generate 8 unique items |  |
+| **/played** |  | Returns the age of the character | /played |
+| **/flex** |  | Makes a flexing gesture | /flex |
+| **/broadcast** | /b | Broadcast something to other players in the same zone | /b <message> |
+| **/viewreports** |  | Allows you to view submitted bug reports. | /viewreports |
+| **/send** | /tell, /t | // Displays next to the command when '/cmd' is entered
+        "Sends a private message to the target player. | '/send <targetName> <message>' - Sends a private message to the target player. |
+| **/cower** |  | Cower | /cower |
+| **/predator** |  | Join the hunt or view your current prey | /predator join \\ /predator prey \\ /predator abandon |
+| **/password** |  | Changes your account password | /password <current_password> <new_password> |
+| **/where** |  | Ask where an NPC is from Guards | /where <NPC Name> |
+| **/realmtask** |  | Displays the current realm bonuses status. | /realmtask |
+| **/random** |  | prints out a random number between 1 and the number specified. | /random [#] to get a random number between 1 and the number you specified. |
+| **/brandish** |  | Brandish your weapon | /brandish |
+| **/realm** |  | Displays the current realm status. | /realm |
+| **/housefriend** |  | Invite a specified player to your house | /housefriend all \\ /housefriend player <player> \\ /housefriend account <player> \\ /housefriend guild <guild> (If there are two or more words enclose them with \" \") |
+| **/no** |  | Shake your head | /no |
+| **/sell** |  | Sell items to a targeted merchant.  Specify a single bag, a range or all | Use: /sell 4 to sell all items bag 4 \\ /sell 2-3 to sell all items in bags 2 and 3 \\ /sell all to sell all items |
+| **/drink** |  | drink | /drink |
+| **/lastname** |  | Set/change your lastname. | /lastname <name> |
+| **/advice** | /adv | // Displays next to the command when '/cmd' is entered
+        "Lists all flagged Advisors, sends advisors questions, and sends messages to the Advice channel. | // Message: '/adv <message>' - Sends a message to the Advice channel.
+        "PLCommands.Advice.Syntax.AdvChannel \\ // Message: '/advice' - Lists all online Advisors.
+        "PLCommands.Advice.Syntax.Advice \\ // '/advisor' - Flags your character as an Advisor (<ADV>) to indicate that you are willing to answer new players' questions.
+        "PLCommands.Advisor.Syntax.Advisor \\ // Message: '/advisor <advisorName> <message>' - Directly messages an Advisor with your question.
+        "PLCommands.Advice.Syntax.SendAdvisor |
+| **/say** | /s | Say something to other players around you | /say <message> |
+| **/present** |  | To present someone with something | /present |
+| **/region** | /reg | Broadcast something to other players in the same region | /region <message> |
+| **/chat** | /c | Chat group command | /c <text> |
+| **/nohelp** |  | Toggle nohelp on or off, to follow the path of solitude and stop receiving help from  your realm | /nohelp> |
+| **/group** | /g | Say something to other chat group players | /g <message> |
+| **/vault** |  | Open the player's inventory. |  |
+| **/vol** |  | Tentative de vol à la tire sur votre cible actuelle (nécessite le mode Furtif). | /vol |
+| **/diabolical** |  | Sneer diabolically | /diabolical |
+| **/salute** |  | Makes a stiff salute | /salute |
+| **/monty** |  | Think Camelot is a silly place | /monty |
+| **/realmtimer** |  | Displays the players current realmtimer Status | /realmtimer |
+| **/slit** |  | Let your enemy know what you want to do to him | /slit |
+| **/range** |  | Gives a range to a target | /range |
+| **/gu** | /guild | Guild Chat command | /gu <text> |
+| **/slap** |  | Slap someone | /slap |
+| **/stench** |  | Wave away the local stench | /stench |
+| **/disband** |  | Disband from a group | /disband |
+| **/hardcore** |  | Flags a player as Hardcore. Dying after activating Hardcore will result in the character deletion. | /hardcore on |
+| **/stand** |  | Stands up when sitting | /stand |
+| **/raise** |  | Raise your hand, as in volunteering or getting attention | /raise |
+| **/chainactions** |  | Chain multiple actions. | /chainactions <create | save | clear> |
+| **/loco** |  | Think this is crazy | /loco |
+| **/groupsort** |  | Sort players in the group | '/groupsort switch <#> <#>' - switches two group members. |
+| **/discard** |  | Discard card # from your hand, or discard all cards. | /discard <#|all> |
+| **/advisor** |  | // Displays next to the command when '/cmd' is entered
+        "Flags your character as a class or tradeskill Advisor (<ADV>) for new players' questions. | // Syntax: '/advisor' - Flags your character as an Advisor (<ADV>) to indicate that you are willing to answer new players' questions.
+        "PLCommands.Advisor.Syntax.Advisor \\ // Message: '/advisor <advisorName> <message>' - Directly messages an Advisor with your question.
+        "PLCommands.Advice.Syntax.SendAdvisor |
+| **/sweat** |  | sweat | /sweat |
+| **/task** |  | Show the actual task | /task |
+| **/jump** |  | Teleports a player or yourself to the specified location xp | Playername can be [me]: \\ /jump to <PlayerName or MobName> \\ /jump to <#ClientID> \\ /jump to <Name> <RealmID> \\ /jump to <x> <y> <z> [<RegionID>] \\ /jump to <myhouse | house [#]> \\ /jump to region [#] - jump to same location in new region \\ /jump <name> to jail  - ports the player to DF jail \\ /jump <PlayerName> to <x> <y> <z> \\ /jump <PlayerName> to <x> <y> <z> [<RegionID>] \\ /jump <PlayerName> to <PlayerName> \\ /jump to GT \\ /jump rel <x> <y> <z> \\ /jump push - push current location to the stack \\ /jump pop - pop previous location & jump to it \\ /jump refresh - force a world refresh around you |
+| **/email** |  | Set e-mail address for current account | /email <address> |
+| **/servernews** | /sn | Shows the current Server News | Usage: /servernews |
+| **/vote** |  | Displays the current poll or let you vote | /vote  shows you the current voting \\ /vote 1|2|...|x  vote for your choice with the given number |
+| **/formation** |  | Change the formation of your pets! | /formation <type> |
+| **/held** |  | List the cards in your hand. Use 'held g' to display faceup cards held by group members. | /held <g> |
+| **/laugh** |  | Makes a laughing gesture | /bang |
+| **/safety** |  | Turns off PvP safety flag. | /safety off |
+| **/taunt** |  | A very mean gesture when you really want to insult someone | /taunt |
+| **/backupstyle** |  | Modify automatic backup style. | /backupstyle <set | clear> |
+| **/dismiss** |  | Make a dismissing gesture | /dismiss |
+| **/doh** |  | doh | /doh |
+| **/respec** |  | Respecs the char | /respec |
+| **/emote** | /em, /e | Roleplay an action or emotion | /emote <text> |
+| **/repair** |  | You can repair an item when you are a crafter | /repair |
+| **/blush** |  | Act in a shy manner | /blush |
+| **/battlegroup** | /bg | Battle group command | /bg <option> |
+| **/checkconcolor** |  | Check the target's con color server-side. | /checkconcolor |
+| **/search** |  | Search the current area. | /search |
+| **/housepoints** |  | Toggles display of housepoints | Useage: /housepoints toggle |
+| **/kiss** |  | Blow a kiss | /kiss |
+| **/rude** |  | A rude gesture | /rude |
+| **/assist** |  | Assist your target | /assist [playerName] |
+| **/facegloc** |  | Turns and faces your character into the direction of the x, y coordinates provided (using DOL region global coordinates). | /facegloc [x] [y] |
+| **/anonymous** | /anon | // Displays next to the command when '/cmd' is entered
+	  "Enables/disables anonymous mode, which hides you from player searches (e.g., '/who'). | which hides you from player searches (e.g. \\ '/who').
+	  "PLCommands.Anonymous.Syntax.Anon |
+| **/autosplit** |  | Choose how the loot and money are split between members of group | /autosplit on/off (Leader only: Toggles both coins and loot for entire group) \\ /autosplit coins (Leader only: When turned off, will send coins to the person who picked it up, instead of splitting it evenly across other members) \\ /autosplit loot (Leader only: When turned off, will send loot to the person who picked it up, instead of splitting it evenly across other members) \\ /autosplit self (Any group member: Choose not to receive autosplit loot items. You will still receive autosplit coins.) |
+| **/online** | /on | Shows all Players that are currently online | Usage: /online |
+| **/summon** |  | Summon horse | /summon |
+| **/worship** |  | worship | /worship |
+| **/reportharass** |  | Use /appeal to file an appeal |  |
+| **/houseface** |  | Points to the specified guildhouse of the guild noted, or the lot number noted in the command. /houseface alone will point to one's personal home. |  |
+| **/webdisplay** |  | Set informations displayed on the herald | /webdisplay <position|template|equipment|craft> [on|off] |
+| **/time** |  | time in game | /time |
+| **/bind** |  | Binds your soul to a bind location, you will start from there after you die and /release | /bind |
+| **/loyalty** |  | display current realm loyalty levels | /loyalty |
+| **/api** |  | Toggles API options | /api specs - toggle showing the specs of the player |
+| **/boot** |  | Kicks a player out of your house | Useage: /boot [playername] |
+| **/howl** |  | Howl with rage | /howl |
+| **/settitle** |  | Sets the current player title | /settitle <index> - to change current title using index in the list |
+| **/yell** | /y | Yell something to other players around you | /yell <message> |
+| **/combatstats** |  | toggle receiving experience points | /combatstats <on/off> |
+| **/news** |  | Show news on social interface | /news |
+| **/o** | /osend | Speak in officer chat (Must be a guild officer) | /o <text> |
+| **/house** |  | Show various housing information |  |
+| **/hug** |  | Makes a hugging gesture | /hug |
+| **/yawn** |  | yawn | /yawn |
+| **/setwho** |  | Set your class or trade for /who output | /setwho class | trade |
+| **/stuck** |  | //minimum privelege level
+		"Removes the player from the world and put it to a safe location | //command description
+		"/stuck |
+| **/autoloot** |  | automaticly pick up any loot that drops in your area | /autoloot <on/off> |
+| **/faceloc** |  | Turns and faces your character into the direction of the x, y coordinates provided (using Mythic zone coordinates). | /faceloc [x] [y] |
+| **/xpstats** |  | Toggle showing XP statistics | /xpstats <off|on|verbose> |
+| **/achievements** |  | View your progress towards various achievements | /achievements list |
+| **/dismisspet** |  | Dismiss the novelty pet | /dismisspet |
+| **/ponder** |  | For when you just want to go \"hmmmmmmm\ | /ponder |
+| **/faceflag** |  | Turns and faces your character into the direction of the x, y coordinates provided (using Mythic zone coordinates). | /faceflag [1|2|3|4] |
+| **/stagger** |  | stagger | /stagger |
+| **/quest** | /quests | Display a list of your ongoing and completed quests | /quest |
+| **/dismount** |  | Dismount your steed | /dismount |
+| **/reportbug** |  | Use /appeal to file an appeal |  |
+| **/appeal** |  | /appeal |  |
+| **/yes** |  | Nod your head | /yes |
+| **/military** |  | A military salute | /military |
+| **/talk** |  | Talk | /talk |
+| **/craftmacro** |  | Crafting macros and utilities | '/craftmacro set <#>' to set how many items you want to craft \\ '/craftmacro clear' to reset to crafting once \\ '/craftmacro show' to show the current craft settings \\ '/craftmacro buy' to buy the necessary materials to craft one item \\ '/craftmacro buy <#>' to buy the necessary materials to craft <#> items \\ '/craftmacro buyto <#>' to buy only the missing materials to craft <#> items |
+| **/invite** |  | Invite a specified or targeted player to join your group | /invite <player> |
+| **/angry** |  | Look angrily around | /angry |
+| **/jp** |  | Modify or use the jumppoint system | //usage
+        "/jp add <name> \\ /jp list \\ /jp port to <name> \\ /jp remove <name> |
+| **/filter** |  | Turns off the bad word filter. | /filter |
+| **/reporttos** |  | Use /appeal to file an appeal |  |
+| **/gc** | /guildcommand | Guild command (use /gc help for options) | /gc <option> |
+| **/target** |  | target a player by name | /target <playerName> |
+| **/ck** |  | Displays who owns the CK while in a battleground. | /ck |
+| **/curtsey** |  | Give a low curtsey | /curtsey |
+| **/bounty** |  | Allows to set a bounty on an enemy player | /bounty list \\ /bounty add <amount> |
+| **/conquest** |  | Displays the current conqust status. | /conquest |
+| **/classrog** |  | change the chance% of getting ROGs outside of your current class at level 50, or the likelihood of getting items relevant to your spec while under 50 | /classrog <%chance> |
+| **/namemount** |  | Name your hourse | /namemount |
+| **/statsanon** |  | Hides your statistics | /statsanon |
+| **/switch** |  | Equip Weapons from bag. (/switch 1h 1, will replace your mainhand weapon with the first slot in your backpack) | /switch 1h <slot> \\ /switch offhand <slot> \\ /switch 2h <slot> \\ /switch range <slot> |
+| **/lfg** |  | Broadcast a LFG message to other players in the same region | /lfg <message> |
+| **/surrender** |  | I give up! | /surrender |
+| **/sprint** |  | Toggles sprint mode | /sprint |
+| **/boat** | /boatcommand | Boat command (use /boat for options) | /boat <option> |
+| **/bang** |  | Bang on your shield | /bang |
+| **/chatgroup** | /cg | Chat group command | /cg <option> |
+| **/xp** |  | toggle receiving experience points | /xp <on/off> |
+| **/afk** |  | // Displays next to the command when '/cmd' is entered
+		"Enables/disables a flag that indicates you are \"away from keyboard | \" and allows you to attach a message that will auto-send to any player that uses '/send' to you (e.g., '/afk Bio break'). \\ '/afk Bio break').
+		"PLCommands.AFK.Syntax.AFK \\ // Syntax: '/afk <message>' - Sets yourself as "away from keyboard," and attaches a message that will auto-send to any player that uses '/send' to you.
+		"PLCommands.AFK.Syntax.MessageAFK |
+| **/confuse** |  | Confused | /confuse |
+| **/startled** |  | Be startled | /startled |
+| **/sololadder** |  | Displays the Solo Ladder. | /sololadder |
+| **/wave** |  | Makes a waving gesture | /wave |
+| **/rofl** |  | rofl | /rofl |
+| **/as** | /asend | Sends a message to the alliance chat | /as <text> |
+| **/who** |  | Shows who is online | //help: \\ /WHO ALL - lists all players online \\ /WHO <name> lists - players with names that start with <name> \\ /WHO <guild name> - lists players with names that start with <guild name> \\ /WHO <class> - lists players with of class <class> \\ /WHO <location> - lists players in the <location> area \\ /WHO <level> - lists players of level <level> \\ /WHO <level> <level> - lists players in level range \\ /WHO BG - lists all players leading a public BattleGroup \\ /WHO nogroup - lists all ungrouped players \\ /WHO hc - lists all Hardcore players \\ /WHO solo - lists all SOLO players |
+| **/roleplay** |  | Flags a player with an  tag to indicate the player is a role player. | /roleplay on/off |
+| **/player** |  | Various Admin/GM commands to edit characters. | /player name <newName> \\ /player lastname <change|reset> <newLastName> \\ /player level <newLevel> \\ /player levelup \\ /player reset - Reset and re-level a player to their current level. \\ /player realm <newRealm> \\ /player inventory [wear|bag|vault|house|cons] \\ /player <rps|bps|xp|xpa|clxp|mlxp> <amount> \\ /player stat <typeofStat> <value> \\ /player money <copp|silv|gold|plat|mith> <amount> \\ /player respec <all|line|realm|dol|champion> <amount=1> \\ /player model <reset|[change]> <modelid> \\ /player friend <list|playerName> \\ /player <rez|kill> <albs|mids|hibs|self|all> \\ it will rez target.
+		"/player jump <group|guild|cg|bg> <name> \\ just type in a player's name and his or her entire group will come with.
+		"/player kick <all> \\ /player save <all> \\ /player purge \\ /player update \\ /player info \\ /player location - write a location string to the chat window \\ /player showgroup \\ /player showeffects \\ /player startchampion - Starts the target on the path of the Champion. \\ /player clearchampion - Remove all Champion XP and levels from this player. \\ /player respecchampion - Respec this players Champion skills. \\ /player saddlebags <0 - 15> - Set what horse saddlebags are active on this player \\ /player startml - Start this players Master Level training. \\ /player setml <level> - Set this players current Master Level. \\ /player setmlstep <level> <step> [false] - Sets a step for an ML level to finished. 0 to set as unfinished. \\ /player allchars <PlayerName> \\ /player class <list|classID|className> - view a list of classes, or change the targets class. \\ /player areas - list all the areas the player is currently inside of  |
+| **/show** |  | Show all your cards to the other players (all cards become 'up'). | /show |
+| **/version** |  | Get the version of the GameServer | /version |
+| **/rearrange** |  | Allows you to rearrange your character overview. | /rearrange list - Shows a list with all to this account assigned characters and their slots. \\ /rearrange setslot [source slot] [target slot] - Sets the given source slot to the given target slot. |
+| **/friend** |  | Adds/Removes a player to/from your friendlist! | /friend <playerName> |
+| **/bow** |  | Give an honorable bow | /bow |
+| **/point** |  | Points to something in front of you | /point |
+| **/charge** |  | Onward! | /charge |
+| **/cancelstyle** |  | Toggle cancelstyle flag. | /cancelstyle |
+| **/cry** |  | Sob pathetically | /cry |
+| **/release** | /rel | When you are dead you can '/release'. This will bring you back to your bindpoint! | /release |
+| **/transfercorpse** | /tc | // Set to player.
+        "/transfercorpse <Keep name> ie: /transfercorpse dun crauchon |  |
+| **/sit** | /rest | Sit | /sit |
+| **/rp** |  | toggle receiving realm points | /rp <on/off> |
+| **/mememe** |  | mememe | /mememe |
+| **/ignore** |  | Adds/Removes a player to/from your Ignorelist! | /ignore <playerName> |
+| **/reportstuck** |  | Use /appeal to file an appeal |  |
+| **/duel** |  | Duel another player | /duel |
+| **/spacing** |  | Change the spacing of your pets! | /spacing {normal, big, huge} |
+| **/trade** |  | Broadcast a trade message to other players in the same region | /trade <message> |
+| **/dance** |  | Dance a little jig | /dance |
+| **/beckon** |  | Makes a beckoning gesture with character's hand | /beckon |

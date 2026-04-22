@@ -1,0 +1,31 @@
+{
+  "last_processed": "2026-04-01",
+  "files": {
+    "Commandes_Admin.txt": {
+      "status": "completed",
+      "est_time_min": 5,
+      "spent_time_min": 15,
+      "note": "Finalisé par l'utilisateur au format liste simplifiée"
+    },
+    "Commandes_GM.txt": {
+      "status": "completed",
+      "est_time_min": 10,
+      "spent_time_min": 120,
+      "note": "Finalisé par l'utilisateur au format liste simplifiée"
+    },
+    "Commandes_Joueur.txt": {
+      "status": "completed",
+      "est_time_min": 15,
+      "spent_time_min": 180,
+      "note": "Finalisé par l'utilisateur au format liste simplifiée"
+    },
+    "evenements_boss.txt": { "status": "completed", "spent_time_min": 10 },
+    "factions_grades.txt": { "status": "completed", "spent_time_min": 12 },
+    "jeu_anonymat.txt": { "status": "completed", "spent_time_min": 8 },
+    "objets_guarks.txt": { "status": "completed", "spent_time_min": 15 },
+    "objets_livres.txt": { "status": "completed", "spent_time_min": 20 },
+    "systemes_casier.txt": { "status": "completed", "spent_time_min": 10 },
+    "systemes_prison.txt": { "status": "completed", "spent_time_min": 15 },
+    "systemes_textnpc.txt": { "status": "completed", "spent_time_min": 12 }
+  }
+}

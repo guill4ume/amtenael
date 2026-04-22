@@ -1,0 +1,27 @@
+====== L'Anneau des Guarks ======
+
+L'**Anneau des Guarks** est un objet légendaire sur Amtenaël, permettant de voyager instantanément vers de nombreuses destinations secrètes. Sa puissance est immense, mais son utilisation demande prudence et concentration.
+
+===== Fonctionnement de l'Anneau =====
+
+Pour utiliser l'Anneau des Guarks, vous devez l'équiper sur l'un de vos emplacements d'anneaux. Dès son équipement, la "Magie Céleste" s'active.
+
+  * **L'Immobilisation** : Une fois actif, l'anneau vous paralyse sur place (vitesse de déplacement minimale).
+  * **Le Sacrifice** : La magie de l'anneau puise dans votre énergie vitale (Points de Vie) pendant l'incantation. Il inflige environ **10% de vos PV toutes les secondes**. Assurez-vous d'avoir assez de santé avant de l'utiliser !
+  * **La Durée** : L'incantation dure environ **10 secondes** avant de déclencher la téléportation.
+
+===== Choisir sa Destination =====
+
+Pendant que l'anneau est actif (avant la téléportation), vous pouvez tenter d'influencer votre destination :
+  * **Mots-clés** : Chuchotez le nom d'un lieu (souvent un mot-clé précis) pour diriger la téléportation.
+  * **Indécision** : Si vous ne formulez aucune demande (ou si la destination est inconnue), l'anneau vous enverra vers une **destination aléatoire** parmi les lieux connus des Guarks.
+
+===== Échec et Annulation =====
+
+  * **L'Annulation** : Vous pouvez annuler l'effet en retirant l'anneau ou en bougeant. La magie sera alors interrompue préventivement.
+  * **Le Combat** : L'anneau ne peut PAS être utilisé en combat. Toute prise de dégâts ou passage en état de combat annulera l'effet.
+  * **L'Échec critique** : Il existe environ **5% de chances** que la magie échoue et vous envoie vers un lieu totalement imprévu.
+
+===== Recommandations =====
+
+L'Anneau des Guarks est un outil puissant pour explorer les zones reculées d'Amtenaël, mais soyez vigilant : son coût en santé peut s'avérer fatal si votre personnage est déjà affaibli.

@@ -1,0 +1,31 @@
+====== Le Système de Prison ======
+
+Le serveur Amtenaël dispose d'un système de prison automatisé pour gérer les écarts de conduite (HRP) et les conséquences de certains actes en jeu (RP).
+
+===== Les deux types de prisons =====
+
+  * **La Prison RP** :
+    * Utilisée pour les infractions liées au Roleplay ou des délits commis en jeu.
+    * **Sortie** : Vous devez payer une caution (amende) au garde **Stronghold** situé à l'entrée. Une fois la somme payée (en pièces d'or), vous êtes libéré.
+    * **Indication** : Un message système vous prévient du montant de votre caution lors de votre emprisonnement.
+
+  * **La Prison HRP** :
+    * Utilisée pour les manquements au règlement du serveur (HRP).
+    * **Sortie** : La libération est **automatique** après un délai défini en temps réel (même si vous n'êtes pas connecté).
+    * **Indication** : Vous ne pouvez pas payer pour sortir d'une prison HRP.
+
+===== Règles et Restrictions =====
+
+Lorsqu'un personnage est en prison :
+  * Sa vitesse de déplacement est considérablement réduite.
+  * L'accès aux commandes de téléportation et le "bind" sont bloqués.
+  * Toute tentative de sortir de la zone de la prison avant la fin de la peine entraînera une téléportation automatique au point de départ.
+  * En cas de mort, le personnage ressuscite directement dans sa cellule.
+
+===== Commandes Utilisées par le Staff =====
+
+Les Maîtres de Jeu (GM) utilisent les commandes suivantes :
+  * ''/jail rp <joueur> <raison> <amende en po> [heures] [jours]''
+  * ''/jail hrp <joueur> <raison> <heures] [jours]''
+  * ''/jail list'' : Affiche la liste des prisonniers actuels.
+  * ''/jail relache <joueur>'' : Libère manuellement un prisonnier.

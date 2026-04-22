@@ -1,0 +1,3 @@
+[0:v]trim=0.000:72.097,setpts=PTS-STARTPTS[v0];
+[0:a]atrim=0.000:72.097,asetpts=PTS-STARTPTS[a0];
+[v0][a0]concat=n=1:v=1:a=1[v][a]
