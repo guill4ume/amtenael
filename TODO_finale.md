@@ -17,8 +17,9 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [ ] Recenser monstres et quêtes (et page loot Boss Ma'ati) (par les joueurs)
   - [x] Lister les commandes (Admin/GM/Player) et les publier sur le wiki.
 - [x] **PNJs & Services** : 
-  - [x] Mettre en place un PNJ "Instant 49" (Héraut des dieux : Niveau 50, Richesse, Artisanat).
+  - [x] Mettre en place un PNJ "Instant 50" (Héraut des dieux : Niveau 50, Richesse, Artisanat).
   - [x] Réparer l'encodage UTF-8 des noms de PNJs (Région 51).
+  - [ ] Remettre en place les menus et inventaires des marchands (Zone 51).
   - [ ] Passer tous les gardes dans la faction "Gardes" sur la carte 51 (créer la faction)
 - [ ] **Infrastructure & QA** :
   - [x] Script PowerShell de sauvegarde/restauration automatisé.
