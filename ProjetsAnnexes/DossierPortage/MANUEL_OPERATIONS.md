@@ -3,7 +3,7 @@
 > [!CAUTION]
 > **RÈGLE D'OR :** Rien n'est validé tant que ça n'a pas été testé **IN-GAME** (connexion réelle, interaction). Les logs sont un diagnostic, le test terrain est la seule validation.
 
-Dernière mise à jour : 07 Avril 2026
+Dernière mise à jour : 22 Avril 2026
 Documentation pratique pour lancer, migrer et valider le serveur Amtenaël.
 
 ---
