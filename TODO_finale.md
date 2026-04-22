@@ -19,12 +19,13 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [x] **PNJs & Services** : 
   - [x] Mettre en place un PNJ "Instant 50" (Héraut des dieux : Niveau 50, Richesse, Artisanat).
   - [x] Réparer l'encodage UTF-8 des noms de PNJs (Région 51).
-  - [ ] Remettre en place les menus et inventaires des marchands (Zone 51).
+  - [] Remettre en place les menus et inventaires des marchands (Zone 51) ->à vérifier
+  - [ ] Retirer la guilde de base automatiquement attribuée aux nouveaux personnages.
+  - [ ] Virer le portail rouge téléporteur
   - [ ] Passer tous les gardes dans la faction "Gardes" sur la carte 51 (créer la faction)
 - [ ] **Infrastructure & QA** :
   - [x] Script PowerShell de sauvegarde/restauration automatisé.
   - [ ] Diagnostiquer la lenteur au démarrage de la branche SPB (36s vs OpenDAOC natif).
-  - [ ] Retirer la guilde de base automatiquement attribuée aux nouveaux personnages.
 - [x] **Config Serveur** : Activation du changement de langue (`/language set`), passage par défaut en FR et alignement de 86 propriétés avec le CSV SPB.
 - [ ] **Traduction** : Vérifier en jeu la correspondance des noms d'objets en Français.
 

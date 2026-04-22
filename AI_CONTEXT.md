@@ -18,7 +18,8 @@ Le projet est scindé en deux serveurs distincts :
 
 ## 3. Règles C# pour les Scripts Personnalisés
 - **Emplacement** : Tous les scripts maison DOIVENT être placés dans le dossier `GameServer/custom/` ou `GameServer/scripts/customnpc/`.
-- **Librairies obsolètes** : NE PAS UTILISER `log4net` (ex: `ILog log = ...`). Le moteur moderne tourne sous `NLog`. Utiliser `Console.WriteLine` ou les adaptateurs NLog.
+- **Librairies obsolètes** : NE PAS UTILISER `log4net` (ex: `ILog log = ...`). Le moteur moderne tourne sous `NLog`. Utiliser `private static readonly Logger log = LogManager.GetCurrentClassLogger();` ou `Console.WriteLine`.
+- **Système TextNPC (Marchands avec Menus)** : Le système de marchands avec dialogue textuel (`TextNPCMerchant`) est disponible dans `GameServer/custom/TextNPC/`. Il est composé de 6 fichiers : `ITextNPC.cs`, `TextNPCBrain.cs`, `TextNPCCondition.cs`, `TextNPCMerchant.cs`, `DBTextNPC.cs`, `DBEchangeur.cs`. Les données textuelles sont stockées dans les tables `textnpc` et `echangeur` en base de données. **Le `ClassType` du mob en BDD doit correspondre exactement au nom de classe du script** (ex: `DOL.GS.Scripts.TextNPCMerchant`).
 - **Requêtes Joueurs** : 
   - En Prod, pour itérer sur tous les joueurs connectés, utiliser : `foreach (GamePlayer player in ClientService.Instance.GetPlayers())`.
 
