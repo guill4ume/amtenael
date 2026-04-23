@@ -3,7 +3,7 @@
 > [!CAUTION]
 > **RÈGLE D'OR :** Rien n'est validé tant que ça n'a pas été testé **IN-GAME** (connexion réelle, interaction). Les logs sont un diagnostic, le test terrain est la seule validation.
 
-Dernière mise à jour : 22 Avril 2026
+Dernière mise à jour : 23 Avril 2026
 Documentation pratique pour lancer, migrer et valider le serveur Amtenaël.
 
 ---
@@ -100,6 +100,10 @@ Le mode "Amtenael" utilise le type **PvP** de base d'OpenDAoC, mais avec les rè
 ---
 
 ## 🔧 Maintenance & Debug
+- **Propriétés Serveur** : Les paramètres globaux (XP, PvP, Branding) sont dans la table `serverproperty`. 
+    - *Branding* : `motd` et `starting_msg` mis à jour ("Bienvenue sur Amtenaël !").
+    - *Cross-Realm* : `allow_cross_realm_guilds` et `allow_all_realms` sont à `True`.
+    - *Maintenance* : `hours_uptime_between_shutdown` est à `24` pour un redémarrage quotidien.
 - **SQL Cleanup** : Utiliser `fix_missing_loot.sql` pour supprimer les références d'objets inexistants qui polluent les logs.
 - **Logs Ruleset** : Chercher `AmtenaelRules` dans les logs Docker pour confirmer l'activation.
 - **serverconfig.xml** : Géré par `entrypoint.sh`. Ne pas éditer manuellement.
