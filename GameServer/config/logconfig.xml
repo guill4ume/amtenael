@@ -4,7 +4,7 @@
 <log4net>
 	<!-- Setup the root category, add the appenders and set the default level -->
 	<root>
-		<level value="DEBUG" />
+		<level value="INFO" />
 		<appender-ref ref="ColoredConsoleAppender" />
 		<appender-ref ref="GameServerLogFile" />
 		<appender-ref ref="ErrorLogFile" />

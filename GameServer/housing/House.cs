@@ -23,6 +23,7 @@ using System.Linq;
 using System.Reflection;
 using DOL.Database;
 using DOL.Language;
+using DOL.GS;
 using log4net;
 
 namespace DOL.GS.Housing
@@ -40,7 +41,7 @@ namespace DOL.GS.Housing
 		private readonly Dictionary<int, IndoorItem> _indoorItems;
 		private readonly Dictionary<int, OutdoorItem> _outdoorItems;
 		private readonly Dictionary<int, DbHousePermissions> _permissionLevels;
-		// private GameConsignmentMerchant _consignmentMerchant;
+		private GameConsignmentMerchant _consignmentMerchant;
 
 		#region Properties
 
@@ -233,13 +234,11 @@ namespace DOL.GS.Housing
 			get { return _permissionLevels; }
 		}
 
-		/*
 		public GameConsignmentMerchant ConsignmentMerchant
 		{
 			get { return _consignmentMerchant; }
 			set { _consignmentMerchant = value; }
 		}
-		*/
 
 		public bool IsOccupied
 		{

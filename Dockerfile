@@ -1,3 +1,10 @@
+# ---- native build ----
+FROM alpine:3.19 AS native-build
+RUN apk add --no-cache cmake make g++ gcc musl-dev
+WORKDIR /src
+COPY Pathing/Detour /src
+RUN cmake . && make
+
 # ---- build ----
 # Use the official .NET 8.0 SDK image as the build environment
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
@@ -45,6 +52,10 @@ RUN mkdir -p /app/config && touch /app/config/invalidnames.txt
 
 # Copy the build output from the build stage
 COPY --from=build /build/Release /app
+
+# Copy the built native library
+RUN mkdir -p /app/runtimes/linux-x64/native/
+COPY --from=native-build /src/libdol_detour.so /app/runtimes/linux-x64/native/dol_detour.so
 
 # Copy the combined.sql file from the build stage
 COPY --from=build /tmp/opendaoc-db/opendaoc-db-core/combined.sql /tmp/opendaoc-db/combined.sql

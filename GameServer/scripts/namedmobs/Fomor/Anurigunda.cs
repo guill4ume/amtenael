@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using DOL.AI.Brain;
 using DOL.Database;
 using DOL.GS;
@@ -65,6 +65,12 @@ namespace DOL.GS
         public override bool AddToWorld()
 		{
 			INpcTemplate npcTemplate = NpcTemplateMgr.GetTemplate(60157942);
+			if (npcTemplate == null)
+			{
+				if (log.IsErrorEnabled)
+					log.Error("Anurigunda template 60157942 not found in database! Skipping initialization.");
+				return false;
+			}
 			LoadTemplate(npcTemplate);
 			Level = Convert.ToByte(npcTemplate.Level);
 			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
@@ -297,6 +303,12 @@ namespace DOL.GS
 		{
 			int idtemplate = Id_npctemplates[Util.Random(0, Id_npctemplates.Count - 1)];
 			INpcTemplate npcTemplate = NpcTemplateMgr.GetTemplate(idtemplate);
+			if (npcTemplate == null)
+			{
+				if (log.IsErrorEnabled)
+					log.Error("AnurigundaAdd template " + idtemplate + " not found in database! Skipping.");
+				return false;
+			}
 			LoadTemplate(npcTemplate);
 			RespawnInterval = -1;
 

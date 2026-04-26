@@ -63,7 +63,7 @@
     <Compile Remove="commands/admincommands/GiveFlyingMountCommand.cs" />
     <Compile Remove="housing/ControlInterface.cs" />
     <Compile Remove="custom/ConsignmentMerchant.cs" />
-    <Compile Remove="gameobjects/CustomNPC/MarketExplorer.cs" />
+    <!-- <Compile Remove="gameobjects/CustomNPC/MarketExplorer.cs" /> -->
     <Compile Remove="gameobjects/mount/FlyingMountItem.cs" />
     <EmbeddedResource Remove="custom\MimicNPC\Invasion System\**" />
     <None Remove="custom\MimicNPC\Invasion System\**" />

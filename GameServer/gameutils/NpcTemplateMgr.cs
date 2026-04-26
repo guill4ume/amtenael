@@ -192,7 +192,8 @@ namespace DOL.GS
 			}
 			else if (entry == null)
 			{
-				log.Error("No npctemplate with ID " + templateId + " found.");
+				if (log.IsDebugEnabled)
+					log.Debug("No npctemplate with ID " + templateId + " found.");
 				return null;
 			}
 			return (NpcTemplate)entry;

@@ -50,10 +50,10 @@ For RvR:
    
    /mbattle [Region] [Start/Stop/Clear]
    
-   - Region - "thid" is the only working region command.
-   - Start - Begins spawning all realms.
-   - Stop - Stops all spawning of realms.
-   - Clear - Stops all spawning of realms and kills and removes all npcs.
+    - Region - "thid" is the only working region command.
+    - Start - Begins spawning all realms. (Note: These bots now start automatically at the end of server startup).
+    - Stop - Stops all spawning of realms.
+    - Clear - Stops all spawning of realms and kills and removes all npcs.
    
 
 Commands for testing:

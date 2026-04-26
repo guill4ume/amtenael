@@ -1427,7 +1427,7 @@ namespace DOL.GS.ServerProperties
 		public static int PVP_REALM_TIMER_MINUTES; 
 		
 		[ServerProperty("conquest", "flag_capture_radius", "How far away can players capture an objective?", 750)]
-		public static ushort FLAG_CAPTURE_RADIUS;
+		public static int FLAG_CAPTURE_RADIUS;
 		
 		[ServerProperty("conquest", "flag_capture_time", "How long does it take to capture a flag?", 20)]
 		public static int FLAG_CAPTURE_TIME;
@@ -1680,7 +1680,7 @@ namespace DOL.GS.ServerProperties
 		/// <summary>
 		/// Are unclaimed keeps considered the enemy in PvP mode?
 		/// </summary>
-		[ServerProperty("keeps", "pvp_unclaimed_keeps_enemy", "Are unclaimed keeps considered the enemy in PvP mode?", false)]
+		[ServerProperty("keeps", "pvp_unclaimed_keeps_enemy", "Are unclaimed keeps considered the enemy in PvP mode?", true)]
 		public static bool PVP_UNCLAIMED_KEEPS_ENEMY;
 
 		/// <summary>

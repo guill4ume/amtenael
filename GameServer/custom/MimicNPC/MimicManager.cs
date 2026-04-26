@@ -1,4 +1,4 @@
-﻿using DOL.AI.Brain;
+using DOL.AI.Brain;
 using DOL.Database;
 using DOL.Events;
 using DOL.GS.Realm;
@@ -27,8 +27,8 @@ namespace DOL.GS.Scripts
                                                     new Point3D(53300, 26100, 4270),
                                                     30,
                                                     120,
-                                                    20,
-                                                    24);
+                                                    50,
+                                                    50);
         }
 
         public class MimicBattleground
@@ -85,13 +85,14 @@ namespace DOL.GS.Scripts
 
             public void Start()
             {
-                // For quick mass testing.
-                //Parallel.For(0, 2000, TickInternal);
+                log.Info("MimicBattleground Start() called for region " + m_region);
 
                 if (m_masterTimer == null)
                 {
+                    log.Info("Creating MasterTimer for region " + m_region);
                     m_masterTimer = new ECSGameTimer(null, new ECSGameTimer.ECSTimerCallback(MasterTimerCallback));
                     m_masterTimer.Start();
+                    log.Info("MasterTimer started for region " + m_region);
                 }
             }
 
@@ -159,8 +160,13 @@ namespace DOL.GS.Scripts
 
             private int MasterTimerCallback(ECSGameTimer timer)
             {
+                log.Info("MasterTimerCallback executing for region " + m_region);
+
                 if (GameLoop.GameLoopTime > m_resetMaxTime)
+                {
+                    log.Info("Resetting max mimics for region " + m_region);
                     ResetMaxMimics();
+                }
 
                 ValidateLists();
                 RefreshLists();
@@ -298,6 +304,8 @@ namespace DOL.GS.Scripts
 
             private int Spawn(ECSGameTimer timer)
             {
+                log.Info("Spawn() callback executing for region " + m_region);
+
                 bool albDone = false;
                 bool hibDone = false;
                 bool midDone = false;
@@ -457,7 +465,7 @@ namespace DOL.GS.Scripts
                     break;
                 }
 
-                player.Out.SendMessage(message, PacketHandler.eChatType.CT_System, PacketHandler.eChatLoc.CL_PopupWindow);
+                player.Out.SendMessage(message, PacketHandler.eChatType.CT_System, PacketHandler.eChatLoc.CL_SystemWindow);
             }
 
             public List<MimicNPC> GetMasterList()
@@ -1359,13 +1367,28 @@ namespace DOL.GS.Scripts
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        [ScriptLoadedEvent]
-        public static void OnScriptsCompiled(DOLEvent e, object sender, EventArgs args)
+        [GameServerStartedEvent]
+        public static void OnServerStarted(DOLEvent e, object sender, EventArgs args)
         {
+            // Initialize first to ensure ThidBattleground is not null
             if (MimicManager.Initialize())
+            {
                 log.Info("MimicNPCs Initialized.");
+                
+                if (MimicBattlegrounds.ThidBattleground != null)
+                {
+                    MimicBattlegrounds.ThidBattleground.Start();
+                    log.Info("Thidranki Battleground bots started automatically.");
+                }
+                else
+                {
+                    log.Error("ThidBattleground object is null after initialization!");
+                }
+            }
             else
+            {
                 log.Error("MimicNPCs Failed to Initialize.");
+            }
         }
     }
 

@@ -193,12 +193,14 @@ namespace DOL.GS
 
         public virtual void BuyItem(DbInventoryItem item, GamePlayer player)
         {
-            GameConsignmentMerchant consignmentMerchant = HouseMgr.GetConsignmentByHouseNumber(item.OwnerLot);
+            // TODO: Restaurer GetConsignmentByHouseNumber dans HouseMgr
+            // GameConsignmentMerchant consignmentMerchant = HouseMgr.GetConsignmentByHouseNumber(item.OwnerLot);
+            GameConsignmentMerchant consignmentMerchant = null;
 
             if (consignmentMerchant == null)
             {
-                player.Out.SendMessage("I can't find the consignment merchant for this item!", eChatType.CT_Merchant, eChatLoc.CL_ChatWindow);
-                log.Error($"ME: Error finding consignment merchant for lot {item.OwnerLot}; {player.Name}:{player.Client.Account.Name} trying to buy {item.Name}");
+                player.Out.SendMessage("Le système de recherche est bridé (méthode manquante). Veuillez vous rendre physiquement au marchand.", eChatType.CT_Merchant, eChatLoc.CL_ChatWindow);
+                // log.Error($"ME: Error finding consignment merchant for lot {item.OwnerLot}; {player.Name}:{player.Client.Account.Name} trying to buy {item.Name}");
                 return;
             }
 

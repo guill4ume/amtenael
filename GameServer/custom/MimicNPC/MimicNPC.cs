@@ -1,4 +1,4 @@
-﻿using DOL.AI;
+using DOL.AI;
 using DOL.AI.Brain;
 using DOL.Database;
 using DOL.Events;
@@ -121,7 +121,6 @@ namespace DOL.GS.Scripts
                 return 0;
             }));
 
-            Dev = ClientService.GetPlayers()[0];
         }
 
         private void SetBrain(eMimicClass mimicClass)
