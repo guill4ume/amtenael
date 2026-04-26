@@ -41,6 +41,7 @@ Le serveur est stable sous Docker avec une compilation propre (0 erreur). Les sc
 - [x] Injection de 4 028 PNJs (Import direct Breamor).
 - [ ] Traduction partielle des noms (Anglais -> Français).
 - [ ] Assigner le royaume de base aux NPCs selon leur faction.
+- [x] **Aerto Teleportation** : Téléportation vers Thidranki via dialogue pour tous les PNJs nommés "Aerto" (Map 51). ✅ VALIDÉ.
 
 ### Phase 2.1 : Ruleset Custom "PvP" (Priorité Amtenael) - ✅ VALIDÉ
 *But : Remplacer les règles standards PvP par Amtenael (Anonymat + Groupement).*
@@ -49,6 +50,10 @@ Le serveur est stable sous Docker avec une compilation propre (0 erreur). Les sc
 - [x] **Anonymat** : Filtrage de l'ID de guilde (0) dans `PacketLib168.cs`.
 - [x] **Groupement** : Surcharge de `GetLivingRealm` (Realm Lie) et `IsSameRealm`.
 - [x] **Diagnostic** : Intégration `log4net` pour suivi du chargement.
+- [x] **Zones de Combat (Thidranki)** :
+    - [x] Passage au niveau 50 pour tous les bots.
+    - [x] Fix de l'auto-spawn au démarrage du serveur.
+    - [x] Activation de l'agressivité des gardes neutres (PVP).
 
 ### Tâches Secondaires
 - [ ] Traduction des races en Français (Basse priorité).

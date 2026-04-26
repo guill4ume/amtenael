@@ -27,6 +27,10 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] Script PowerShell de sauvegarde/restauration automatisé.
   - [ ] Diagnostiquer la lenteur au démarrage de la branche SPB (36s vs OpenDAOC natif).
 - [x] **Config Serveur** : Activation du changement de langue (`/language set`), passage par défaut en FR et alignement de 86 propriétés avec le CSV SPB.
+- [x] **Stabilisation du Build (SPB)** : 
+  - [x] Réparation de `House.cs` (propriété `ConsignmentMerchant` décommentée).
+  - [x] Bridage temporaire du `MarketService` manquant pour permettre le démarrage.
+  - [x] Correction de l'encodage et des erreurs de syntaxe sur les scripts custom (`Aerto.cs`).
 - [ ] **Traduction** : Vérifier en jeu la correspondance des noms d'objets en Français.
 
 ---
@@ -38,22 +42,26 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [ ] **Portage des Données Joueurs** : Exporter inventaires, argent, classes depuis l'ancienne base DOL.
 - [ ] **Mapping/Monde** : 
   - [x] Importer le mobilier Lot B (tables `worldobject` et `door`) depuis Breamor.
-  - [ ] Importer le mapping complet (mobs, scripts) de DOL vers Avalon Isle (serveur Beta).
+  - [ ] Importer les scripts de DOL vers Avalon Isle (serveur Beta).
 - [x] **Groupage Inter-Royaume (Client 1.127)** :
   - [x] Bypass des filtres clients via `CustomDialog`.
   - [x] Implémentation du `/gjoin` global (pas de limite de distance).
   - [ ] **Améliorations futures** : Ajouter confirmation du joueur invité + popup visuelle (éventuellement remplacer bouton invite dans l'UI).
-- [ ] **Guildage Inter-Royaume** : À configurer/implémenter en s'inspirant de la table Amtenaël.
-- [ ] **Bases PvP & GvG** :
-  - [ ] Activer Thidranki avec bots, puis Jamtland Mountains avec capture de forts.
+- [ ] **Guildage Inter-Royaume** : À vérifier in game
+- [x] **Bases PvP & GvG** :
+  - [x] Activer Thidranki avec bots Niveau 50 (Auto-start au démarrage). ✅ Configuré dans `MimicManager.cs`.
+  - [x] Rendre les gardes de Thidranki agressifs envers les joueurs (PvP). ✅ Propriété `PVP_UNCLAIMED_KEEPS_ENEMY` activée.
+  - [x] Système de Téléportation "Aerto" : Dialogue et téléportation vers Thidranki (Niveau 50) pour les deux PNJs Aerto (Région 51). ✅ Implémenté via Global Hook.
+  - [ ] Jamtland Mountains avec capture de forts.
   - [ ] Ouvrir PvP H24 avec bonus de PR en soirée.
+  - [ ] Réparer les médecins qui ne rendent pas la constitution
 - [ ] **Économie & RP** :
   - [x] Centraliser le point de spawn de toutes les races sur la map historique.
   - [ ] Terminer le système de /shop (max 25 objets).
-  - [ ] Désactiver les gains de PRs sur la carte historique (le RP et les maps PvP priment). 
+  - [ ] Désactiver les gains de PRs sur la carte historique (le RP et les maps GvG/PvP priment). 
   - [x] Implémenter la récompense PR automatique via base de mots-clefs RP (Top Rôlistes).
 - [ ] **Générateur de Quêtes / Animation** : Outil ig pour permettre aux joueurs de créer des quêtes (0 XP, 0 PR) pour leur RP.
-- [ ] **Quêtes OpenDAOC (basse prio)** : Traduction des quêtes de la db OpenDAOC une fois l'essentiel en place.
+- [ ] **Quêtes OpenDAOC ** : Traduction des quêtes de la db OpenDAOC une fois l'essentiel en place.
 
 ---
 

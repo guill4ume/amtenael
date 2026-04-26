@@ -57,6 +57,15 @@ Objectif : Guider les développeurs sur les correspondances de code entre l'anci
 
 ---
 
+## ⚙️ Paramétrage Spécifique (ServerProperties)
+
+Certains comportements globaux ont été modifiés pour aligner le serveur sur les besoins d'Amtenaël :
+
+- **Gardes de Forts (PvP)** : `PVP_UNCLAIMED_KEEPS_ENEMY` est à `true`. Cela rend les gardes des forts non-capturés (ex: Thidranki) agressifs envers tous les royaumes.
+- **Auto-Start Bots** : L'initialisation du système Mimic est déclenchée par `[GameServerStartedEvent]` dans `MimicManager.cs`.
+
+---
+
 ## 🔧 Points Critiques & Hooks ECS
 
 - **ItemEquipped** : L'event `PlayerInventoryEvent.ItemEquipped` n'existe plus dans cette version de SPB.

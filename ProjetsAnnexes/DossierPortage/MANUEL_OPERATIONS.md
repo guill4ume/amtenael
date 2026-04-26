@@ -86,6 +86,28 @@ Pour exporter la base historique d'Amtenaël vers le nouveau serveur :
 3. Ouvrir la fenêtre de vente.
 4. **Succès** : La fenêtre contient des objets à acheter (table `merchantitem` et `itemtemplate`).
 
+### T.6 Bots Thidranki (Auto-spawn)
+1. Redémarrer le serveur.
+2. Vérifier les logs Docker : `docker-compose logs -f gameserver`.
+3. **Succès** : La ligne "Thidranki Battleground bots started automatically" doit apparaître à la fin du boot.
+4. Se rendre sur Thidranki (Région 252).
+5. **Succès** : Des bots des trois royaumes doivent être en train de combattre autour du fort central.
+
+---
+
+## 🤖 Système de Bots (Mimic NPCs)
+
+Le serveur SPB intègre un système de bots intelligents ("Mimics") pour simuler une activité de joueurs.
+
+- **Auto-Start RvR** : Les bots de Thidranki se lancent automatiquement à la toute fin du démarrage serveur (Event `GameServerStarted`).
+- **Gestion Manuelle** :
+    - **`/mbattle thid start`** : Force le démarrage immédiat du spawn des bots à Thidranki.
+    - **`/mbattle thid stop`** : Arrête le spawn (mais laisse les bots existants).
+    - **`/mbattle thid clear`** : Arrête le spawn et supprime tous les bots actifs.
+    - `/mlfg` : Liste des bots recrutables pour votre groupe (PvE).
+    - `/mrole` : Assigne des rôles (Tank, Healer, Puller) pour optimiser le groupe.
+- **Persistance** : Les bots de Thidranki persistent après déconnexion. Les bots de groupe sont dissous avec le groupe.
+
 ---
 
 ## ⚙️ Configuration Moteur (Amtenael Hijack)
