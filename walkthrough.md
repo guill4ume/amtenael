@@ -1,4 +1,4 @@
-﻿# Walkthrough : Restauration des Services et Migration du Mobilier
+# Walkthrough : Restauration des Services et Migration du Mobilier
 
 Ce document rÃ©sume les actions effectuÃ©es pour restaurer l'intÃ©gritÃ© de la RÃ©gion 51 (Avalon) et les services associÃ©s.
 
@@ -20,6 +20,11 @@ Ce document rÃ©sume les actions effectuÃ©es pour restaurer l'intÃ©gritÃ©
 
 ## 3. Synchronisation Technique
 - Tous les scripts d'extraction et de remapping ont Ã©tÃ© archivÃ©s sur le dÃ©pÃ´t [OpenDAoC-SPB](file:///C:/OpenDAOC_server/ProjetsAnnexes/OpenDAoC-SPB) (branche `spb`) pour rÃ©fÃ©rence future.
+
+## 4. Maintenance (Completed)
+- [x] Optimize server startup (Fixed equipment and zone warnings).
+- [ ] Optimize server performance (Address `Long TimerService.Tick` warnings).
+- [ ] Regular database indexing to speed up player and object lookups.
 
 > [!TIP]
 > **VÃ©rification In-Game** : Vous pouvez maintenant vous connecter en Avalon. Le HÃ©raut devrait se trouver devant vous, et les Portes/Forges/Coffres de Breamor devraient Ãªtre visibles et utilisables.

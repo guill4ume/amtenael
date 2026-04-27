@@ -11,7 +11,8 @@
 - [ ] **Visual Popup for /gjoin**: Use a `CustomDialog` instead of just chat messages to make the grouping process more immersive.
 - [ ] **Range/Region Settings**: Consider making the global range of `/gjoin` configurable via server properties.
 
-## Maintenance
+## Maintenance (Completed)
+- [x] Optimize server startup (Fixed equipment and zone warnings).
 - [ ] Optimize server performance (Address `Long TimerService.Tick` warnings).
 - [ ] Regular database indexing to speed up player and object lookups.
 
