@@ -12,13 +12,10 @@ Documentation pratique pour lancer, migrer et valider le serveur Amtenaël.
 
 L'ensemble des dépôts est désormais géré via un Fork GitHub unifié (`https://github.com/guill4ume/amtenael`), en remplacement des anciens `git stash` locaux qui provoquaient des pertes de données et des conflits de fusion.
 
-1. **Serveur de Test (SPB) :**
+1. **Serveur Unique (SPB) :**
+    - Le projet repose désormais exclusivement sur le serveur situé dans `ProjetsAnnexes/OpenDAoC-SPB`.
     - Fonctionne sur la branche `spb`.
     - Pour sauvegarder vos scripts custom : `git add .`, puis `git commit -m "ma modification"`, puis `git push origin spb`.
-    
-2. **Serveur de Production (Core-master) :**
-    - Fonctionne sur la branche `master`.
-    - Pour tout mettre à jour (récupérer les MAJ officielles, commiter vos ajouts, et pousser sur votre GitHub), il suffit de lancer le script de la racine : `C:\OpenDAOC_server\Mettre_A_Jour_Prod.bat`.
 
 ---
 
@@ -95,18 +92,11 @@ Pour exporter la base historique d'Amtenaël vers le nouveau serveur :
 
 ---
 
-## 🤖 Système de Bots (Mimic NPCs)
-
-Le serveur SPB intègre un système de bots intelligents ("Mimics") pour simuler une activité de joueurs.
-
-- **Auto-Start RvR** : Les bots de Thidranki se lancent automatiquement à la toute fin du démarrage serveur (Event `GameServerStarted`).
-- **Gestion Manuelle** :
-    - **`/mbattle thid start`** : Force le démarrage immédiat du spawn des bots à Thidranki.
-    - **`/mbattle thid stop`** : Arrête le spawn (mais laisse les bots existants).
-    - **`/mbattle thid clear`** : Arrête le spawn et supprime tous les bots actifs.
-    - `/mlfg` : Liste des bots recrutables pour votre groupe (PvE).
-    - `/mrole` : Assigne des rôles (Tank, Healer, Puller) pour optimiser le groupe.
-- **Persistance** : Les bots de Thidranki persistent après déconnexion. Les bots de groupe sont dissous avec le groupe.
+## 🤖 Système de Bots (Mimics)
+Le serveur SPB intègre un système de bots intelligents ("Mimics").
+- **Détails Complets** : Voir le [GUIDE_BOTS.md](file:///c:/OpenDAOC_server/ProjetsAnnexes/DossierPortage/GUIDE_BOTS.md).
+- **Auto-Start Thidranki** : 60 bots (20 par royaume) lancés au démarrage.
+- **Stats** : `/mbstats thid` pour vérifier la population en temps réel.
 
 ---
 

@@ -8,18 +8,18 @@ Statut Global : 🟢 **OPÉRATIONNEL (Mode PvP)**
 
 ---
 
-## 🚀 État des Lieux (Phase 1 Stable)
+## 🚀 État des Lieux (Serveur Unique SPB)
 
-Le serveur est stable sous Docker avec une compilation propre (0 erreur). Les scripts Amtenaël de base sont opérationnels.
+Le projet est désormais unifié sur le serveur **OpenDAoC-SPB**. La version Core-master a été abandonnée pour simplifier la maintenance et éviter les conflits de configuration.
 
 | Système | Statut | Note |
 |---|---|---|
-| Core Server | 🟢 OK | Build Docker Réussi |
+| Core Server (SPB) | 🟢 OK | Build Docker Réussi |
 | MariaDB | 🟢 OK | Schéma OpenDAoC + PNJ Avalon |
 | Anonymat RP | 🟢 OK | Filtrage PacketLib + ExamineMessages |
 | Inter-Royaume | 🟢 OK | Ruleset Custom Amtenael (GST_PvP) |
 | RP Rewards | 🟢 OK | RoleplayReward & PvPBonusManager actifs |
-| Maintenance | ⚠️ ATTENTION | Marché/Montures désactivés pour stabilité |
+| Maintenance | 🟢 UNIQUE | SPB remplace définitivement la Prod |
 
 ---
 
@@ -53,7 +53,9 @@ Le serveur est stable sous Docker avec une compilation propre (0 erreur). Les sc
 - [x] **Zones de Combat (Thidranki)** :
     - [x] Passage au niveau 50 pour tous les bots.
     - [x] Fix de l'auto-spawn au démarrage du serveur.
+    - [x] Population stabilisée à 20 bots/royaume (60 total) pour performance.
     - [x] Activation de l'agressivité des gardes neutres (PVP).
+    - [x] **Fix de Stabilité** : Correction du crash NRE lors du groupement Mimic en mode PvP. ✅ VALIDÉ.
 
 ### Tâches Secondaires
 - [ ] Traduction des races en Français (Basse priorité).

@@ -19,6 +19,16 @@ Objectif : Guider les développeurs sur les correspondances de code entre l'anci
 | `BringFriends(npc, list)` | `BringFriends(npc)` | Surcharge simplifiée |
 | `NPCEquipment` | `DbNpcEquipment` | Table DB Master |
 
+### 3. Gestion de la Population (MimicManager.cs)
+La population est configurée dans `MimicBattlegrounds.Initialize()`.
+- **Thidranki** : 60 bots total (20 Alb, 20 Hib, 20 Mid).
+- **Répartition** : Équilibrée (1/3 par royaume) gérée dans `ResetMaxMimics()`.
+- **Niveau** : Fixé à 50 par défaut pour tous les bots de Thidranki.
+- **Spawn** : Progressif (1 bot par royaume toutes les secondes) via `m_spawnTimer`.
+
+### 4. Corrections de stabilité
+- **PvP Groups** : Correction d'une `NullReferenceException` dans `Group.AddMember` et `Group.RemoveMember` qui survenait car le code tentait de caster les Mimics en `GamePlayer` (alors qu'ils héritent de `GameNPC`).
+
 ---
 
 ## 🛠 Inventaire Technique des Systèmes
@@ -35,7 +45,10 @@ Objectif : Guider les développeurs sur les correspondances de code entre l'anci
 
 ### 2. Infrastructure Docker (`Dockerfile`)
 - **Configuration persistante** : Le dossier `/app/config` est créé au build et le fichier `invalidnames.txt` est initialisé pour éviter les erreurs bloquantes au démarrage.
-- **Build Linux** : Compilation via `dotnet build` au sein de l'image Alpine multi-stage.
+- [x] Initialisation automatique des bots au démarrage du serveur.
+- [x] Population maximisée à 20 bots par royaume (60 total) à Thidranki dès le lancement.
+- [x] Fix : Correction d'un crash (NRE) lors de la création de groupes de Mimics en mode PvP.
+- [x] Fix : Correction de l'affichage des statistiques (/mbstats) via CL_SystemWindow.
 - **Import** (vers le Docker SPB) :
     ```powershell
     Get-Content breamor_export.sql | docker exec -i openbots-db mysql -u root -pmy-secret-pw opendaoc

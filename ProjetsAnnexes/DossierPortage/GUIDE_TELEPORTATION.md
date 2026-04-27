@@ -27,21 +27,11 @@ Il existe un objet natif dans la base de données permettant le voyage vers le B
     3. La téléportation se déclenche automatiquement.
 - **Note** : Cet objet est utile pour recréer des mécaniques similaires à l'Anneau des Guarks.
 
-## 4. Informations Techniques (Bots)
-- **Région ID** : 252
-- **Population** : 30 à 120 bots (dynamique).
-- **Niveaux** : Forcé à **50**.
-- **Spawn** : Automatique à la fin du démarrage serveur (Event : `GameServerStarted`).
-- **Configuration** : Géré dans `MimicManager.cs`.
+## 4. Informations sur la Zone
+Pour plus de détails sur le fonctionnement des bots, les commandes de statistiques et la configuration de la population, consultez le [GUIDE_BOTS.md](file:///c:/OpenDAOC_server/ProjetsAnnexes/DossierPortage/GUIDE_BOTS.md).
 
 ## 5. Comportement des Gardes et PVP
 Sur ce serveur (Ruleset Amtenael / PvP), les gardes des forts non revendiqués par une guilde sont paramétrés pour être **agressifs** par défaut envers tous les joueurs.
 - **Agressivité** : Si vous vous approchez d'un fort ennemi ou neutre, les gardes vous attaqueront à vue.
 - **Propriété** : Ce comportement est contrôlé par `PVP_UNCLAIMED_KEEPS_ENEMY` dans `ServerProperties.cs`.
-
-## 6. Maintenance & Dépannage (Important)
-Lors de la mise en place de ces systèmes, des correctifs de stabilité ont été nécessaires :
-- **Marchés (Consignment Merchants)** : Le service `MarketService` étant manquant dans cette branche, les appels d'achat à distance ont été bridés dans `ConsignmentMerchant.cs` et `MarketExplorer.cs` pour éviter le crash du serveur.
-- **Housing** : La propriété `ConsignmentMerchant` dans `House.cs` a été réactivée.
-- **Bots** : Confirmés via le log `Thidranki Battleground bots started automatically` au boot.
 

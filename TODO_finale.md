@@ -12,6 +12,11 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 *Tâches rapides pour poser les bases (communication, docs, nettoyage).*
 
 - [x] **Setup Vidéo/Com** : Filmer l'étude de portage via OBS (scinder en eps. 20 min) et configurer la publication automatique sur YouTube.
+- [x] **Système de Bots (Thidranki)** :
+  - [x] Initialisation automatique au démarrage.
+  - [x] Population maximisée (60 bots total, 20 par royaume) dès le lancement.
+  - [x] Fix : Crash NRE (Groupes PvP) et Stats (/mbstats).
+  - [x] Fix : Crash au démarrage (accès joueurs non connectés).
 - [x] **Documentation Wiki** : 
   - [ ] Recenser ce qui fonctionne en craft/classes sur DOL (par les joueurs)
   - [ ] Recenser monstres et quêtes (et page loot Boss Ma'ati) (par les joueurs)
@@ -31,7 +36,8 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] Réparation de `House.cs` (propriété `ConsignmentMerchant` décommentée).
   - [x] Bridage temporaire du `MarketService` manquant pour permettre le démarrage.
   - [x] Correction de l'encodage et des erreurs de syntaxe sur les scripts custom (`Aerto.cs`).
-- [ ] **Traduction** : Vérifier en jeu la correspondance des noms d'objets en Français.
+  - [ ] **Traduction** : Vérifier en jeu la correspondance des noms d'objets en Français.
+- [ ] Tous les chevaux ont le même skin marron, remettre la correspondance entre les items achetés et les skins correspondant
 
 ---
 
@@ -53,12 +59,12 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] Rendre les gardes de Thidranki agressifs envers les joueurs (PvP). ✅ Propriété `PVP_UNCLAIMED_KEEPS_ENEMY` activée.
   - [x] Système de Téléportation "Aerto" : Dialogue et téléportation vers Thidranki (Niveau 50) pour les deux PNJs Aerto (Région 51). ✅ Implémenté via Global Hook.
   - [ ] Jamtland Mountains avec capture de forts.
-  - [ ] Ouvrir PvP H24 avec bonus de PR en soirée.
-  - [ ] Réparer les médecins qui ne rendent pas la constitution
+  - [ ] Ouvrir PvP H24 (fait) avec bonus de PR en soirée.
+  - [ ] Réparer les médecins qui ne rendent pas la constitution (healer.cs de mémoire)
 - [ ] **Économie & RP** :
   - [x] Centraliser le point de spawn de toutes les races sur la map historique.
   - [ ] Terminer le système de /shop (max 25 objets).
-  - [ ] Désactiver les gains de PRs sur la carte historique (le RP et les maps GvG/PvP priment). 
+  - [ ] Désactiver les gains de PRs sur la carte historique (le rôleplay et les maps GvG/PvP priment). 
   - [x] Implémenter la récompense PR automatique via base de mots-clefs RP (Top Rôlistes).
 - [ ] **Générateur de Quêtes / Animation** : Outil ig pour permettre aux joueurs de créer des quêtes (0 XP, 0 PR) pour leur RP.
 - [ ] **Quêtes OpenDAOC ** : Traduction des quêtes de la db OpenDAOC une fois l'essentiel en place.
