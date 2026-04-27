@@ -223,8 +223,8 @@ namespace DOL.GS.ServerRules
 			// SPB: Bypass "friendly NPC" blocks in Thidranki (Region 252)
 			if (attacker != null && defender != null && attacker.CurrentRegionID == 252 && defender.CurrentRegionID == 252)
 			{
-				if (attacker is GamePlayer && defender is GameKeepGuard) return true; // Player can attack Keep Guards
-				if (attacker is GameKeepGuard && defender is GamePlayer) return true; // Keep Guards can attack Players
+				if (attacker is GamePlayer && defender is GameKeepGuard && attacker.Realm != defender.Realm) return true; // Player can attack Enemy Keep Guards
+				if (attacker is GameKeepGuard && defender is GamePlayer && attacker.Realm != defender.Realm) return true; // Enemy Keep Guards can attack Players
 				
 				if (attacker is GamePlayer && defender is GameNPC && attacker.Realm != defender.Realm) return true; // Player vs Enemy Bot
 				if (attacker is GameNPC && defender is GamePlayer && attacker.Realm != defender.Realm) return true; // Enemy Bot vs Player
