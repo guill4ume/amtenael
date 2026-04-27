@@ -132,7 +132,7 @@ namespace DOL.GS
 					{
 						//50% chance to keep the item we have
 						if (Util.Chance(50))
-							return false;
+							return true;
 						//Let's remove the old item!
 						m_items.Remove(slot);
 					}
@@ -152,7 +152,7 @@ namespace DOL.GS
 						item.SlotPosition = (int)slot;
 					}
 					else
-						return false;
+						return true;
 
 					m_items.Add(slot, item);
 				}

@@ -16,78 +16,183 @@ namespace OpenDAoC_SPB.Custom
 
 		private static readonly int COOLDOWN_MINUTES_PER_WORD = 10;
 		private static readonly int REWARD_TIMER_MINUTES = 5;
-		private static readonly int RP_PER_WORD = 2; 
+		private static readonly int RP_PER_WORD = 5; 
 		
 		private static readonly HashSet<string> RP_WORDS = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
 		{
-			// Titres, salutations et rôles
-			"messire", "damoiseau", "sire", "dame", "seigneur", "roi", "reine", "prince", "princesse", "monarque",
-			"duc", "baron", "comte", "châtelain", "noble", "paladin", "chevalier", "preux", "héros", "champion",
-			"mercenaire", "paysan", "tavernier", "barde", "ménestrel", "forgeron", "herboriste", "alchimiste",
-			"archimage", "prêtre", "clerc", "moine", "brigand", "voleur", "assassin", "garde", "sentinelle",
-			"capitaine", "nécromancien", "druide", "sorcier", "chaman", "chasseur", "archer", "guerrier",
-			"gueux", "maraud", "manant", "félon", "misérable", "vil", "salutations", "adieu", "bienvenue",
-			"écuyer", "sénéchal", "connétable", "intendant", "héraut", "page", "bailli", "prévôt", "chancelier",
-			"grand-maître", "templier", "exorciste", "druidesse", "palfrenier", "éclaireur", "vigie", "messager",
-			"confrère", "soeur", "frère", "père", "mère", "daim", "cerf", "lignée", "ancêtre", "suzerain", "vassal",
+			// ==========================================
+			// 1. UNIVERS DARK AGE OF CAMELOT (DAoC)
+			// ==========================================
 			
-			// Lieux et géographie
-			"royaume", "empire", "fief", "comté", "duché", "village", "hameau", "bourg", "auberge", "taverne",
-			"crypte", "donjon", "abysse", "sanctuaire", "autel", "forteresse", "tour", "cité", "forêt", "temple",
-			"grotte", "ruine", "nécropole", "château", "rempart", "frontière", "contrée", "territoire", "montagne",
-			"val", "vallée", "rivière", "fleuve", "océan", "mer", "caverne", "tombeau", "herse", "douve", "meurtrière",
-			"lice", "poterne", "chemin de ronde", "castrum", "abbaye", "ermitage", "cairn", "dolmen", "menhir",
-			"bosquet", "marais", "estuaire", "archipel", "vallon", "causse", "plateau", "ravin", "gouffre",
+			// Classes & Archétypes
+			"paladin", "maître d'armes", "théurge", "cabaliste", "sorcier", "clerc", "moine", "mercenaire", "infiltrateur", "fléau d'arawn", "hérétique",
+			"guerrier", "berserker", "chasseur", "skald", "thane", "runiste", "spiritiste", "chaman", "guérisseur", "ombre", "bogdar", "sauvage", "valkyrie",
+			"héros", "finelame", "veilleurs", "barde", "eldritch", "enchanteur", "mentaliste", "druide", "protecteur", "empathe", "nightshade", "faucheur",
+			"animiste", "valewalker", "vampiir", "sentinelle", "champion", "faucheur", "faucheuse", "relique", "fort", "avant-poste",
 			
-			// Équipement, armes et objets
-			"épée", "bouclier", "armure", "heaume", "hache", "lance", "arc", "grimoire", "rune", "talisman", "relique",
-			"parchemin", "potion", "hydromel", "cotte", "mailles", "gantelet", "dague", "poignard", "masse", "fléau",
-			"hallebarde", "javelot", "flèche", "carquois", "baguette", "sceptre", "couronne", "cape", "besace", "bourse",
-			"amulette", "anneau", "joyau", "gemme", "cristal", "pierre", "acier", "fer", "mithril", "or", "argent",
-			"gladius", "spatha", "claymore", "francisque", "framée", "scramasaxe", "broigne", "gambison", "haubert",
-			"bassinet", "salade", "gorgerin", "éperon", "destrier", "palefroi", "roncin", "cuirasse", "boucle", "fourreau",
+			// Races
+			"breton", "avalonien", "sarrazin", "highlander", "inconnu", "demi-ogre", "nordique", "nain", "troll", "kobold", "frostalf", "valkyn",
+			"celte", "elfe", "firbolg", "lurikeen", "sylvestre", "shar", "korazh", "graoch", "luridien",
 			
-			// Magie, religion et concepts
-			"magie", "sortilège", "malédiction", "rituel", "incantation", "prophétie", "oracle", "ombre", "flamme",
-			"mana", "bénédiction", "pacte", "démoniaque", "divin", "sacré", "profane", "esprit", "âme", "dieu", "dieux",
-			"déesse", "foi", "prière", "miracle", "ténèbres", "lumière", "enchantement", "illusion", "invocation",
-			"dogme", "hérésie", "pénitence", "absolution", "ferveur", "dévotion", "ascèse", "mystique", "augure",
+			// Lieux & Zones emblématiques
+			"camelot", "jordheim", "tir na nog", "salisbury", "snowdonia", "dartmoor", "myrkwood", "raumarike", "malmohus", "lough derg",
+			"lyonesse", "sauvage", "glass", "svealand", "mularn", "moher", "sheeroe", "connacht", "shannon", "pennine", "anderson",
+			"emain macha", "breifine", "odin", "thor", "freya", "hibernia", "albion", "midgard", "frontier", "passage",
 			
-			// Thèmes, actions et émotions
-			"honneur", "gloire", "sang", "bataille", "guerre", "quête", "destin", "serment", "alliance", "vengeance",
-			"courage", "héroïsme", "siège", "victoire", "défaite", "trahison", "bravoure", "lâcheté", "mort", "vie",
-			"croisade", "périple", "voyage", "festin", "combat", "lutte", "triomphe", "sacrifice", "péril", "danger",
-			"embuscade", "escarmouche", "trêve", "paix", "justice", "châtiment", "pardon", "gloire", "renommée",
-			"mandat", "quérir", "oyez", "festoyer", "guerroyer", "jouter", "pourfendre", "occire", "truander", "haranguer",
-			"vaillant", "belliqueux", "infâme", "loyal", "fourbe", "austère", "magnanime", "intrépide", "outrecuidant",
+			// Bestiaire DAoC
+			"golestandt", "cuuldurach", "legion", "siabra", "bwca", "puca", "kelpie", "morrigane", "glimmer", "granit", "sylvain", "draco", "wyrm",
 			
-			// Créatures et bestiaire (incluant Daoc)
-			"dragon", "troll", "elfe", "nain", "orc", "gobelin", "géant", "vampire", "spectre", "griffon", "licorne",
-			"hydre", "wyrm", "fée", "celte", "breton", "nordique", "loup", "démon", "fantôme", "goule", "squelette",
-			"mort-vivant", "monstre", "bête", "créature", "minotaure", "centaure", "gargouille", "harpie", "golem",
-			"lurikeen", "firbolg", "sylvestre", "sarrazin", "highlander", "kobold", "valkyrie", "berserker", "skald",
-			"thane", "runiste", "druide", "barde", "eldritch", "enchanteur", "mentaliste", "animiste", "faucheur",
+			// ==========================================
+			// 2. VIE MÉDIÉVALE, ARTISANAT & SOCIAL
+			// ==========================================
 			
-			// Exclamations et mots typiques DAoC / Médiéval
-			"parbleu", "fichtre", "diantre", "pardi", "guilde", "royaume", "relique", "fort", "albion", "midgard", 
-			"hibernia", "certes", "nonobstant", "hélas", "mortecouille", "morbleu", "ventrebleu", "sacrebleu", 
-			"oyez", "nonpoint", "icelle", "icelui", "que trépas me prenne", "par les dieux", "par ma barbe",
+			// Rôles & Titres
+			"messire", "damoiseau", "sire", "dame", "seigneur", "roi", "reine", "prince", "princesse", "monarque", "duc", "baron", "comte",
+			"châtelain", "noble", "chevalier", "preux", "héros", "champion", "écuyer", "sénéchal", "connétable", "intendant", "héraut", "page",
+			"bailli", "prévôt", "chancelier", "grand-maître", "templier", "exorciste", "druidesse", "palfrenier", "éclaireur", "vigie", "messager",
+			"confrère", "soeur", "frère", "père", "mère", "suzerain", "vassal", "chambellan", "maréchal", "vidame", "trouvère", "troubadour",
+			"saltimbanque", "apothicaire", "tanneur", "tisserand", "forgeron", "herboriste", "alchimiste", "archimage", "prêtre", "clerc", "moine",
+			"brigand", "voleur", "assassin", "garde", "sentinelle", "capitaine", "nécromancien", "druide", "sorcier", "chaman", "chasseur",
+			"archer", "guerrier", "gueux", "maraud", "manant", "félon", "misérable", "vil", "acapte", "adoubeur", "aubain", "baile", "bégard",
+			"capitulaire", "captal", "chirographe", "clergesse", "coutilier", "écolâtre", "huchier", "imagier", "jurat", "mire", "drapier", "colporteur",
 			
-			// Nature and Seasons
-			"printemps", "été", "automne", "hiver", "givre", "rosée", "brise", "orage", "tempête", "météore", 
-			"comète", "éclipse", "foudre", "tonnerre", "zénith", "aurore", "crépuscule", "autan", "borée", 
-			"zéphyr", "frimas", "nimbes", "éther", "firmament", "constellation", "astral",
+			// Vie quotidienne & Cuisine
+			"taverne", "auberge", "festin", "hydromel", "cervoise", "hypocras", "venaison", "brouet", "gruau", "miche", "saugrenée", "potée",
+			"mansion", "manteline", "cliquette", "hanap", "aquamanile", "isopet", "ysopet", "fable", "fabliau", "fatrasie", "lendit",
 			
-			// Food and Feast
-			"festin", "banquet", "marcassin", "faisan", "rôtie", "tonnelet", "piquette", "cervoise", "vin", 
-			"pain", "blé", "miche", "ripaille", "gaubiche", "écrouelles", "affamer", "rassasier", "abreuvé", 
-			"écuelle", "broche", "victuailles", "fripouille", "godailleur", "souillon", "garde-manger",
+			// ==========================================
+			// 3. ARCHITECTURE & FORTIFICATIONS
+			// ==========================================
 			
-			// Emotions and Concepts
+			"royaume", "empire", "fief", "bourg", "hameau", "village", "cité", "forteresse", "château", "tour", "donjon", "rempart",
+			"herse", "douve", "meurtrière", "lice", "poterne", "chemin de ronde", "castrum", "abbaye", "ermitage", "cairn", "dolmen",
+			"menhir", "bosquet", "marais", "estuaire", "archipel", "vallon", "causse", "plateau", "ravin", "gouffre", "crypte", "abysse",
+			"sanctuaire", "autel", "frontière", "contrée", "territoire", "montagne", "val", "vallée", "rivière", "fleuve", "océan", "mer",
+			"caverne", "tombeau", "assommoir", "barbacane", "bastille", "bretèche", "caponnière", "châtelet", "courtine", "cunette", "créneau",
+			"échauguette", "embrasure", "mâchicoulis", "merlon", "motte castrale", "pont-dormant", "oubliette", "hourd", "bassefosse", "ferté",
+			
+			// ==========================================
+			// 4. ÉQUIPEMENT, ARMES & ARMURES
+			// ==========================================
+			
+			"épée", "bouclier", "armure", "heaume", "hache", "lance", "arc", "grimoire", "rune", "talisman", "relique", "parchemin", "potion",
+			"cotte", "mailles", "gantelet", "dague", "poignard", "masse", "fléau", "hallebarde", "javelot", "flèche", "carquois", "baguette",
+			"sceptre", "couronne", "cape", "besace", "bourse", "amulette", "anneau", "joyau", "gemme", "cristal", "pierre", "acier", "fer",
+			"mithril", "or", "argent", "gladius", "spatha", "claymore", "francisque", "framée", "scramasaxe", "broigne", "gambison", "haubert",
+			"bassinet", "salade", "gorgerin", "éperon", "destrier", "palefroi", "roncin", "cuirasse", "boucle", "fourreau", "miséricorde",
+			"espadon", "vouge", "pertuisane", "fauchart", "arbalète", "brigandine", "camail", "plastron", "brassard", "grève", "soleret",
+			"cuissard", "spallière", "armet", "pavois", "targe", "dondaine", "espringale", "guisarme", "haubergeon", "heaumier", "mézail", "bouterolle",
+			
+			// ==========================================
+			// 5. MAGIE, RELIGION & ALCHIMIE
+			// ==========================================
+			
+			"magie", "sortilège", "malédiction", "rituel", "incantation", "prophétie", "oracle", "ombre", "flamme", "mana", "bénédiction",
+			"pacte", "démoniaque", "divin", "sacré", "profane", "esprit", "âme", "dieu", "dieux", "déesse", "foi", "prière", "miracle",
+			"ténèbres", "lumière", "enchantement", "illusion", "invocation", "dogme", "hérésie", "pénitence", "absolution", "ferveur",
+			"dévotion", "ascèse", "mystique", "augure", "athanor", "cornue", "aludel", "creuset", "alambic", "transmutation", "hermétique",
+			"ésotérisme", "occultisme", "cosmogonie", "cosmologie", "eschatologie", "sotériologie", "hiérogamie", "analogie", "décoction",
+			"pèlerin", "excommunication", "phylactère", "abjurateur", "ectoplasme", "khumeia", "alchimia",
+			
+			// ==========================================
+			// 6. THÈMES, ACTIONS & ÉMOTIONS
+			// ==========================================
+			
+			"honneur", "gloire", "sang", "bataille", "guerre", "quête", "destin", "serment", "alliance", "vengeance", "courage", "héroïsme",
+			"siège", "victoire", "défaite", "trahison", "bravoure", "lâcheté", "mort", "vie", "croisade", "périple", "voyage", "combat",
+			"lutte", "triomphe", "sacrifice", "péril", "danger", "embuscade", "escarmouche", "trêve", "paix", "justice", "châtiment",
+			"pardon", "renommée", "mandat", "quérir", "oyez", "festoyer", "guerroyer", "jouter", "pourfendre", "occire", "truander",
+			"haranguer", "vaillant", "belliqueux", "infâme", "loyal", "fourbe", "austère", "magnanime", "intrépide", "outrecuidant",
+			"bouter", "férir", "choir", "ouïr", "mandier", "mander", "bailler", "vergogner", "conchier", "mugueter", "pandiculer",
+			"adouber", "ensaisiner", "ordalie", "plaid", "wergeld", "niquedouille", "baliverne", "bobance", "braconnier", "bramer",
 			"courroux", "allégresse", "mélancolie", "tourment", "ravissement", "épouvante", "dédain", "fierté", 
 			"orgueil", "humilité", "compassion", "rancoeur", "fureur", "tourmente", "destinée", "karma", 
 			"équilibre", "chaos", "ordre", "dualité", "infini", "éphémère", "éternité", "auguste", "solennel",
-			"vérité", "mensonge", "parjure", "loyauté", "vertu", "vice"
+			"vérité", "mensonge", "parjure", "loyauté", "vertu", "vice", "légende", "chroniques", "épopée",
+			
+			// ==========================================
+			// 7. CRÉATURES & BESTIAIRE
+			// ==========================================
+			
+			"dragon", "troll", "elfe", "nain", "orc", "gobelin", "géant", "vampire", "spectre", "griffon", "licorne", "hydre", "wyrm",
+			"fée", "celte", "loup", "démon", "fantôme", "goule", "squelette", "mort-vivant", "monstre", "bête", "créature", "minotaure",
+			"centaure", "gargouille", "harpie", "golem", "harpie", "satyre", "titan", "hippocampe", "basilic", "chimère", "banshee",
+			"farfadet", "gnome", "dryade", "nymphe", "sylphide", "ondine", "kraken", "léviathan", "manticore", "wyverne", "pégase",
+			"aspi", "cocatrix", "échéneis", "lantichare", "leucota", "monocéros", "vouivre", "amphisbène", "loup-garou",
+			
+			// ==========================================
+			// 8. HÉRALDIQUE (BLASONS & SYMBOLES)
+			// ==========================================
+			
+			"azur", "gueules", "sinople", "sable", "hermine", "vair", "blason", "armoiries", "écu", "chevron", "fasce", "pal", "sautoir",
+			"lambel", "billette", "besant", "bezant", "alérion", "merlette", "fleur de lys", "quintefeuille", "rampant", "passant", "volant",
+			"issant", "essorant", "contourné", "écartelé", "échiqueté", "émail", "métaux", "brisure", "lambrequin", "cimier", "bourdon",
+			"pairle", "vivré", "saltire", "orle", "macle", "fusée", "frette", "écu", "écusson", "cabochon", "chaperon", "senestre", "dextre",
+			
+			// ==========================================
+			// 9. FLORE & HERBORISTERIE
+			// ==========================================
+			
+			"belladone", "mandragore", "jusquiame", "datura", "ciguë", "digitale", "vératre", "livèche", "aurone", "hysope", "verveine",
+			"armoise", "millepertuis", "sauge", "romarin", "thym", "sarriette", "marjolaine", "angélique", "bénédicte", "souci", "mauve",
+			"guimauve", "bouillon blanc", "coquelicot", "bleuet", "bourrache", "consoude", "ortie", "pissenlit", "plantain", "achillée",
+			"tanaisie", "absinthe", "rue", "sétaire", "camomille", "valériane", "mélisse", "fenouil", "aneth", "coriandre", "cumin", "carvi",
+			
+			// ==========================================
+			// 10. MÉTIERS & RÔLES SOCIAUX (EXTENTION)
+			// ==========================================
+			
+			"tanneur", "teinturier", "cordonnier", "charpentier", "maçon", "tailleur", "tisserand", "meunier", "boulanger", "boucher",
+			"poissonnerie", "tavernier", "aubergiste", "palfrenier", "maréchal-ferrant", "armurier", "heaumier", "arbalétrier", "archetier",
+			"forgeron", "orfèvre", "changeur", "mercier", "drapier", "pelletier", "parcheminier", "enlumineur", "copiste", "relieur",
+			"apothicaire", "barbier", "chirurgien", "mire", "alchimiste", "astrologue", "ménestrel", "trouvère", "troubadour", "jongleur",
+			"acrobate", "saltimbanque", "bouffon", "héraut", "crieur", "sergent", "garde", "guetteur", "veilleur", "prévôt", "bailli",
+			"sénéchal", "connétable", "chambellan", "échanson", "panetier", "sommelier", "cuisinier", "marmiton", "lavandière", "lingère",
+			"fileuse", "tisserande", "brodeuse", "dentellière", "nourrice", "gouvernante", "sage-femme", "prêtre", "moine", "nonne",
+			"abbé", "abbesse", "évêque", "cardinal", "pape", "ermite", "pèlerin", "croisé", "chevalier", "écuyer", "page", "suzerain",
+			"vassal", "serf", "vilain", "manant", "paysan", "laboureur", "vigneron", "berger", "porcher", "bûcheron", "charbonnier",
+			"chasseur", "braconnier", "pêcheur", "batelier", "marin", "corsaire", "pirate", "brigand", "voleur", "assassin", "mendiant",
+			"gueux", "vagabond", "lépreux", "bourreau", "geôlier",
+			
+			// ==========================================
+			// 11. OBJETS, MOBILIER & QUOTIDIEN
+			// ==========================================
+			
+			"coffre", "huche", "dressoir", "bahut", "escabeau", "banc", "tabouret", "chaise", "fauteuil", "lit", "paillasse", "traversin",
+			"oreiller", "courtepointe", "couverture", "drap", "rideau", "tapisserie", "tapis", "natte", "chandelier", "bougeoir", "torche",
+			"lanterne", "lampe à huile", "brasero", "cheminée", "chenet", "soufflet", "tisonnier", "crémaillère", "chaudron", "marmite",
+			"poêle", "faitout", "louche", "cuillère", "couteau", "hanap", "coupe", "verre", "pichet", "cruche", "carafe", "bouteille",
+			"flacon", "baril", "tonneau", "cuve", "baquet", "seau", "bassine", "jarre", "amphore", "sac", "besace", "gibecière",
+			"escarcelle", "bourse", "panier", "corbeille", "malle", "coffret", "écrin", "miroir", "peigne", "brosse", "rasoir", "éponge",
+			"savon", "serviette", "nappe", "assiette", "plat", "écuelle", "tranchoir", "mortier", "pilon", "balance", "poids", "mesure",
+			"clef", "serrure", "verrou", "gond", "charnière", "clou", "vis", "marteau", "tenailles", "scie", "hache", "rabot", "ciseau",
+			"tarière", "enclume", "soufflet de forge", "creuset", "alambic", "cornue", "éprouvette", "grimoire", "parchemin", "plume",
+			"encre", "encrier", "sceau", "cire", "cachet", "boussole", "sextant", "astrolabe", "sablier", "cadran solaire", "horloge",
+			
+			// ==========================================
+			// 12. VÊTEMENTS & PARURES
+			// ==========================================
+			
+			"tunique", "chemise", "braies", "chausses", "pourpoint", "cotte", "surcot", "cape", "manteau", "pèlerine", "chaperon", "bonnet",
+			"calotte", "toque", "chapeau", "feutre", "voile", "guimpe", "coiffe", "couronne", "diadème", "tiare", "mitre", "chasuble",
+			"aube", "étole", "manipule", "dalmatique", "surplis", "soutane", "froc", "coule", "bure", "habit", "livrée", "uniforme",
+			"tabard", "jaque", "brigandine", "haubert", "camail", "gambison", "hoqueton", "cuirasse", "plastron", "dossière", "épaulière",
+			"brassard", "gantelet", "cuissard", "grève", "soleret", "éperon", "botte", "bottine", "soulier", "sandale", "socque", "patin",
+			"ceinture", "ceinturon", "baudrier", "boucle", "agrafe", "bouton", "lacet", "ruban", "galon", "broderie", "dentelle",
+			"fourrure", "hermine", "vair", "zibeline", "martre", "renard", "mouton", "agneau", "laine", "soie", "velours", "satin",
+			"damas", "brocart", "taffetas", "lin", "chanvre", "coton", "peau", "velin", "anneau", "bague", "alliance", "chevalière",
+			"bracelet", "collier", "torque", "pendentif", "médaille", "broche", "fibule", "boucle d'oreille", "sceptre", "globe",
+			
+			// ==========================================
+			// 13. EXCLAMATIONS & EXPRESSIONS DAoC
+			// ==========================================
+			
+			"parbleu", "fichtre", "diantre", "pardi", "guilde", "certes", "nonobstant", "hélas", "mortecouille", "morbleu", "ventrebleu",
+			"sacrebleu", "nonpoint", "icelle", "icelui", "que trépas me prenne", "par les dieux", "par ma barbe", "malepeste", "faquin",
+			"pendart", "jarnidieu", "ventre saint-gris", "bigre", "hurluberlu", "iconoclasse", "lacrimable", "accointe", "baliverne",
+			"oyez", "bienvenue", "adieu", "salutations", "printemps", "été", "automne", "hiver", "givre", "rosée", "brise", "orage", "tempête", 
+			"météore", "comète", "éclipse", "foudre", "tonnerre", "zénith", "aurore", "crépuscule", "autan", "borée", 
+			"zéphyr", "frimas", "nimbes", "éther", "firmament", "constellation", "astral"
 		};
 
 		private const string COOLDOWN_DICT_KEY = "RP_Word_Cooldowns";
