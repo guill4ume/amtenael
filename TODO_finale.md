@@ -25,6 +25,8 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [x] **Système de Bots (Thidranki)** :
   - [x] Initialisation automatique au démarrage.
   - [x] Population maximisée (60 bots total, 20 par royaume) dès le lancement.
+  - [ ] Rétablir la population de bots variable (proportionnelle à la population réelle) comme sur le repo SPB officiel (actuellement fixe pour la beta).
+  - [ ] Étudier et implémenter un système de sécurité (Dynamic Scaling) : Surveiller la charge CPU/TPS en temps réel pour brider ou réduire le nombre de bots si le serveur sature.
   - [x] Fix : Crash NRE (Groupes PvP) et Stats (/mbstats).
   - [x] Fix : Crash au démarrage (accès joueurs non connectés).
 - [x] **Documentation Wiki** : 
@@ -41,7 +43,9 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [ ] **Infrastructure & QA** :
   - [x] Script PowerShell de sauvegarde/restauration automatisé.
   - [ ] Diagnostiquer la lenteur au démarrage de la branche SPB (36s vs OpenDAOC natif).
+  - [ ] Programmer le redémarrage automatique du serveur tous les jours à 04h00 (via `ServerProperty` ?).
 - [x] **Config Serveur** : Activation du changement de langue (`/language set`), passage par défaut en FR et alignement de 86 propriétés avec le CSV SPB.
+  - [ ] Supprimer la classe de base (via `ServerProperty` ?) pour permettre de choisir sa classe finale dès le niveau 1.
 - [x] **Stabilisation du Build (SPB)** : 
   - [x] Réparation de `House.cs` (propriété `ConsignmentMerchant` décommentée).
   - [x] Bridage temporaire du `MarketService` manquant pour permettre le démarrage.
@@ -68,6 +72,8 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] Activer Thidranki avec bots Niveau 50 (Auto-start au démarrage). ✅ Configuré dans `MimicManager.cs`.
   - [x] Rendre les gardes de Thidranki agressifs envers les joueurs (PvP). ✅ Propriété `PVP_UNCLAIMED_KEEPS_ENEMY` activée.
   - [x] Système de Téléportation "Aerto" : Dialogue et téléportation vers Thidranki (Niveau 50) pour les deux PNJs Aerto (Région 51). ✅ Implémenté via Global Hook.
+  - [ ] Porter les colliers de téléportation régionaux (NPC Ansall - Region 51) depuis Breamor/DOL vers OpenDAoC (Attention : compatibilité scripts DOL à vérifier).
+  - [ ] Mettre un PNJ de sortie pour chacun des royaumes dans Thidranki.
   - [ ] Jamtland Mountains avec capture de forts.
   - [ ] Ouvrir PvP H24 (fait) avec bonus de PR en soirée.
   - [ ] Réparer les médecins qui ne rendent pas la constitution (healer.cs de mémoire)

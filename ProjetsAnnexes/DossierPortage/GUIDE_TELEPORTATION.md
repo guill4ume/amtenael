@@ -35,3 +35,21 @@ Sur ce serveur (Ruleset Amtenael / PvP), les gardes des forts non revendiqués p
 - **Agressivité** : Si vous vous approchez d'un fort ennemi ou neutre, les gardes vous attaqueront à vue.
 - **Propriété** : Ce comportement est contrôlé par `PVP_UNCLAIMED_KEEPS_ENEMY` dans `ServerProperties.cs`.
 
+## 6. Colliers de Téléportation Régionaux (Avalon - Map 51)
+En plus de la téléportation vers Thidranki, il existe un système de transport entre les villages d'Avalon via des colliers spécifiques.
+
+### Marchands de Colliers (NPCs)
+Les PNJs suivants vendent des colliers pour les différentes villes de la région 51 :
+- **Ansall** (Village de Wearyall)
+- **Maskel**
+- **Inshael**
+- **Roric**
+- **Booor**
+- **Llaeom**
+- **Lorian** (Spécialisé Avalon)
+- **Ballkor**
+
+### Fonctionnement (À porter)
+- **Système** : Repose sur les classes `AutoTimedTeleporter` et `AutoTeleportDestination`.
+- **Mécanique** : Équiper le collier sur un "Portal Pad" (les destinations sont mappées sur le nom exact de l'objet).
+- **Statut** : Les PNJs sont présents en base de données (Lot B), mais le code C# doit être porté depuis le dossier `Breamor` pour être fonctionnel sur OpenDAoC-SPB.
