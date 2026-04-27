@@ -8,6 +8,16 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 
 ---
 
+## 🐞 0. Bugs Constatés (Priorité Correction)
+
+- [ ] **Instabilité Serveur** : Crash lors de la commande `/rel` (Release). *Stacktrace: MimicNPC.RemoveFromWorld() / ReaperService*.
+- [x] **Factions Thidranki** : Fixé (les gardes n'attaquent plus leur propre royaume). ✅
+- [ ] **Sorts/Potions manquants** : "spell ID not found" pour Ciboulette (31028), Abat (31032), Soupe (31024). Spells identifiés dans Breamor, à injecter.
+- [ ] **Scripts manquants** : Restaurer les classes `TextNPCMerchant`, `AmteMob`, etc. (Investigation GitHub).
+- [x] **Optimisation Bots** : Population réduite à 5 par royaume (15 total). ✅
+
+---
+
 ## 🚀 1. Quick-Wins & Prérequis (Actions Immédiates)
 *Tâches rapides pour poser les bases (communication, docs, nettoyage).*
 

@@ -53,8 +53,8 @@ Le projet est désormais unifié sur le serveur **OpenDAoC-SPB**. La version Cor
 - [x] **Zones de Combat (Thidranki)** :
     - [x] Passage au niveau 50 pour tous les bots.
     - [x] Fix de l'auto-spawn au démarrage du serveur.
-    - [x] Population stabilisée à 20 bots/royaume (60 total) pour performance.
-    - [x] Activation de l'agressivité des gardes neutres (PVP).
+    - [x] Population stabilisée à 5 bots/royaume (15 total) pour performance et stabilité.
+    - [x] Activation de l'agressivité des gardes (PVP). ✅ FIXÉ : Les gardes n'attaquent plus leurs alliés.
     - [x] **Fix de Stabilité** : Correction du crash NRE lors du groupement Mimic en mode PvP. ✅ VALIDÉ.
 
 ### Tâches Secondaires
