@@ -1050,7 +1050,7 @@ namespace DOL.AI.Brain
                                     TargetFlankPosition = GetStylePositionPoint(livingTarget, GetPositional());
                                     Body.StopFollowing();
                                     Body.StopAttack();
-                                    Body.WalkTo(new Point3D(TargetFlankPosition.X, TargetFlankPosition.Y, livingTarget.Z), Body.MaxSpeed);
+                                    Body.PathTo(new Point3D(TargetFlankPosition.X, TargetFlankPosition.Y, livingTarget.Z), (short)Body.MaxSpeed);
                                     return;
                                 }
 
@@ -1348,7 +1348,13 @@ namespace DOL.AI.Brain
                 return false;
 
             // We put this here to prevent aggroing non-factions npcs
-            return (Body.Realm != eRealm.None || realTarget is not GameNPC) && AggroLevel > 0;
+            if (AggroLevel <= 0)
+                return false;
+
+            if (Body.Realm == eRealm.None)
+                return true;
+
+            return realTarget.Realm != Body.Realm;
         }
 
         public virtual void OnAttackedByEnemy(AttackData ad)
@@ -2063,7 +2069,7 @@ namespace DOL.AI.Brain
                 {
                     if (!MimicBody.IsWithinRadius(spellTarget, new SpellHandler(MimicBody, spellToCast, m_mobSpellLine).CalculateSpellRange()))
                     {
-                        MimicBody.WalkTo(new(spellTarget.X, spellTarget.Y, spellTarget.Z), MimicBody.MaxSpeed);
+                        MimicBody.PathTo(new Point3D(spellTarget.X, spellTarget.Y, spellTarget.Z), (short)MimicBody.MaxSpeed);
                         return true;
                     }
 

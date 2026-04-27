@@ -150,18 +150,21 @@ namespace DOL.GS.Scripts
                             if (living is NecromancerPet && distance > 700)
                                 speed *= 1.25;
 
-                            double ownerSpeedAdjust = (double)owner.MaxSpeed / owner.MaxSpeedBase;
-
-                            if (ownerSpeedAdjust > 1.0)
-                                speed *= ownerSpeedAdjust;
-
-                            if (owner is IGamePlayer playerOwner)
+                            if (owner != null)
                             {
-                                if (playerOwner.IsOnHorse)
-                                    speed *= 3.0;
+                                double ownerSpeedAdjust = (double)owner.MaxSpeed / owner.MaxSpeedBase;
 
-                                if (playerOwner.IsSprinting)
-                                    speed *= 1.4;
+                                if (ownerSpeedAdjust > 1.0)
+                                    speed *= ownerSpeedAdjust;
+
+                                if (owner is IGamePlayer playerOwner)
+                                {
+                                    if (playerOwner.IsOnHorse)
+                                        speed *= 3.0;
+
+                                    if (playerOwner.IsSprinting)
+                                        speed *= 1.4;
+                                }
                             }
                         }
                     }
@@ -170,7 +173,7 @@ namespace DOL.GS.Scripts
                 {
                     GameLiving owner = brain?.Owner;
 
-                    if (owner != null && owner == brain.Body.FollowTarget)
+                    if (brain?.Body != null && owner != null && owner == brain.Body.FollowTarget)
                     {
                         if (owner is GameNPC && owner is not MimicNPC)
                             owner = brain.GetPlayerOwner();

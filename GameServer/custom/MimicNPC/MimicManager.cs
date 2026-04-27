@@ -25,8 +25,8 @@ namespace DOL.GS.Scripts
                                                     new Point3D(37200, 51200, 3950),
                                                     new Point3D(19820, 19305, 4050),
                                                     new Point3D(53300, 26100, 4270),
-                                                    30,
-                                                    120,
+                                                    60,
+                                                    60,
                                                     50,
                                                     50);
         }
@@ -48,7 +48,7 @@ namespace DOL.GS.Scripts
             private ECSGameTimer m_masterTimer;
             private ECSGameTimer m_spawnTimer;
 
-            private int m_timerInterval = 600000; // 10 minutes
+            private int m_timerInterval = 30000; // 30 seconds
             private long m_resetMaxTime = 0;
 
             private List<MimicNPC> m_albMimics = new List<MimicNPC>();
@@ -90,6 +90,10 @@ namespace DOL.GS.Scripts
                 if (m_masterTimer == null)
                 {
                     log.Info("Creating MasterTimer for region " + m_region);
+                    
+                    // Progressive spawn will be handled by the timer
+                    ResetMaxMimics();
+
                     m_masterTimer = new ECSGameTimer(null, new ECSGameTimer.ECSTimerCallback(MasterTimerCallback));
                     m_masterTimer.Start();
                     log.Info("MasterTimer started for region " + m_region);
@@ -98,13 +102,13 @@ namespace DOL.GS.Scripts
 
             public void TickInternal(int index)
             {
-                MimicNPC albMimic = MimicManager.GetMimic(MimicManager.GetRandomMimicClass(eRealm.Albion), 24);
+                MimicNPC albMimic = MimicManager.GetMimic(MimicManager.GetRandomMimicClass(eRealm.Albion), 50);
                 MimicManager.AddMimicToWorld(albMimic, m_albSpawnPoint, m_region);
 
-                MimicNPC hibMimic = MimicManager.GetMimic(MimicManager.GetRandomMimicClass(eRealm.Hibernia), 24);
+                MimicNPC hibMimic = MimicManager.GetMimic(MimicManager.GetRandomMimicClass(eRealm.Hibernia), 50);
                 MimicManager.AddMimicToWorld(hibMimic, m_hibSpawnPoint, m_region);
 
-                MimicNPC midMimic = MimicManager.GetMimic(MimicManager.GetRandomMimicClass(eRealm.Midgard), 24);
+                MimicNPC midMimic = MimicManager.GetMimic(MimicManager.GetRandomMimicClass(eRealm.Midgard), 50);
                 MimicManager.AddMimicToWorld(midMimic, m_midSpawnPoint, m_region);
             }
 
@@ -178,7 +182,7 @@ namespace DOL.GS.Scripts
                 log.Info("Mid: " + m_midMimics.Count + "/" + m_currentMaxMid);
                 log.Info("Total Mimics: " + totalMimics + "/" + m_currentMaxTotalMimics);
 
-                return m_timerInterval + Util.Random(-300000, 300000); // 10 minutes + or - 5 minutes
+                return m_timerInterval + Util.Random(-5000, 5000); // 30 seconds + or - 5 seconds
             }
 
             /// <summary>
@@ -231,9 +235,12 @@ namespace DOL.GS.Scripts
             /// </summary>
             private void RefreshLists()
             {
+                int spawnPerTick = 2; // Maximum bots per realm per tick for progressive population
+
                 if (m_albMimics.Count < m_currentMaxAlb)
                 {
-                    for (int i = 0; i < m_currentMaxAlb - m_albMimics.Count; i++)
+                    int toAdd = Math.Min(spawnPerTick, m_currentMaxAlb - m_albMimics.Count);
+                    for (int i = 0; i < toAdd; i++)
                     {
                         byte level = (byte)Util.Random(m_minLevel, m_maxLevel);
                         MimicNPC mimic = MimicManager.GetMimic(MimicManager.GetRandomMimicClass(eRealm.Albion), level);
@@ -243,7 +250,8 @@ namespace DOL.GS.Scripts
 
                 if (m_hibMimics.Count < m_currentMaxHib)
                 {
-                    for (int i = 0; i < m_currentMaxHib - m_hibMimics.Count; i++)
+                    int toAdd = Math.Min(spawnPerTick, m_currentMaxHib - m_hibMimics.Count);
+                    for (int i = 0; i < toAdd; i++)
                     {
                         byte level = (byte)Util.Random(m_minLevel, m_maxLevel);
                         MimicNPC mimic = MimicManager.GetMimic(MimicManager.GetRandomMimicClass(eRealm.Hibernia), level);
@@ -253,7 +261,8 @@ namespace DOL.GS.Scripts
 
                 if (m_midMimics.Count < m_currentMaxMid)
                 {
-                    for (int i = 0; i < m_currentMaxMid - m_midMimics.Count; i++)
+                    int toAdd = Math.Min(spawnPerTick, m_currentMaxMid - m_midMimics.Count);
+                    for (int i = 0; i < toAdd; i++)
                     {
                         byte level = (byte)Util.Random(m_minLevel, m_maxLevel);
                         MimicNPC mimic = MimicManager.GetMimic(MimicManager.GetRandomMimicClass(eRealm.Midgard), level);
@@ -299,7 +308,12 @@ namespace DOL.GS.Scripts
                 SetGroupMembers(m_hibStagingList);
                 SetGroupMembers(m_midStagingList);
 
-                m_spawnTimer = new ECSGameTimer(null, new ECSGameTimer.ECSTimerCallback(Spawn), 1000);
+                if (m_spawnTimer == null)
+                {
+                    m_spawnTimer = new ECSGameTimer(null, new ECSGameTimer.ECSTimerCallback(Spawn));
+                }
+                
+                m_spawnTimer.Start(1000);
             }
 
             private int Spawn(ECSGameTimer timer)
@@ -335,9 +349,12 @@ namespace DOL.GS.Scripts
                     midDone = true;
 
                 if (albDone && hibDone && midDone)
+                {
+                    log.Info("All mimics spawned for region " + m_region);
                     return 0;
+                }
                 else
-                    return 5000;
+                    return 1000;
             }
 
             private void SetGroupMembers(List<MimicNPC> list)
@@ -379,20 +396,20 @@ namespace DOL.GS.Scripts
             private void ResetMaxMimics()
             {
                 m_currentMaxTotalMimics = Util.Random(m_minTotalMimics, m_maxTotalMimics);
-                m_currentMaxAlb = 0;
-                m_currentMaxHib = 0;
-                m_currentMaxMid = 0;
+                
+                // Balanced distribution: 1/3 for each realm
+                m_currentMaxAlb = m_currentMaxTotalMimics / 3;
+                m_currentMaxHib = m_currentMaxTotalMimics / 3;
+                m_currentMaxMid = m_currentMaxTotalMimics / 3;
 
-                for (int i = 0; i < m_currentMaxTotalMimics; i++)
+                // Handle remainder by adding to random realms
+                int remainder = m_currentMaxTotalMimics - (m_currentMaxAlb + m_currentMaxHib + m_currentMaxMid);
+                for (int i = 0; i < remainder; i++)
                 {
-                    eRealm randomRealm = (eRealm)Util.Random(1, 3);
-
-                    if (randomRealm == eRealm.Albion)
-                        m_currentMaxAlb++;
-                    else if (randomRealm == eRealm.Hibernia)
-                        m_currentMaxHib++;
-                    else if (randomRealm == eRealm.Midgard)
-                        m_currentMaxMid++;
+                    int r = Util.Random(1, 3);
+                    if (r == 1) m_currentMaxAlb++;
+                    else if (r == 2) m_currentMaxHib++;
+                    else m_currentMaxMid++;
                 }
 
                 m_resetMaxTime = GameLoop.GameLoopTime + Util.Random(1800000, 3600000);

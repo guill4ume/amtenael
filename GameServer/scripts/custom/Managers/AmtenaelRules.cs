@@ -133,7 +133,7 @@ namespace DOL.GS.ServerRules
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 		public static ushort HousingRegionID = 202;
-		public static ushort[] UnsafeRegions = { 181 };
+		public static ushort[] UnsafeRegions = { 181, 252 };
 		public static ushort[] SafeZone = { 167, 168, 169, 179, 334 };
 
 		public override string RulesDescription()
@@ -151,6 +151,7 @@ namespace DOL.GS.ServerRules
 		public static void OnScriptCompiled(DOLEvent e, object sender, EventArgs args)
 		{
 			Console.WriteLine("AmtenaelRules: Ruleset [GST_PvP] successfully LOADED and ACTIVE.");
+			DOL.GS.ServerProperties.Properties.PVP_UNCLAIMED_KEEPS_ENEMY = true;
 		}
 
 		public override bool IsAllowedToAttack(GameLiving attacker, GameLiving defender, bool quiet)
@@ -217,6 +218,27 @@ namespace DOL.GS.ServerRules
 
 				// For PvP interactions (Player vs Player), allow attack by default (FFA)
 				return true;
+			}
+
+			// SPB: Bypass "friendly NPC" blocks in Thidranki (Region 252)
+			if (attacker != null && defender != null && attacker.CurrentRegionID == 252 && defender.CurrentRegionID == 252)
+			{
+				if (attacker is GamePlayer && defender is GameKeepGuard) return true; // Player can attack Keep Guards
+				if (attacker is GameKeepGuard && defender is GamePlayer) return true; // Keep Guards can attack Players
+				
+				if (attacker is GamePlayer && defender is GameNPC && attacker.Realm != defender.Realm) return true; // Player vs Enemy Bot
+				if (attacker is GameNPC && defender is GamePlayer && attacker.Realm != defender.Realm) return true; // Enemy Bot vs Player
+				
+				if (attacker is GameNPC && defender is GameNPC && attacker.Realm != defender.Realm) return true; // Bot vs Enemy Bot / Guard
+			}
+
+			// SPB: Enforce same-realm friendliness for NPCs/Players
+			if (attacker != null && defender != null && attacker.Realm != eRealm.None && attacker.Realm == defender.Realm)
+			{
+				if ((attacker is GameNPC && defender is GamePlayer) || (attacker is GamePlayer && defender is GameNPC))
+				{
+					return false;
+				}
 			}
 
 			// For all other cases (NPC vs Player, Player vs NPC, NPC vs NPC), use base rules (Normal/Standard)
@@ -372,7 +394,7 @@ namespace DOL.GS.ServerRules
 
 			// If not in a Frontier (RvR) region, everyone appears as the viewer's realm (Blue/Friendly)
 			// This forces the client to allow grouping and show health bars correctly in all server types.
-			if (!GameServer.KeepManager.FrontierRegionsList.Contains(player.CurrentRegionID))
+			if (!GameServer.KeepManager.FrontierRegionsList.Contains(player.CurrentRegionID) && player.CurrentRegionID != 252)
 			{
 				if (target is GamePlayer || (target is GameNPC && target.Realm != 0))
 					return (byte)player.Realm;
@@ -444,7 +466,8 @@ namespace DOL.GS.ServerRules
 					return true;
 
 				// Outside Frontier regions, everyone understands and respects everyone (Social Harmony)
-				if (!GameServer.KeepManager.FrontierRegionsList.Contains(source.CurrentRegionID) && !GameServer.KeepManager.FrontierRegionsList.Contains(target.CurrentRegionID))
+				if (!GameServer.KeepManager.FrontierRegionsList.Contains(source.CurrentRegionID) && source.CurrentRegionID != 252 &&
+				    !GameServer.KeepManager.FrontierRegionsList.Contains(target.CurrentRegionID) && target.CurrentRegionID != 252)
 					return true;
 			}
 

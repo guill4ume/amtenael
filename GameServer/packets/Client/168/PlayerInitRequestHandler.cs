@@ -201,6 +201,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 			private static void CheckBGLevelCapForPlayerAndMoveIfNecessary(GamePlayer player)
 			{
+				if (player.CurrentRegionID == 252)
+					return;
+
 				if (player.Client.Account.PrivLevel == 1 && player.CurrentRegion.IsRvR && player.CurrentRegionID != 163)
 				{
 					ICollection<AbstractGameKeep> list = GameServer.KeepManager.GetKeepsOfRegion(player.CurrentRegionID);
@@ -226,6 +229,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 			private static void CheckIfPlayerLogsNearEnemyKeepAndMoveIfNecessary(GamePlayer player)
 			{
+				if (player.CurrentRegionID == 252)
+					return;
+
 				if (player.CurrentRegion.IsInstance)
 				{
 					WorldMgr.RvrLinkDeadPlayers.TryRemove(player.InternalID, out _);
@@ -263,6 +269,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 			//Move player to safe spot if they login near keep/relic keep that is under attack
 			private static void CheckIfPlayerLogsNearKeepUnderAttackAndMoveIfNecessary(GamePlayer player)
 			{
+				if (player.CurrentRegionID == 252)
+					return;
+
 				int gracePeriodInMinutes = 0;
 				Int32.TryParse(ServerProperties.Properties.RVR_LINK_DEATH_RELOG_GRACE_PERIOD, out gracePeriodInMinutes);
 				AbstractGameKeep keep = GameServer.KeepManager.GetKeepCloseToSpot(player.CurrentRegionID, player, WorldMgr.VISIBILITY_DISTANCE);

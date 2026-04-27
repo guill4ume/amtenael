@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -296,18 +296,18 @@ namespace DOL.GS.PacketHandler
 				Guild playerGuild = player.Guild;
 
 				// Leave if the player we send this packet to isn't the pet's owner and isn't in the same guild or group.
-				if (playerOwner != player)
+				if (playerOwner != null && playerOwner != player)
 				{
 					Guild playerOwnerGuild = playerOwner.Guild;
 
 					if (playerOwnerGuild == null || playerGuild == null || playerOwnerGuild != playerGuild)
 					{
-						Group playerOwnerGroup = playerOwner.Group;
-
-						if (playerOwnerGroup == null || !playerOwnerGroup.GetMembersInTheGroup().Contains(player))
+						if (playerOwner.Group is Group playerOwnerGroup && !playerOwnerGroup.GetMembersInTheGroup().Contains(player))
 							return;
 					}
 				}
+				else if (playerOwner == null)
+					return;
 
 				// Make the client believe the pet is in the same guild as them.
 				// Use a dummy guild for guildless players.

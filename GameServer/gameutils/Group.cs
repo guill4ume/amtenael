@@ -226,7 +226,7 @@ namespace DOL.GS
 
             // Part of the hack to make friendly pets untargetable (or targetable again) with TAB on a PvP server.
             // We could also check for non controlled pets (turrets for example) around the player, but it isn't very important.
-            if (GameServer.Instance.Configuration.ServerType == EGameServerType.GST_PvP)
+            if (GameServer.Instance.Configuration.ServerType == EGameServerType.GST_PvP && player != null)
             {
                 IControlledBrain controlledBrain = player.ControlledBrain;
                 Guild playerGuild = player.Guild;
@@ -335,16 +335,16 @@ namespace DOL.GS
 
                 // Part of the hack to make friendly pets untargetable (or targetable again) with TAB on a PvP server.
                 // We could also check for non controlled pets (turrets for example) around the player, but it isn't very important.
-                if (GameServer.Instance.Configuration.ServerType == EGameServerType.GST_PvP)
+                if (GameServer.Instance.Configuration.ServerType == EGameServerType.GST_PvP && player is GamePlayer gamePlayer)
                 {
-                    IControlledBrain controlledBrain = player.ControlledBrain;
-                    Guild playerGuild = player.Guild;
+                    IControlledBrain controlledBrain = gamePlayer.ControlledBrain;
+                    Guild playerGuild = gamePlayer.Guild;
                     bool updateOneself = false;
 
                     // Update how the removed player sees their pet and themself.
                     if (controlledBrain != null)
                     {
-                        SendControlledBodyGuildID((GamePlayer)player, playerGuild, controlledBrain.Body);
+                        SendControlledBodyGuildID(gamePlayer, playerGuild, controlledBrain.Body);
                         updateOneself = true;
                     }
 
@@ -364,14 +364,14 @@ namespace DOL.GS
                             // Update how the removed player sees the group member's pet and themself.
                             if (groupMemberControlledBrain != null)
                             {
-                                SendControlledBodyGuildID((GamePlayer)player, groupMember.Guild, groupMemberControlledBrain.Body);
+                                SendControlledBodyGuildID(gamePlayer, groupMember.Guild, groupMemberControlledBrain.Body);
                                 updateOneself = true;
                             }
                         }
                     }
 
                     if (updateOneself)
-                        player.Out.SendObjectGuildID((GamePlayer)player, playerGuild ?? Guild.DummyGuild);
+                        gamePlayer.Out.SendObjectGuildID(gamePlayer, playerGuild ?? Guild.DummyGuild);
                 }
 
                 player.Out.SendMessage("You leave your group.", eChatType.CT_System, eChatLoc.CL_SystemWindow);

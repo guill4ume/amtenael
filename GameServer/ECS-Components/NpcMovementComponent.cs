@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Numerics;
 using DOL.AI.Brain;
 using DOL.Database;
@@ -259,6 +259,9 @@ namespace DOL.GS
 
         public void Roam(short speed)
         {
+            if (Owner.CurrentRegion == null || Owner.CurrentZone == null)
+                return;
+
             // Note that `CanRoam` returns false if `RoamingRange` is <= 0.
             int maxRoamingRadius = Owner.RoamingRange > 0 ? Owner.RoamingRange : Owner.CurrentRegion.IsDungeon ? 5 : 500;
 

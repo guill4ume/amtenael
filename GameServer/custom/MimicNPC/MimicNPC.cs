@@ -101,6 +101,7 @@ namespace DOL.GS.Scripts
             SetRaceAndName();
             SetBrain(cClass);
             SetLevel(level);
+            SpawnPoint = new Point3D(X, Y, Z);
 
             SetWeapons();
             SetShield();
@@ -900,7 +901,7 @@ namespace DOL.GS.Scripts
         {
             // Try to move into LOS so we don't get stuck chain casting in place
             if (target is GameLiving)
-                WalkTo(new(target.X, target.Y, target.Z), MaxSpeed);
+                PathTo(new Point3D(target.X, target.Y, target.Z), (short)MaxSpeed);
 
             base.OnCastSpellLosCheckFail(target);
         }

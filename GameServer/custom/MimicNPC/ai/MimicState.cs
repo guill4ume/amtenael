@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
@@ -378,7 +378,19 @@ namespace DOL.AI.Brain
                     {
                         // We're not updating `_nextRoamingTick` here because we want it to be set after the NPC stopped moving.
                         _nextRoamingTickSet = false;
-                        _brain.Body.Roam(Speed);
+
+                        // SPB - Attraction towards Thidranki Faste (Center Keep)
+                        if (_brain.Body.CurrentRegionID == 252 && Util.Random(1, 100) <= 70)
+                        {
+                            // Move towards Thidranki Faste with some random offset to avoid stacking
+                            int targetX = 33089 + Util.Random(-500, 500);
+                            int targetY = 38271 + Util.Random(-500, 500);
+                            _brain.Body.PathTo(new Point3D(targetX, targetY, 3720), (short)Speed);
+                        }
+                        else
+                        {
+                            _brain.Body.Roam(Speed);
+                        }
                     }
                 }
             }
