@@ -27,7 +27,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [x] **Système de Bots (Thidranki)** :
   - [x] Initialisation automatique au démarrage.
   - [x] Population maximisée (15 bots total, 5 par royaume) dès le lancement.
-  - [ ] Rétablir la population de bots variable (proportionnelle à la population réelle) comme sur le repo SPB officiel (actuellement fixe pour la beta).
+  - [ ] Rétablir la population de bots variable comme sur le repo SPB officiel (actuellement fixe pour la beta) -> Difficulté croissante en fonction du nombre de joueurs
   - [ ] Étudier et implémenter un système de sécurité (Dynamic Scaling) : Surveiller la charge CPU/TPS en temps réel pour brider ou réduire le nombre de bots si le serveur sature.
     - [ ] **Optimisation Mémoire** : Auditer et réduire l'empreinte mémoire du serveur.
       - [ ] Limiter le chargement des mobs aux régions actives (Map 51 et Thidranki) et ne charger le reste que lors de l'extension du contenu.
@@ -86,7 +86,9 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [x] **Groupage Inter-Royaume (Client 1.127)** :
   - [x] Bypass des filtres clients via `CustomDialog`.
   - [x] Implémentation du `/gjoin` global (pas de limite de distance).
-  - [ ] **Correction Bug UI** : Corriger la visibilité partielle/incomplète des membres de groupe inter-royaumes dans l'interface (en cours/partiellement corrigé).
+  - [x] **Correction Bug UI** : Corriger la visibilité partielle/incomplète des membres de groupe inter-royaumes dans l'interface.
+    - [x] **Problème HP** : Les barres de vie ne descendent pas dans la fenêtre de groupe lors de la prise de dégâts (cross-realm).
+    - [x] **Problème Map** : Les groupés n'apparaissent pas sur la carte.
   - [ ] **Améliorations futures** : Ajouter confirmation du joueur invité + popup visuelle (éventuellement remplacer bouton invite dans l'UI).
 - [ ] **Guildage Inter-Royaume** : À vérifier in game
 - [x] **Bases PvP & GvG** :
