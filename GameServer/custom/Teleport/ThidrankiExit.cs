@@ -54,9 +54,9 @@ namespace DOL.GS.Scripts
             if (!ServerProperties.Properties.LOAD_QUESTS)
                 return;
 
-            SpawnExitNPC("Aertis", eRealm.Albion, 29648, 44077, 3944, 275);
-            SpawnExitNPC("Aertis", eRealm.Midgard, 46290, 16744, 4320, 302);
-            SpawnExitNPC("Aertis", eRealm.Hibernia, 10592, 9707, 4320, 219);
+            SpawnExitNPC("Aertis", eRealm.Albion, 37333, 51881, 3944, 4090);
+            SpawnExitNPC("Aertis", eRealm.Midgard, 54309, 25234, 4319, 1744);
+            SpawnExitNPC("Aertis", eRealm.Hibernia, 18708, 18710, 4320, 1424);
             
             log.Info("Thidranki Exit NPCs (Aertis) initialized.");
         }
