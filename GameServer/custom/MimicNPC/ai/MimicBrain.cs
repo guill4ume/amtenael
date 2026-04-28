@@ -666,6 +666,9 @@ namespace DOL.AI.Brain
 
         public bool CheckDelayRoam()
         {
+            if (Body.IsUnderwater)
+                return false;
+
             if (Body.IsCasting || CheckSpells(eCheckSpellType.Defensive) || MimicBody.Sit(CheckStats(75)))
                 return true;
 

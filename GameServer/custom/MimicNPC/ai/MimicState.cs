@@ -328,6 +328,8 @@ namespace DOL.AI.Brain
         protected virtual int MaxCooldown => 5;
 
         private bool delayRoam;
+        private long _lastStuckCheckTick;
+        private Point3D _lastPosition;
 
         public MimicState_Roaming(MimicBrain brain) : base(brain)
         {
@@ -371,7 +373,9 @@ namespace DOL.AI.Brain
                     {
                         _nextRoamingTickSet = true;
                         _nextRoamingTick += Util.Random(MinCooldown, MaxCooldown) * 1000;
-                        _brain.Body.SpawnPoint = new Point3D(_brain.Body.X, _brain.Body.Y, _brain.Body.Z);
+
+                        if (!_brain.Body.IsUnderwater)
+                            _brain.Body.SpawnPoint = new Point3D(_brain.Body.X, _brain.Body.Y, _brain.Body.Z);
                     }
 
                     if (ServiceUtils.ShouldTickAdjust(ref _nextRoamingTick))
@@ -391,6 +395,25 @@ namespace DOL.AI.Brain
                         {
                             _brain.Body.Roam(Speed);
                         }
+                    }
+                }
+                else if (_brain.Body.IsMoving)
+                {
+                    if (_lastPosition == null)
+                        _lastPosition = new Point3D(_brain.Body.X, _brain.Body.Y, _brain.Body.Z);
+
+                    if (_lastStuckCheckTick == 0)
+                        _lastStuckCheckTick = GameLoop.GameLoopTime + 10000;
+
+                    if (ServiceUtils.ShouldTick(_lastStuckCheckTick))
+                    {
+                        if (_brain.Body.IsWithinRadius(_lastPosition, 50))
+                        {
+                            _brain.Body.StopMoving();
+                        }
+
+                        _lastPosition = new Point3D(_brain.Body.X, _brain.Body.Y, _brain.Body.Z);
+                        _lastStuckCheckTick = GameLoop.GameLoopTime + 10000;
                     }
                 }
             }

@@ -95,6 +95,7 @@ namespace DOL.GS.Scripts
 
             Inventory = new MimicNPCInventory();
             MaxSpeedBase = PLAYER_BASE_SPEED;
+            m_canBreathUnderwater = true;
 
             MimicSpec = MimicSpec.GetSpec(cClass, spec);
             SetCharacterClass((int)cClass);
