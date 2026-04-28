@@ -37,4 +37,5 @@ Les joueurs peuvent interagir avec les bots pour former des groupes.
     - Interdiction de s'asseoir/se reposer dans l'eau (`MimicBrain.cs`).
     - Correction de la dérive du point de spawn en zone immergée (`MimicState.cs`).
     - Détection de blocage ("stuck") : réinitialisation du mouvement après 10s d'immobilité en état de déplacement (`MimicState.cs`).
+- **Évolutions futures (Siège & Navigation)** : Un plan d'amélioration détaillé a été stocké pour permettre plus tard aux bots de détruire les portes ennemies et corriger définitivement les blocages aquatiques. Voir `ProjetsAnnexes/DossierPortage/PLAN_AMELIORATION_BOTS.md`.
 - **Vérification** : Dans les logs Docker, cherchez `Thidranki Battleground bots started automatically` pour confirmer l'activation.

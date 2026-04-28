@@ -29,17 +29,22 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] Population maximisée (15 bots total, 5 par royaume) dès le lancement.
   - [ ] Rétablir la population de bots variable (proportionnelle à la population réelle) comme sur le repo SPB officiel (actuellement fixe pour la beta).
   - [ ] Étudier et implémenter un système de sécurité (Dynamic Scaling) : Surveiller la charge CPU/TPS en temps réel pour brider ou réduire le nombre de bots si le serveur sature.
-  - [ ] **Optimisation Mémoire** : Auditer et réduire l'empreinte mémoire du serveur (nettoyage d'objets, optimisation des structures de données des bots) pour maximiser le nombre de Mimics actifs.
+    - [ ] **Optimisation Mémoire** : Auditer et réduire l'empreinte mémoire du serveur.
+      - [ ] Limiter le chargement des mobs aux régions actives (Map 51 et Thidranki) et ne charger le reste que lors de l'extension du contenu.
+      - [ ] Nettoyage d'objets et optimisation des structures de données des bots pour maximiser le nombre de Mimics actifs.
+    - [ ] **À vérifier** : Amélioration Bots (Siège & Eau) : implémenter le siège des forts (ouverture des portes) et corriger les bugs aquatiques restants (Voir `ProjetsAnnexes/DossierPortage/PLAN_AMELIORATION_BOTS.md`).
   - [x] Fix : Crash NRE (Groupes PvP) et Stats (/mbstats).
   - [x] Fix : Crash au démarrage (accès joueurs non connectés).
 - [x] **Documentation Wiki** : 
   - [ ] Recenser ce qui fonctionne en craft/classes sur DOL (par les joueurs)
   - [ ] Recenser monstres et quêtes (et page loot Boss Ma'ati) (par les joueurs)
   - [ ] Expliquer le fonctionnement des armes Ma'ati sur le Wiki (Obtention, paliers, statistiques).
+  - [ ] Créer `ai_context.md` dans `C:\OpenDAOC_server\ProjetsAnnexes\datas diverses` pour instruire la mise à jour de la liste des factions.
   - [x] Lister les commandes (Admin/GM/Player) et les publier sur le wiki.
 - [x] **PNJs & Services** : 
-  - [x] Mettre en place un PNJ "Instant 50" (Héraut des dieux : Niveau 50, Richesse, Artisanat).
   - [ ] Création d'un PNJ spécifique pour l'Instant 50 en artisanat (Légendaire).
+  - [ ] Mettre à jour le **Héraut des dieux** pour permettre de passer au rang de royaume **13L0**.
+  - [ ] Mettre en place un **PNJ de création de guilde** (1 personne minimum, tous les emblèmes disponibles pour tous les royaumes).
   - [x] Réparer l'encodage UTF-8 des noms de PNJs (Région 51).
   - [x] Remettre en place les menus et inventaires des marchands (Zone 51). ✅ Validé en jeu (187 marchands chargés en région 51).
   - [x] Retirer la guilde de base automatiquement attribuée aux nouveaux personnages. ✅ Désactivé via ServerProperty `starting_guild`.
@@ -47,8 +52,12 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] Passer tous les gardes dans la faction "Gardes" sur la carte 51. ✅ Faction ID 1000 créée et assignée.
 - [ ] **Infrastructure & QA** :
   - [ ] Script PowerShell de sauvegarde/restauration automatisé.
-  - [ ] Diagnostiquer la lenteur au démarrage de la branche SPB (36s vs OpenDAOC natif).
+  - [x] Diagnostiquer la lenteur au démarrage de la branche SPB (36s vs OpenDAOC natif). ✅ (Optimisation faite : warnings d'équipement et de zone corrigés).
+  - [ ] **À vérifier :**
+    - [ ] Optimisation des performances (corriger les warnings `Long TimerService.Tick`).
+    - [ ] Indexation régulière de la base de données pour accélérer la recherche des joueurs et objets.
   - [ ] Programmer le redémarrage automatique du serveur tous les jours à 04h00 (via `ServerProperty` ?).
+  - [ ] Développer un programme surveillant le dépôt GitHub pour poster un récapitulatif des mises à jour sur un channel Discord.
 - [x] **Config Serveur** : Activation du changement de langue (`/language set`), passage par défaut en FR et alignement de 86 propriétés avec le CSV SPB.
   - [ ] Support complet des commandes et dialogues en Anglais, Français et Espagnol (EN/FR/ES).
   - [ ] Supprimer la classe de base (via `ServerProperty` ?) pour permettre de choisir sa classe finale dès le niveau 1.
@@ -66,12 +75,18 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 
 - [x] **Initialisation OpenDAOC** : Repartir sur un OpenDAOC sain et importer la database copie offi.
 - [ ] **Portage des Données Joueurs** : Exporter inventaires, argent, classes depuis l'ancienne base DOL.
+- [ ] **Système Predator** : Intégrer les systèmes de type "Predator" disponibles dans le repo `OpenDAoC-Core-master`.
 - [ ] **Mapping/Monde** : 
   - [x] Importer le mobilier Lot B (tables `worldobject` et `door`) depuis Breamor.
   - [ ] Importer les scripts de DOL vers Avalon Isle (serveur Beta).
+  - [ ] **Audit & Import Loots Avalon (Map 51)** :
+    - [ ] Croiser les mobs Map 51 entre Breamor et SPB.
+    - [ ] Vérifier si les mobs de Breamor ont des loots et évaluer la faisabilité de l'import.
+    - [ ] Importer les loots validés.
 - [x] **Groupage Inter-Royaume (Client 1.127)** :
   - [x] Bypass des filtres clients via `CustomDialog`.
   - [x] Implémentation du `/gjoin` global (pas de limite de distance).
+  - [ ] **Correction Bug UI** : Corriger la visibilité partielle/incomplète des membres de groupe inter-royaumes dans l'interface (en cours/partiellement corrigé).
   - [ ] **Améliorations futures** : Ajouter confirmation du joueur invité + popup visuelle (éventuellement remplacer bouton invite dans l'UI).
 - [ ] **Guildage Inter-Royaume** : À vérifier in game
 - [x] **Bases PvP & GvG** :
@@ -85,6 +100,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [ ] Ouvrir PvP H24 (fait) avec bonus de PR en soirée.
   - [x] Réparer les médecins qui ne rendent pas la constitution (healer.cs de mémoire)
   - [ ] Vérifier que les bots (Mimics) dans Thidranki attaquent correctement les joueurs (agressivité PvP).
+  - [ ] **Investigation Thidranki** : Identifier l'utilité des PNJs **Void Merchant** et **Pazz** (consulter les clones de `core master` et `database` en sous-dossier).
 - [ ] **Économie & RP** :
   - [x] Centraliser le point de spawn de toutes les races sur la map historique.
   - [ ] Terminer le système de /shop (max 25 objets).
