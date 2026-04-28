@@ -9118,7 +9118,8 @@ namespace DOL.GS.Scripts
         /// </summary>
         public virtual void CommandNpcRelease()
         {
-            CharacterClass.CommandNpcRelease();
+            if (CharacterClass != null)
+                CharacterClass.CommandNpcRelease();
         }
 
         /// <summary>
