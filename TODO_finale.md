@@ -21,30 +21,33 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 ## 🚀 1. Quick-Wins & Prérequis (Actions Immédiates)
 *Tâches rapides pour poser les bases (communication, docs, nettoyage).*
 
-- [x] **Setup Vidéo/Com** : Filmer l'étude de portage via OBS (scinder en eps. 20 min) et configurer la publication automatique sur YouTube.
 - [x] **Système de Bots (Thidranki)** :
   - [x] Initialisation automatique au démarrage.
-  - [x] Population maximisée (60 bots total, 20 par royaume) dès le lancement.
+  - [x] Population maximisée (15 bots total, 5 par royaume) dès le lancement.
   - [ ] Rétablir la population de bots variable (proportionnelle à la population réelle) comme sur le repo SPB officiel (actuellement fixe pour la beta).
   - [ ] Étudier et implémenter un système de sécurité (Dynamic Scaling) : Surveiller la charge CPU/TPS en temps réel pour brider ou réduire le nombre de bots si le serveur sature.
+  - [ ] **Optimisation Mémoire** : Auditer et réduire l'empreinte mémoire du serveur (nettoyage d'objets, optimisation des structures de données des bots) pour maximiser le nombre de Mimics actifs.
   - [x] Fix : Crash NRE (Groupes PvP) et Stats (/mbstats).
   - [x] Fix : Crash au démarrage (accès joueurs non connectés).
 - [x] **Documentation Wiki** : 
   - [ ] Recenser ce qui fonctionne en craft/classes sur DOL (par les joueurs)
   - [ ] Recenser monstres et quêtes (et page loot Boss Ma'ati) (par les joueurs)
+  - [ ] Expliquer le fonctionnement des armes Ma'ati sur le Wiki (Obtention, paliers, statistiques).
   - [x] Lister les commandes (Admin/GM/Player) et les publier sur le wiki.
 - [x] **PNJs & Services** : 
   - [x] Mettre en place un PNJ "Instant 50" (Héraut des dieux : Niveau 50, Richesse, Artisanat).
+  - [ ] Création d'un PNJ spécifique pour l'Instant 50 en artisanat (Légendaire).
   - [x] Réparer l'encodage UTF-8 des noms de PNJs (Région 51).
   - [x] Remettre en place les menus et inventaires des marchands (Zone 51). ✅ Validé en jeu (187 marchands chargés en région 51).
   - [x] Retirer la guilde de base automatiquement attribuée aux nouveaux personnages. ✅ Désactivé via ServerProperty `starting_guild`.
   - [x] Virer le portail rouge téléporteur. ✅ ZonePoint 154 supprimé (visuel conservé).
   - [x] Passer tous les gardes dans la faction "Gardes" sur la carte 51. ✅ Faction ID 1000 créée et assignée.
 - [ ] **Infrastructure & QA** :
-  - [x] Script PowerShell de sauvegarde/restauration automatisé.
+  - [ ] Script PowerShell de sauvegarde/restauration automatisé.
   - [ ] Diagnostiquer la lenteur au démarrage de la branche SPB (36s vs OpenDAOC natif).
   - [ ] Programmer le redémarrage automatique du serveur tous les jours à 04h00 (via `ServerProperty` ?).
 - [x] **Config Serveur** : Activation du changement de langue (`/language set`), passage par défaut en FR et alignement de 86 propriétés avec le CSV SPB.
+  - [ ] Support complet des commandes et dialogues en Anglais, Français et Espagnol (EN/FR/ES).
   - [ ] Supprimer la classe de base (via `ServerProperty` ?) pour permettre de choisir sa classe finale dès le niveau 1.
 - [x] **Stabilisation du Build (SPB)** : 
   - [x] Réparation de `House.cs` (propriété `ConsignmentMerchant` décommentée).
@@ -73,15 +76,19 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] Rendre les gardes de Thidranki agressifs envers les joueurs (PvP). ✅ Propriété `PVP_UNCLAIMED_KEEPS_ENEMY` activée.
   - [x] Système de Téléportation "Aerto" : Dialogue et téléportation vers Thidranki (Niveau 50) pour les deux PNJs Aerto (Région 51). ✅ Implémenté via Global Hook.
   - [ ] Porter les colliers de téléportation régionaux (NPC Ansall - Region 51) depuis Breamor/DOL vers OpenDAoC (Attention : compatibilité scripts DOL à vérifier).
-  - [ ] Mettre un PNJ de sortie pour chacun des royaumes dans Thidranki.
+  - [x] Mettre un PNJ de sortie pour chacun des royaumes dans Thidranki (Aertis). ✅
+- [ ] Amélioration Thidranki : Téléportation de sortie basée sur le Karma (Constructeur/Neutre -> Wearyall Village, Destructeur -> Prios).
   - [ ] Jamtland Mountains avec capture de forts.
   - [ ] Ouvrir PvP H24 (fait) avec bonus de PR en soirée.
   - [ ] Réparer les médecins qui ne rendent pas la constitution (healer.cs de mémoire)
+  - [ ] Vérifier que les bots (Mimics) dans Thidranki attaquent correctement les joueurs (agressivité PvP).
 - [ ] **Économie & RP** :
   - [x] Centraliser le point de spawn de toutes les races sur la map historique.
   - [ ] Terminer le système de /shop (max 25 objets).
-  - [ ] Désactiver les gains de PRs sur la carte historique (le rôleplay et les maps GvG/PvP priment). 
+  - [ ] Désactiver les gains de PRs liés aux meurtres (PvP) sur la Carte 51 / Avalon Isle (le Rôleplay et les maps dédiées comme Thidranki doivent être les seules sources de PRs). 
   - [x] Implémenter la récompense PR automatique via base de mots-clefs RP (Top Rôlistes).
+  - [ ] Bonus RP incrémental : Augmentation progressive du bonus PR en fonction de la durée de la session RP active.
+  - [ ] Restaurer le système d'échange des armes de Ma'ati (Essences/Tokens) auprès des marchands dédiés.
 - [ ] **Générateur de Quêtes / Animation** : Outil ig pour permettre aux joueurs de créer des quêtes (0 XP, 0 PR) pour leur RP.
 - [ ] **Quêtes OpenDAOC ** : Traduction des quêtes de la db OpenDAOC une fois l'essentiel en place.
 
@@ -91,25 +98,41 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 *Transformer le gameplay classique avec des événements vivants.*
 
 - [ ] **Karma Serveur** : Jauge influencée par les joueurs (débloquant accès, PNJ, donjons et buffs Equilibre ou malus).
-- [ ] **Factions & Réputations** : Ordre vs Chaos. Farming de mobs procurant objets RP et **montures de prestige**.
+- [ ] **Système de Réputations Multi-Factions (Style WoW)** :
+  - [ ] **Audit Avalon (Map 51)** : Inventorier les mobs et PNJs pour définir 10 à 20 micro-factions cohérentes (ex: Druides de la Forêt vs Champignons Vénéneux, Milice de Wearyall vs Bandits).
+  - [ ] **Moteur de Réputation** : Implémenter le gain/perte automatique de points de faction lors du kill d'un mob (ex: Tuer un mob de la faction A donne +X à la faction B et -Y à la faction C).
+  - [ ] **Marchands de Prestige** : Créer des PNJs dont l'inventaire se débloque selon le palier de réputation (Amical, Honoré, Exalté) avec des consommables et objets uniques.
 - [ ] **Événements Auto (PvE)** :
   - [ ] Foire de Sombrelune (pop semi-aléatoire).
   - [ ] World Boss (Boss paliers Constructeur/Destructeur attaquant les villes).
   - [ ] Invasions de capitales orientées défense de PNJ/Cristal (ex: Fils Fraenir).
   - [ ] Marchands déclencheurs de Donjons (ex : ramener 100 ongles Guarks pour ouvrir un event temporaire).
   - [ ] Zones corrompues temporairement et Chariots à escorter.
+  - [ ] Système de quêtes "Pokémon" : Capturer des monstres pour qu'ils suivent le joueur (s'inspirer du code MimicNPC).
 - [ ] **Événements PvP** : 
   - [ ] Chasse à l'homme (proie avec pactole cumulatif).
   - [ ] Gauntlet (champion tournant) & tournois semi-auto.
   - [ ] Régulation Automatique : malus ou TP Battle Royale si une guilde gagne trop de PR (pour éviter de rouler sur le serveur).
+- [ ] **Événements Dynamiques Thidranki** :
+  - [ ] Déclenchement de patrouilles de gardes et mini-bosses mobiles en fonction de l'activité (kills/population).
+  - [ ] Pop rare d'un **Dragon** (Boss mondial) au centre de Thidranki pour forcer la coopération ou le chaos entre les royaumes.
 - [ ] **Créateurs de Contenus (CCP)** : Récompenser les joueurs postant sur YouTube/TikTok par des cosmétiques. Workflow Make.com pour post auto et reward in-game.
 - [ ] **Équipe Animation Joueur** : Animateurs (ex: Thorkal) avec avantages de statuts (titres, capes) sans farm pour encadrer et créer du jeu.
+- [ ] **Nouveautés Gameplay (Long Terme)** :
+  - [ ] **Bounty Board** : Panneau de primes quotidiennes (3 cibles aléatoires/jour) avec monnaie dédiée.
+  - [ ] **Météo Dynamique** : Impacts sur le gameplay (Brouillard = -portée, Orage = +dégâts foudre).
+  - [ ] **Restauration de Hameaux** : Apporter des matériaux de craft pour "réparer" les villages d'Avalon et débloquer des services.
+  - [ ] **Mercenaires Solo** : Location d'un bot PNJ d'appoint (Mimic bridé) pour aider au leveling PvE.
+  - [ ] **Fragments d'Artéfacts** : Combiner des loots rares pour créer des objets avec pouvoirs actifs.
+  - [ ] **GvG Avalon** : Possibilité pour les guildes de revendiquer des camps/tours sur la map 51 pour des bonus passifs.
+  - [ ] **Hauts Faits & Auras** : Débloquer des auras visuelles permanentes via des exploits (Kills, Exploration).
+  - [ ] **Paris d'Arène** : Système de paris en or sur les vainqueurs des tournois et duels.
 
 ---
 
 ## 🔮 4. Vision Futuriste & Projets IA (Très Long Terme)
 *Outils d'exploitation surpuissants et révolutions graphiques/gameplay.*
-
+  - [ ] Tester le pack de textures 'DAOC Camelot Unfunded' pour la production de contenu vidéo de haute qualité.
 - [ ] **Usine à Agents IA (Wiki/Dev/Discord)** :
   - [ ] Un agent écoute Discord (Requêtes joueurs / doutes stats).
   - [ ] Il consulte l'Agent Wiki (nourri de l'offi) et l'Agent Logs pour confronter les stats.
