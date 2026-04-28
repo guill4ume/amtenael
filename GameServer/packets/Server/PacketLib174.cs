@@ -354,10 +354,9 @@ namespace DOL.GS.PacketHandler
 			}
 		}
 
-		protected override void WriteGroupMemberUpdate(GSTCPPacketOut pak, bool updateIcons, GameLiving living)
+		protected override void WriteGroupMemberUpdate(GSTCPPacketOut pak, bool updateIcons, bool updateMap, GameLiving living)
 		{
-			base.WriteGroupMemberUpdate(pak, updateIcons, living);
-			WriteGroupMemberMapUpdate(pak, living);
+			base.WriteGroupMemberUpdate(pak, updateIcons, updateMap, living);
 		}
 
 		protected virtual void WriteGroupMemberMapUpdate(GSTCPPacketOut pak, GameLiving living)

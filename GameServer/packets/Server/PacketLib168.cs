@@ -1721,7 +1721,7 @@ namespace DOL.GS.PacketHandler
 			{
 				if (living.Group != group)
 					return;
-				WriteGroupMemberUpdate(pak, updateIcons, living);
+				WriteGroupMemberUpdate(pak, updateIcons, updateMap, living);
 				pak.WriteByte(0x00);
 				SendTCP(pak);
 			}
@@ -1738,7 +1738,7 @@ namespace DOL.GS.PacketHandler
 			using (var pak = new GSTCPPacketOut(GetPacketCode(eServerPackets.GroupMemberUpdate)))
 			{
 				foreach (GameLiving living in group.GetMembersInTheGroup())
-					WriteGroupMemberUpdate(pak, updateIcons, living);
+					WriteGroupMemberUpdate(pak, updateIcons, updateMap, living);
 				pak.WriteByte(0x00);
 				SendTCP(pak);
 			}
@@ -3917,7 +3917,7 @@ namespace DOL.GS.PacketHandler
 			return name;
 		}
 
-		protected virtual void WriteGroupMemberUpdate(GSTCPPacketOut pak, bool updateIcons, GameLiving living)
+		protected virtual void WriteGroupMemberUpdate(GSTCPPacketOut pak, bool updateIcons, bool updateMap, GameLiving living)
 		{
 			pak.WriteByte((byte) (living.GroupIndex + 1)); // From 1 to 8
 			bool sameRegion = living.CurrentRegion == m_gameClient.Player.CurrentRegion;
@@ -3950,6 +3950,8 @@ namespace DOL.GS.PacketHandler
 				// 0x00 = Normal , 0x01 = Dead , 0x02 = Mezzed , 0x04 = Diseased ,
 				// 0x08 = Poisoned , 0x10 = Link Dead , 0x20 = In Another Region
 
+				pak.WriteShort((ushort)living.ObjectID);
+
 				if (updateIcons)
 				{
 					pak.WriteByte((byte) (0x80 | living.GroupIndex));
@@ -3972,11 +3974,32 @@ namespace DOL.GS.PacketHandler
 			{
 				pak.WriteShort(0);
 				pak.WriteByte(0x20);
+				pak.WriteShort(0); // ObjectID = 0
 				if (updateIcons)
 				{
 					pak.WriteByte((byte) (0x80 | living.GroupIndex));
 					pak.WriteByte(0);
 				}
+			}
+
+			if (updateMap)
+			{
+				WriteGroupMemberMapUpdate(pak, living);
+			}
+		}
+
+		protected virtual void WriteGroupMemberMapUpdate(GSTCPPacketOut pak, GameLiving living)
+		{
+			bool sameRegion = living.CurrentRegion == m_gameClient.Player.CurrentRegion;
+			if (sameRegion && living.CurrentSpeed != 0)
+			{
+				Zone zone = living.CurrentZone;
+				if (zone == null)
+					return;
+				pak.WriteByte((byte)(0x40 | living.GroupIndex));
+				pak.WriteShort(zone.ZoneSkinID);
+				pak.WriteShort((ushort)(living.X - zone.XOffset));
+				pak.WriteShort((ushort)(living.Y - zone.YOffset));
 			}
 		}
 
