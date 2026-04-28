@@ -30,3 +30,12 @@ Ce document rÃƒÂ©sume les actions effectuÃƒÂ©es pour restaurer l'intÃƒÂ©gritÃƒÂ©
 > **VÃƒÂ©rification In-Game** : Vous pouvez maintenant vous connecter en Avalon. Le HÃƒÂ©raut devrait se trouver devant vous, et les Portes/Forges/Coffres de Breamor devraient ÃƒÂªtre visibles et utilisables.
 
 - **Optimize server startup**: Fixed equipment and zone warnings (GuardCorpseSummoner null inventory, OFAssistants DB lookup).
+
+## 5. Environnement de travail
+- Création d'un dossier eposgithub dans \ProjetsAnnexes\datas diverses\
+- Clonage en local de 3 dépôts de référence pour accélérer les recherches :
+  - **OpenDAoC-Core** (master)
+  - **OpenDAoC-Database**
+  - **OpenDAOC-SinglePlayerBots**
+  *(Ces clones servent de base de données d'informations et non de serveur jouable).*
+
