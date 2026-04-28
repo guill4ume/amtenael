@@ -28,3 +28,5 @@ Ce document rÃ©sume les actions effectuÃ©es pour restaurer l'intÃ©gritÃ©
 
 > [!TIP]
 > **VÃ©rification In-Game** : Vous pouvez maintenant vous connecter en Avalon. Le HÃ©raut devrait se trouver devant vous, et les Portes/Forges/Coffres de Breamor devraient Ãªtre visibles et utilisables.
+
+- **Optimize server startup**: Fixed equipment and zone warnings (GuardCorpseSummoner null inventory, OFAssistants DB lookup).
