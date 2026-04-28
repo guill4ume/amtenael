@@ -652,7 +652,7 @@ namespace DOL.GS.Keeps
 								guard.Inventory = ClothingMgr.Albion_ArcherPK.CloneTemplate();
 							else guard.Inventory = ClothingMgr.Albion_Archer.CloneTemplate();
 						}
-						else if (guard is GuardCaster)
+						else if (guard is GuardCaster || guard is GuardCorpseSummoner)
 						{
 							if (guard.IsPortalKeepGuard || guard.Level == 255)
 								guard.Inventory = ClothingMgr.Albion_CasterPK.CloneTemplate();
@@ -688,7 +688,7 @@ namespace DOL.GS.Keeps
 								guard.Inventory = ClothingMgr.Midgard_ArcherPK.CloneTemplate();
 							else guard.Inventory = ClothingMgr.Midgard_Archer.CloneTemplate();
 						}
-						else if (guard is GuardCaster)
+						else if (guard is GuardCaster || guard is GuardCorpseSummoner)
 						{
 							if (guard.IsPortalKeepGuard || guard.Level == 255)
 								guard.Inventory = ClothingMgr.Midgard_CasterPK.CloneTemplate();
@@ -724,7 +724,7 @@ namespace DOL.GS.Keeps
 								guard.Inventory = ClothingMgr.Hibernia_ArcherPK.CloneTemplate();
 							else guard.Inventory = ClothingMgr.Hibernia_Archer.CloneTemplate();
 						}
-						else if (guard is GuardCaster)
+						else if (guard is GuardCaster || guard is GuardCorpseSummoner)
 						{
 							if (guard.IsPortalKeepGuard || guard.Level == 255)
 								guard.Inventory = ClothingMgr.Hibernia_CasterPK.CloneTemplate();

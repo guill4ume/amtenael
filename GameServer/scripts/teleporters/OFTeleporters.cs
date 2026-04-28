@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DOL.AI.Brain;
@@ -28,21 +28,18 @@ namespace DOL.GS.Scripts
                 {
                     Name = "Master Elementalist";
                     Model = 61;
-                    LoadEquipmentTemplateFromDatabase("master_elementalist");
                 }
                     break;
                 case eRealm.Hibernia:
                 {
                     Name = "Seoltoir";
                     Model = 342;
-                    LoadEquipmentTemplateFromDatabase("seoltoir");
                 }
                     break;
                 case eRealm.Midgard:
                 {
                     Name = "Gothi of Odin";
                     Model = 153;
-                    LoadEquipmentTemplateFromDatabase("master_runemaster");
                 }
                     break;
             }
