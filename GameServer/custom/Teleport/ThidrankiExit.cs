@@ -75,7 +75,7 @@ namespace DOL.GS.Scripts
             ThidrankiExit exitNpc = new ThidrankiExit();
             exitNpc.Name = name;
             exitNpc.GuildName = "Gardien du Retour";
-            exitNpc.Model = 1198; // Même modèle que le Héraut
+            exitNpc.Model = 137; // Modèle identique à Aerto
             exitNpc.Realm = realm;
             exitNpc.CurrentRegionID = 252;
             exitNpc.Size = 50;
