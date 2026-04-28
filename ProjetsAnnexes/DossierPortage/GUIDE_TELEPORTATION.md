@@ -18,6 +18,11 @@ Un PNJ universel présent sur le serveur (ou à créer).
 - **Dialogue** : Propose de rejoindre le "Val de Quartz" (Thidranki) pour les joueurs de niveau 50.
 - **Usage** : Clic droit sur Aerto -> Clic sur le lien [Val de Quartz] dans le dialogue.
 
+### Aertis (Sortie de Thidranki - Map 252)
+- **Mécanique** : Script `ThidrankiExit.cs`.
+- **Localisation** : Présent dans les trois forts de royaume à Thidranki, juste à côté de **Pazz**.
+- **Usage** : Clic droit sur Aertis -> "Oui, ramène-moi à Avalon" pour retourner au hub principal.
+
 ## 3. Système d'Objets (Necklace)
 Il existe un objet natif dans la base de données permettant le voyage vers le BG.
 - **Nom** : `Necklace to Thidranki` (`thidranki_necklace`)
