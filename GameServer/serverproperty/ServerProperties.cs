@@ -1417,7 +1417,7 @@ namespace DOL.GS.ServerProperties
 		/// <summary>
 		/// Toggle con loss on PvP server type
 		/// </summary>
-		[ServerProperty("pvp", "pvp_death_con_loss", "Loose con on pvp death on PvP servertype", true)]
+		[ServerProperty("pvp", "pvp_death_con_loss", "Loose con on pvp death on PvP servertype", false)]
 		public static bool PVP_DEATH_CON_LOSS;
 
 		/// <summary>
@@ -2063,7 +2063,7 @@ namespace DOL.GS.ServerProperties
 		/// <summary>
 		/// PvE Conn Loss Start Level
 		/// </summary>
-		[ServerProperty("pve", "pve_con_loss_level", "Which level should players killed in PvE start losing constitution?", (byte)6)]
+		[ServerProperty("pve", "pve_con_loss_level", "Which level should players killed in PvE start losing constitution?", (byte)255)]
 		public static byte PVE_CON_LOSS_LEVEL;
 
 		#endregion
