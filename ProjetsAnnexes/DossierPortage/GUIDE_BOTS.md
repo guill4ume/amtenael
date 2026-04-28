@@ -32,4 +32,9 @@ Les joueurs peuvent interagir avec les bots pour former des groupes.
 ## 5. Maintenance Technique
 - **Code source** : `MimicManager.cs` (logique globale) et `MimicNPC.cs` (comportement individuel).
 - **Stabilité PvP** : Un correctif a été appliqué dans `Group.cs` pour éviter les crashs (NullReferenceException) lors du groupement de Mimics en mode PvP.
+- **Navigation Aquatique (Fix 28/04/2026)** :
+    - Désactivation de la noyade pour les bots (`MimicNPC.cs`).
+    - Interdiction de s'asseoir/se reposer dans l'eau (`MimicBrain.cs`).
+    - Correction de la dérive du point de spawn en zone immergée (`MimicState.cs`).
+    - Détection de blocage ("stuck") : réinitialisation du mouvement après 10s d'immobilité en état de déplacement (`MimicState.cs`).
 - **Vérification** : Dans les logs Docker, cherchez `Thidranki Battleground bots started automatically` pour confirmer l'activation.
