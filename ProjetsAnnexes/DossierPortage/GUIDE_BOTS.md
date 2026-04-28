@@ -9,7 +9,7 @@ Le système Mimic simule des joueurs réels pour peupler les zones de combat (Rv
 À Thidranki (Région 252), les bots sont configurés pour simuler une bataille permanente.
 
 - **Démarrage automatique** : Le système se lance à la fin du boot du serveur (Event `GameServerStarted`).
-- **Population** : 60 bots au total, répartis de manière égale (20 Albion, 20 Hibernia, 20 Midgard).
+- **Population** : 15 bots au total, répartis de manière égale (5 Albion, 5 Hibernia, 5 Midgard) pour la phase de beta.
 - **Niveau** : Tous les bots sont forcés au **Niveau 50**.
 - **Spawn progressif** : Pour éviter les pics de lag, les bots apparaissent au rythme de 1 bot par royaume par seconde après l'initialisation.
 
@@ -31,7 +31,9 @@ Les joueurs peuvent interagir avec les bots pour former des groupes.
 
 ## 5. Maintenance Technique
 - **Code source** : `MimicManager.cs` (logique globale) et `MimicNPC.cs` (comportement individuel).
-- **Stabilité PvP** : Un correctif a été appliqué dans `Group.cs` pour éviter les crashs (NullReferenceException) lors du groupement de Mimics en mode PvP.
+- **Stabilité PvP** :
+    - Fix : `NullReferenceException` dans `Group.cs` lors du groupement de Mimics en mode PvP.
+    - Fix : `NullReferenceException` dans `MimicNPC.cs` lors de la commande `/rel` (Release).
 - **Navigation Aquatique (Fix 28/04/2026)** :
     - Désactivation de la noyade pour les bots (`MimicNPC.cs`).
     - Interdiction de s'asseoir/se reposer dans l'eau (`MimicBrain.cs`).

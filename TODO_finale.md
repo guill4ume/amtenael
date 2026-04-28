@@ -10,13 +10,13 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 
 ## 🐞 0. Bugs Constatés (Priorité Correction)
 
-- [ ] **Instabilité Serveur** : Crash lors de la commande `/rel` (Release). *Stacktrace: MimicNPC.RemoveFromWorld() / ReaperService*.
+- [X] **Instabilité Serveur** : Crash lors de la commande `/rel` (Release). *Stacktrace: MimicNPC.RemoveFromWorld() / ReaperService*.
 - [x] **Factions Thidranki** : Fixé (les gardes n'attaquent plus leur propre royaume). ✅
 - [ ] **Erreurs au démarrage (SkillBase)** : 
   - Spells manquants dans la DB (IDs: 8982, 8983, 9067, 9175, 8052).
   - Capacités (Abilities) non instanciables (Lifter, Wild Minion, etc.) : Incohérence entre les noms de classes dans la DB et le code (préfixes `X` ou `AtlasOF_` manquants).
 - [x] **Sorts/Potions manquants** : "spell ID not found" pour Ciboulette (31028), Abat (31032), Soupe (31024). Spells identifiés dans Breamor, à injecter.
-- [ ] **Scripts manquants** : Restaurer les classes `TextNPCMerchant`, `AmteMob`, etc. (Investigation GitHub).
+- [ ] **Scripts manquants** : Restaurer les classes `TextNPCMerchant`, `AmteMob`, etc. (Investigation GitHub) -> Est-ce vraiment utile finalement ? On a surement un équivalent dans opendaoc : à vérifier
 - [ ] **Optimisation Bots** : Population réduite à 5 par royaume (15 total). ✅
 
 ---
@@ -78,7 +78,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [ ] **Système Predator** : Intégrer les systèmes de type "Predator" disponibles dans le repo `OpenDAoC-Core-master`.
 - [ ] **Mapping/Monde** : 
   - [x] Importer le mobilier Lot B (tables `worldobject` et `door`) depuis Breamor.
-  - [ ] Importer les scripts de DOL vers Avalon Isle (serveur Beta).
+  - [ ] Importer les scripts de DOL vers Avalon Isle (pas tous) -> Vérifier la doc sinon la liste des scripts et choisir lesquels
   - [ ] **Audit & Import Loots Avalon (Map 51)** :
     - [ ] Croiser les mobs Map 51 entre Breamor et SPB.
     - [ ] Vérifier si les mobs de Breamor ont des loots et évaluer la faisabilité de l'import.

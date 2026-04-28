@@ -95,7 +95,7 @@ Pour exporter la base historique d'Amtenaël vers le nouveau serveur :
 ## 🤖 Système de Bots (Mimics)
 Le serveur SPB intègre un système de bots intelligents ("Mimics").
 - **Détails Complets** : Voir le [GUIDE_BOTS.md](file:///c:/OpenDAOC_server/ProjetsAnnexes/DossierPortage/GUIDE_BOTS.md).
-- **Auto-Start Thidranki** : 60 bots (20 par royaume) lancés au démarrage.
+- **Auto-Start Thidranki** : 15 bots (5 par royaume) lancés au démarrage (Optimisé pour beta).
 - **Stats** : `/mbstats thid` pour vérifier la population en temps réel.
 
 ---

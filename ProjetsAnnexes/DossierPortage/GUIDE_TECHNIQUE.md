@@ -21,7 +21,7 @@ Objectif : Guider les développeurs sur les correspondances de code entre l'anci
 
 ### 3. Gestion de la Population (MimicManager.cs)
 La population est configurée dans `MimicBattlegrounds.Initialize()`.
-- **Thidranki** : 60 bots total (20 Alb, 20 Hib, 20 Mid).
+- **Thidranki** : 15 bots total (5 Alb, 5 Hib, 5 Mid) pour optimiser les performances de la beta.
 - **Répartition** : Équilibrée (1/3 par royaume) gérée dans `ResetMaxMimics()`.
 - **Niveau** : Fixé à 50 par défaut pour tous les bots de Thidranki.
 - **Spawn** : Progressif (1 bot par royaume toutes les secondes) via `m_spawnTimer`.
@@ -46,8 +46,9 @@ La population est configurée dans `MimicBattlegrounds.Initialize()`.
 ### 2. Infrastructure Docker (`Dockerfile`)
 - **Configuration persistante** : Le dossier `/app/config` est créé au build et le fichier `invalidnames.txt` est initialisé pour éviter les erreurs bloquantes au démarrage.
 - [x] Initialisation automatique des bots au démarrage du serveur.
-- [x] Population maximisée à 20 bots par royaume (60 total) à Thidranki dès le lancement.
+- [x] Population maximisée à 5 bots par royaume (15 total) à Thidranki dès le lancement (Optimisation performance).
 - [x] Fix : Correction d'un crash (NRE) lors de la création de groupes de Mimics en mode PvP.
+- [x] Fix : Correction d'un crash (NRE) lors de l'utilisation de la commande `/rel` (Release) par un Mimic.
 - [x] Fix : Correction de l'affichage des statistiques (/mbstats) via CL_SystemWindow.
 - **Import** (vers le Docker SPB) :
     ```powershell
