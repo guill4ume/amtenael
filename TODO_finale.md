@@ -12,9 +12,12 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 
 - [ ] **Instabilité Serveur** : Crash lors de la commande `/rel` (Release). *Stacktrace: MimicNPC.RemoveFromWorld() / ReaperService*.
 - [x] **Factions Thidranki** : Fixé (les gardes n'attaquent plus leur propre royaume). ✅
-- [ ] **Sorts/Potions manquants** : "spell ID not found" pour Ciboulette (31028), Abat (31032), Soupe (31024). Spells identifiés dans Breamor, à injecter.
+- [ ] **Erreurs au démarrage (SkillBase)** : 
+  - Spells manquants dans la DB (IDs: 8982, 8983, 9067, 9175, 8052).
+  - Capacités (Abilities) non instanciables (Lifter, Wild Minion, etc.) : Incohérence entre les noms de classes dans la DB et le code (préfixes `X` ou `AtlasOF_` manquants).
+- [x] **Sorts/Potions manquants** : "spell ID not found" pour Ciboulette (31028), Abat (31032), Soupe (31024). Spells identifiés dans Breamor, à injecter.
 - [ ] **Scripts manquants** : Restaurer les classes `TextNPCMerchant`, `AmteMob`, etc. (Investigation GitHub).
-- [x] **Optimisation Bots** : Population réduite à 5 par royaume (15 total). ✅
+- [ ] **Optimisation Bots** : Population réduite à 5 par royaume (15 total). ✅
 
 ---
 
@@ -80,7 +83,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [ ] Amélioration Thidranki : Téléportation de sortie basée sur le Karma (Constructeur/Neutre -> Wearyall Village, Destructeur -> Prios).
   - [ ] Jamtland Mountains avec capture de forts.
   - [ ] Ouvrir PvP H24 (fait) avec bonus de PR en soirée.
-  - [ ] Réparer les médecins qui ne rendent pas la constitution (healer.cs de mémoire)
+  - [x] Réparer les médecins qui ne rendent pas la constitution (healer.cs de mémoire)
   - [ ] Vérifier que les bots (Mimics) dans Thidranki attaquent correctement les joueurs (agressivité PvP).
 - [ ] **Économie & RP** :
   - [x] Centraliser le point de spawn de toutes les races sur la map historique.
@@ -101,6 +104,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [ ] **Système de Réputations Multi-Factions (Style WoW)** :
   - [ ] **Audit Avalon (Map 51)** : Inventorier les mobs et PNJs pour définir 10 à 20 micro-factions cohérentes (ex: Druides de la Forêt vs Champignons Vénéneux, Milice de Wearyall vs Bandits).
   - [ ] **Moteur de Réputation** : Implémenter le gain/perte automatique de points de faction lors du kill d'un mob (ex: Tuer un mob de la faction A donne +X à la faction B et -Y à la faction C).
+  - [ ] **Documenter les interactions entre factions sur le wiki**
   - [ ] **Marchands de Prestige** : Créer des PNJs dont l'inventaire se débloque selon le palier de réputation (Amical, Honoré, Exalté) avec des consommables et objets uniques.
 - [ ] **Événements Auto (PvE)** :
   - [ ] Foire de Sombrelune (pop semi-aléatoire).
@@ -108,11 +112,13 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [ ] Invasions de capitales orientées défense de PNJ/Cristal (ex: Fils Fraenir).
   - [ ] Marchands déclencheurs de Donjons (ex : ramener 100 ongles Guarks pour ouvrir un event temporaire).
   - [ ] Zones corrompues temporairement et Chariots à escorter.
-  - [ ] Système de quêtes "Pokémon" : Capturer des monstres pour qu'ils suivent le joueur (s'inspirer du code MimicNPC).
+  - [ ] Système de quêtes "Pokémon" : Capturer des monstres pour qu'ils suivent le joueur (s'inspirer du code MimicNPC) / quêtes d'escorte
 - [ ] **Événements PvP** : 
   - [ ] Chasse à l'homme (proie avec pactole cumulatif).
   - [ ] Gauntlet (champion tournant) & tournois semi-auto.
-  - [ ] Régulation Automatique : malus ou TP Battle Royale si une guilde gagne trop de PR (pour éviter de rouler sur le serveur).
+  - [ ] Régulation Automatique : malus ou TP Battle Royale si une guilde gagne trop de PR (pour éviter de rouler sur le serveur) / à voir si d'autres idées
+  - [ ] Quand on tue un joueur (par exemple un troll) sur la map 51 (avalon) uniquement, on récupère 2 objets : sang de troll + tête de NomDuJoueur (à faire avec toutes les races)
+
 - [ ] **Événements Dynamiques Thidranki** :
   - [ ] Déclenchement de patrouilles de gardes et mini-bosses mobiles en fonction de l'activité (kills/population).
   - [ ] Pop rare d'un **Dragon** (Boss mondial) au centre de Thidranki pour forcer la coopération ou le chaos entre les royaumes.
