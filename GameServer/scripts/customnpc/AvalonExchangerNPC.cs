@@ -37,7 +37,7 @@ namespace DOL.GS.Scripts
             if (_loaded) return;
             _loaded = true;
 
-            string filePath = @"C:\OpenDAOC_server\ProjetsAnnexes\LootsAvalon\echangeur_final.txt";
+            string filePath = @"C:\OpenDAOC_server\ProjetsAnnexes\DossierPortage\Archives\LootsAvalon\echangeur_final.txt";
             if (!File.Exists(filePath))
             {
                 log.Error("AvalonExchangerNPC: Recipes file not found at " + filePath);
