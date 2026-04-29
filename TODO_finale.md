@@ -34,7 +34,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [ ] Recenser ce qui fonctionne en craft/classes sur DOL (par les joueurs)
   - [ ] Recenser monstres et quêtes (et page loot Boss Ma'ati) (par les joueurs)
   - [ ] Expliquer le fonctionnement des armes Ma'ati sur le Wiki (Obtention, paliers, statistiques).
-  - [ ] Créer `ai_context.md` dans `C:\OpenDAOC_server\ProjetsAnnexes\datas diverses` pour instruire la mise à jour de la liste des factions.
+  - [x] Créer `ai_context.md` dans `C:\OpenDAOC_server\ProjetsAnnexes\datas diverses` pour instruire la mise à jour de la liste des factions.
   - [x] Lister les commandes (Admin/GM/Player) et les publier sur le wiki.
 - [x] **PNJs & Services** : 
   - [x] Création d'un PNJ spécifique pour l'Instant 50 en artisanat (Légendaire).
