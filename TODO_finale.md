@@ -53,8 +53,9 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
     - [ ] Indexation régulière de la base de données pour accélérer la recherche des joueurs et objets.
   - [ ] Programmer le redémarrage automatique du serveur tous les jours à 04h00 (via `ServerProperty` ?).
   - [ ] Développer un programme surveillant le dépôt GitHub pour poster un récapitulatif des mises à jour sur un channel Discord.
-  - [ ] **Audit & Documentation (Basse Priorité)** : 
+  - [x] **Audit & Documentation (Basse Priorité)** : 
     - [x] Documenter la structure de la base de données **Breamor** pour faciliter les requêtes IA et éviter les recherches répétitives chronophages.
+    - [x] Créer un récapitulatif détaillé de la migration Avalon (PNJs, SkillBase, Fixes).
 - [x] **Config Serveur** : Activation du changement de langue (`/language set`), passage par défaut en FR et alignement de 86 propriétés avec le CSV SPB.
   - [ ] Support complet des commandes et dialogues en Anglais, Français et Espagnol (EN/FR/ES).
   - [ ] Supprimer la classe de base (via `ServerProperty` ?) pour permettre de choisir sa classe finale dès le niveau 1.

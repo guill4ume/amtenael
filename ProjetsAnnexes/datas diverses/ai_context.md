@@ -22,3 +22,5 @@ Lors de l'ajout ou de la modification de PNJs ou de Monstres :
 - **PNJs Échangeurs** : Utiliser la classe `AvalonExchangerNPC` pour tout nouvel échangeur. Les données sont pilotées par `C:\OpenDAOC_server\ProjetsAnnexes\LootsAvalon\echangeur_final.txt`.
 - **Création de Guilde** : Le PNJ `GuildRegistrarNPC` permet la création solo et le choix de tous les emblèmes. Propriété `GUILD_NUM` fixée à 1.
 - **SkillBase Fallback** : Le système gère les capacités avec préfixes `X` ou `AtlasOF_` automatiquement. Ne pas recréer de doublons de classes si le préfixe est la seule différence.
+
+Pour plus de détails, voir le [Récapitulatif Complet de la Migration Avalon](file:///C:/OpenDAOC_server/ProjetsAnnexes/LootsAvalon/RECAPITULATIF_MIGRATION_AVALON.md).
