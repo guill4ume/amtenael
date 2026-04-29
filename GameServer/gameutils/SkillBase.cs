@@ -3042,6 +3042,41 @@ namespace DOL.GS
 							culture: null,
 							activationAttributes: null);
 
+						// Fallback 1: Try 'X' prefix
+						if (ab == null && !dba.Implementation.StartsWith("X", StringComparison.OrdinalIgnoreCase))
+						{
+							string fallbackX = dba.Implementation.Contains(".") 
+								? dba.Implementation.Substring(0, dba.Implementation.LastIndexOf('.') + 1) + "X" + dba.Implementation.Substring(dba.Implementation.LastIndexOf('.') + 1)
+								: "X" + dba.Implementation;
+								
+							ab = (Ability)asm.CreateInstance(fallbackX, true, BindingFlags.Default, null, new object[] { dba, 0 }, null, null);
+						}
+
+						// Fallback 2: Try 'AtlasOF_' prefix
+						if (ab == null && !dba.Implementation.Contains("AtlasOF_"))
+						{
+							string fallbackAtlas = dba.Implementation.Contains(".") 
+								? dba.Implementation.Substring(0, dba.Implementation.LastIndexOf('.') + 1) + "AtlasOF_" + dba.Implementation.Substring(dba.Implementation.LastIndexOf('.') + 1)
+								: "AtlasOF_" + dba.Implementation;
+
+							ab = (Ability)asm.CreateInstance(fallbackAtlas, true, BindingFlags.Default, null, new object[] { dba, 0 }, null, null);
+						}
+
+						// Fallback 3: Try adding 'Ability' suffix
+						if (ab == null && !dba.Implementation.EndsWith("Ability", StringComparison.OrdinalIgnoreCase))
+						{
+							ab = (Ability)asm.CreateInstance(dba.Implementation + "Ability", true, BindingFlags.Default, null, new object[] { dba, 0 }, null, null);
+						}
+						
+						// Fallback 4: Try 'X' prefix + 'Ability' suffix
+						if (ab == null)
+						{
+							string fallbackXAbility = dba.Implementation.Contains(".") 
+								? dba.Implementation.Substring(0, dba.Implementation.LastIndexOf('.') + 1) + "X" + dba.Implementation.Substring(dba.Implementation.LastIndexOf('.') + 1) + "Ability"
+								: "X" + dba.Implementation + "Ability";
+							ab = (Ability)asm.CreateInstance(fallbackXAbility, true, BindingFlags.Default, null, new object[] { dba, 0 }, null, null);
+						}
+
 						// instanciation worked
 						if (ab != null)
 						{
@@ -3059,7 +3094,7 @@ namespace DOL.GS
 					ab = new Ability(dba, 0);
 
 					if (log.IsWarnEnabled)
-						log.WarnFormat("Could not Instanciate Ability {0} from {1} reverting to default Ability...", dba.KeyName, dba.Implementation);
+						log.WarnFormat("Could not Instanciate Ability {0} from {1} (tried prefixes X/AtlasOF/suffix Ability) reverting to default Ability...", dba.KeyName, dba.Implementation);
 				}
 			}
 			else

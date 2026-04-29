@@ -2316,7 +2316,7 @@ namespace DOL.GS.ServerProperties
 		/// <summary>
 		/// The number of players needed to form a guild
 		/// </summary>
-		[ServerProperty("guild", "guild_num", "Players Needed For Guild Form - Edit this to change the amount of players required to form a guild", 8)]
+		[ServerProperty("guild", "guild_num", "Number of people in a group required to form a guild", 1)]
 		public static int GUILD_NUM;
 
 		/// <summary>

@@ -26,7 +26,8 @@ namespace DOL.GS.Scripts
                 "Dites-moi si vous souhaitez :\n" +
                 "- Monter au [Niveau 50]\n" +
                 "- Obtenir la [Richesse] (100 platines)\n" +
-                "- Maîtriser l' [artisanat] (1100 partout)", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                "- Maîtriser l' [artisanat] (1100 partout)\n" +
+                "- Passer au [Rang de Royaume 13L0]", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
             return true;
         }
 
@@ -56,6 +57,11 @@ namespace DOL.GS.Scripts
                     SetSkill(player, eCraftingSkill.SpellCrafting, 1100);
                     SetSkill(player, eCraftingSkill.Tailoring, 1100);
                     player.Out.SendMessage("Vos compétences d'artisanat sont maintenant à 1100 !", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    break;
+
+                case "rang de royaume 13l0":
+                    player.GainRealmPoints(24044484 - player.RealmPoints);
+                    player.Out.SendMessage("Vous êtes maintenant Rang de Royaume 13L0 !", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
                     break;
 
                 default:
