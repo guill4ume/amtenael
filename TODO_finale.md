@@ -2,9 +2,6 @@
 
 Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 
-> [!IMPORTANT]
-> **🌟 Priorité Absolue : Étude de faisabilité du portage DOL vers OpenDAOC**
-> *Estimer le temps de portage vs corriger l'ancienne base DOL. (Travaillé en parallèle).*
 
 ---
 
@@ -12,11 +9,9 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 
 - [X] **Instabilité Serveur** : Crash lors de la commande `/rel` (Release). *Stacktrace: MimicNPC.RemoveFromWorld() / ReaperService*.
 - [x] **Factions Thidranki** : Fixé (les gardes n'attaquent plus leur propre royaume). ✅
-- [ ] **Erreurs au démarrage (SkillBase)** : 
-  - Spells manquants dans la DB (IDs: 8982, 8983, 9067, 9175, 8052).
-  - Capacités (Abilities) non instanciables (Lifter, Wild Minion, etc.) : Incohérence entre les noms de classes dans la DB et le code (préfixes `X` ou `AtlasOF_` manquants).
-- [x] **Sorts/Potions manquants** : "spell ID not found" pour Ciboulette (31028), Abat (31032), Soupe (31024). Spells identifiés dans Breamor, à injecter.
-- [ ] **Scripts manquants** : Restaurer les classes `TextNPCMerchant`, `AmteMob`, etc. (Investigation GitHub) -> Est-ce vraiment utile finalement ? On a surement un équivalent dans opendaoc : à vérifier
+- [x] **Erreurs au démarrage (SkillBase)** : ✅ Patché via `SkillBase.cs` (mécanisme de repli pour les préfixes `X` et `AtlasOF_`).
+- [x] **Sorts/Potions manquants** : ✅ Injectés (IDs 8982, 8983, 31024, 31028, 31032).
+- [x] **Scripts manquants** : Restaurer les classes `TextNPCMerchant`, `AmteMob`, etc. ✅ Solutionné par l'implémentation de la classe générique `AvalonExchangerNPC`.
 - [ ] **Optimisation Bots** : Population réduite à 5 par royaume (15 total). ✅
 
 ---
@@ -27,7 +22,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [x] **Système de Bots (Thidranki)** :
   - [x] Initialisation automatique au démarrage.
   - [x] Population maximisée (15 bots total, 5 par royaume) dès le lancement.
-  - [ ] Rétablir la population de bots variable comme sur le repo SPB officiel (actuellement fixe pour la beta) -> Difficulté croissante en fonction du nombre de joueurs
+  - [ ] Rétablir la population de bots variable comme sur le repo SPB officiel (actuellement fixe pour la beta) -> Difficulté croissante en fonction du nombre de joueurs -> Voir si possible dynamique sans recompiler le serveur
   - [ ] Étudier et implémenter un système de sécurité (Dynamic Scaling) : Surveiller la charge CPU/TPS en temps réel pour brider ou réduire le nombre de bots si le serveur sature.
     - [ ] **Optimisation Mémoire** : Auditer et réduire l'empreinte mémoire du serveur.
       - [ ] Limiter le chargement des mobs aux régions actives (Map 51 et Thidranki) et ne charger le reste que lors de l'extension du contenu.
@@ -42,9 +37,9 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [ ] Créer `ai_context.md` dans `C:\OpenDAOC_server\ProjetsAnnexes\datas diverses` pour instruire la mise à jour de la liste des factions.
   - [x] Lister les commandes (Admin/GM/Player) et les publier sur le wiki.
 - [x] **PNJs & Services** : 
-  - [ ] Création d'un PNJ spécifique pour l'Instant 50 en artisanat (Légendaire).
-  - [ ] Mettre à jour le **Héraut des dieux** pour permettre de passer au rang de royaume **13L0**.
-  - [ ] Mettre en place un **PNJ de création de guilde** (1 personne minimum, tous les emblèmes disponibles pour tous les royaumes).
+  - [x] Création d'un PNJ spécifique pour l'Instant 50 en artisanat (Légendaire).
+  - [x] Mettre à jour le **Héraut des dieux** pour permettre de passer au rang de royaume **13L0**.
+  - [x] Mettre en place un **PNJ de création de guilde** (1 personne minimum, tous les emblèmes disponibles pour tous les royaumes). ✅ Implémenté via `GuildRegistrarNPC.cs`.
   - [x] Réparer l'encodage UTF-8 des noms de PNJs (Région 51).
   - [x] Remettre en place les menus et inventaires des marchands (Zone 51). ✅ Validé en jeu (187 marchands chargés en région 51).
   - [x] Retirer la guilde de base automatiquement attribuée aux nouveaux personnages. ✅ Désactivé via ServerProperty `starting_guild`.
@@ -58,6 +53,8 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
     - [ ] Indexation régulière de la base de données pour accélérer la recherche des joueurs et objets.
   - [ ] Programmer le redémarrage automatique du serveur tous les jours à 04h00 (via `ServerProperty` ?).
   - [ ] Développer un programme surveillant le dépôt GitHub pour poster un récapitulatif des mises à jour sur un channel Discord.
+  - [ ] **Audit & Documentation (Basse Priorité)** : 
+    - [x] Documenter la structure de la base de données **Breamor** pour faciliter les requêtes IA et éviter les recherches répétitives chronophages.
 - [x] **Config Serveur** : Activation du changement de langue (`/language set`), passage par défaut en FR et alignement de 86 propriétés avec le CSV SPB.
   - [ ] Support complet des commandes et dialogues en Anglais, Français et Espagnol (EN/FR/ES).
   - [ ] Supprimer la classe de base (via `ServerProperty` ?) pour permettre de choisir sa classe finale dès le niveau 1.
@@ -79,10 +76,10 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [ ] **Mapping/Monde** : 
   - [x] Importer le mobilier Lot B (tables `worldobject` et `door`) depuis Breamor.
   - [ ] Importer les scripts de DOL vers Avalon Isle (pas tous) -> Vérifier la doc sinon la liste des scripts et choisir lesquels
-  - [ ] **Audit & Import Loots Avalon (Map 51)** :
-    - [ ] Croiser les mobs Map 51 entre Breamor et SPB.
-    - [ ] Vérifier si les mobs de Breamor ont des loots et évaluer la faisabilité de l'import.
-    - [ ] Importer les loots validés.
+  - [x] **Audit & Import Loots Avalon (Map 51)** :
+    - [x] Croiser les mobs Map 51 entre Breamor et SPB.
+    - [x] Vérifier si les mobs de Breamor ont des loots et évaluer la faisabilité de l'import.
+    - [x] Importer les loots validés. ✅ Automatisé via `AvalonExchangerNPC.cs` et `echangeur_final.txt`.
 - [x] **Groupage Inter-Royaume (Client 1.127)** :
   - [x] Bypass des filtres clients via `CustomDialog`.
   - [x] Implémentation du `/gjoin` global (pas de limite de distance).
@@ -110,7 +107,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] Implémenter la récompense PR automatique via base de mots-clefs RP (Top Rôlistes).
   - [ ] Bonus RP incrémental : Augmentation progressive du bonus PR en fonction de la durée de la session RP active.
   - [ ] Restaurer le système d'échange des armes de Ma'ati (Essences/Tokens) auprès des marchands dédiés.
-- [ ] **Générateur de Quêtes / Animation** : Outil ig pour permettre aux joueurs de créer des quêtes (0 XP, 0 PR) pour leur RP.
+- [ ] **Générateur de Quêtes / Animation** : Outil ig pour permettre aux joueurs de créer des quêtes (0 XP, 0 PR) pour leur rôleplay.
 - [ ] **Quêtes OpenDAOC ** : Traduction des quêtes de la db OpenDAOC une fois l'essentiel en place.
 
 ---
@@ -140,6 +137,8 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [ ] **Événements Dynamiques Thidranki** :
   - [ ] Déclenchement de patrouilles de gardes et mini-bosses mobiles en fonction de l'activité (kills/population).
   - [ ] Pop rare d'un **Dragon** (Boss mondial) au centre de Thidranki pour forcer la coopération ou le chaos entre les royaumes.
+- [ ] **Sécurité & RP (Modération Dynamique)** :
+  - [ ] **Système Anti-Insultes** : Si un joueur profère des insultes (3 fois), il reçoit des avertissements des gardes à proximité. Au-delà, les gardes perdent patience et viennent l'éliminer.
 - [ ] **Créateurs de Contenus (CCP)** : Récompenser les joueurs postant sur YouTube/TikTok par des cosmétiques. Workflow Make.com pour post auto et reward in-game.
 - [ ] **Équipe Animation Joueur** : Animateurs (ex: Thorkal) avec avantages de statuts (titres, capes) sans farm pour encadrer et créer du jeu.
 - [ ] **Nouveautés Gameplay (Long Terme)** :
@@ -163,7 +162,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [ ] L'Agent Ticket convertit la conclusion en TODO assignée à l'Agent de Développement.
   - [ ] L'Agent Test valide le fix, met à jour le Wiki et notifie le joueur.
 - [ ] **Extensions Thématiques Saisonnières (Tous les 3 mois)** :
-  - [ ] *Flying Age Of Camelot / LOTR* : Montures volantes, Bolt, système d'Anneau Unique (Invisibilité, raid 20 ou 40 selon le pouvoir). Modèles Sauron/Nazghuls.
+  - [ ] *Flying Age Of Camelot / LOTR* : Montures volantes, Bolt, système d'Anneau Unique (Invisibilité, raid 20 ou 40 selon le pouvoir). Modèles Sauron/Nazghuls. Créer un patch client pour les musiques d'ambiance (ex: Thème de l'Isengard qui se déclenche à l'entrée de la map).
   - [ ] *Saison Dune.*
 - [ ] **Mécaniques Dynamiques Globales** : Maps débloquées en fonction de la population ou du karma.
 - [ ] **Rénovation Technique Ultime** : Etudier la viabilité du portage sous Unreal Engine.
