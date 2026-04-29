@@ -33,7 +33,7 @@ Injection de 5 sorts essentiels pour arrêter les warnings de démarrage et rest
   - Loras, Savant K, Skin2, Tywinn, John, Joric, Stellan, Rhaegar, Azzura, Skin4, Leag Ulvir, Borin Thekesd, Skin3, Zog, Alienor, Orn, Savant G, Savant A, Capitaine Némo, Eldrin, Helga, Lineat, Stanislas, Korgan, feu vif, Savant S, Grond, Savant W, Fendrel, Henry, Ingrid Lemouton, feu doux, Kilote, Orik, Selrien, Lorian, Savant Z, Krunk, Stèle du Souvenir, Snarg, Dori, Marmitte chaude, Valgard, Ame torturée, Torvald, Nabucar, Anspic, Savant L, Erion, Mischa, Laerea, Isira, Thorek Sek, Source d\, Mardona, Clovis Leclou, Savant I, Pellys, Stengrim, Ulrik, Kliomo, Corbin, Dunar, Marguerite, Sapharin, Vorion, Savant R, Phyl, Gauvain, Radius, feu moyen, Arazae, Theron, Meliop, Asbeth, Odor Thedoor, Sybil, Gunnar, Raelson.
 
 ## 3. Données de Loot & Échange
-- **Source de vérité** : `C:\OpenDAOC_server\ProjetsAnnexes\LootsAvalon\echangeur_final.txt`
+- **Source de vérité** : `C:\OpenDAOC_server\ProjetsAnnexes\DossierPortage\Archives\LootsAvalon\echangeur_final.txt`
 - **Contenu** : 750+ lignes associant des IDs d'items (Tokens) à des récompenses spécifiques (XP/Or).
 - **Structure** : `Nom PNJ|GUID|Nom Item|ID Item|Quantité|XP|Or`
 
