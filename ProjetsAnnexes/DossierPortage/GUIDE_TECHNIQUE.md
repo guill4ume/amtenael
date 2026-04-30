@@ -20,11 +20,13 @@ Objectif : Guider les développeurs sur les correspondances de code entre l'anci
 | `NPCEquipment` | `DbNpcEquipment` | Table DB Master |
 
 ### 3. Gestion de la Population (MimicManager.cs)
-La population est configurée dans `MimicBattlegrounds.Initialize()`.
-- **Thidranki** : 15 bots total (5 Alb, 5 Hib, 5 Mid) pour optimiser les performances de la beta.
-- **Répartition** : Équilibrée (1/3 par royaume) gérée dans `ResetMaxMimics()`.
+La population est configurée dans `MimicManager.Initialize()`.
+- **Thidranki (3 Tiers)** : 
+    - **Lourd (MimicNPC)** : 5 par royaume (15 total). IA complexe, inventaire complet.
+    - **Léger (LightMimicNPC)** : 50 par royaume (150 total). IA optimisée, stats linéaires.
+    - **Ultra-Léger (SwarmBot)** : 100 par royaume (300 total). IA minimaliste, hibernation, mouvements de groupe.
+- **Répartition** : Équilibrée (1/3 par royaume).
 - **Niveau** : Fixé à 50 par défaut pour tous les bots de Thidranki.
-- **Spawn** : Progressif (1 bot par royaume toutes les secondes) via `m_spawnTimer`.
 
 ### 4. Corrections de stabilité
 - **PvP Groups** : Correction d'une `NullReferenceException` dans `Group.AddMember` et `Group.RemoveMember` qui survenait car le code tentait de caster les Mimics en `GamePlayer` (alors qu'ils héritent de `GameNPC`).
@@ -46,7 +48,8 @@ La population est configurée dans `MimicBattlegrounds.Initialize()`.
 ### 2. Infrastructure Docker (`Dockerfile`)
 - **Configuration persistante** : Le dossier `/app/config` est créé au build et le fichier `invalidnames.txt` est initialisé pour éviter les erreurs bloquantes au démarrage.
 - [x] Initialisation automatique des bots au démarrage du serveur.
-- [x] Population maximisée à 5 bots par royaume (15 total) à Thidranki dès le lancement (Optimisation performance).
+- [x] Population multi-tiers à Thidranki (Heavy/Light/Swarm).
+- [x] Fix : Correction d'un crash (NRE) dans `MaxSpeedCalculator` lors du calcul de vitesse des bots.
 - [x] Fix : Correction d'un crash (NRE) lors de la création de groupes de Mimics en mode PvP.
 - [x] Fix : Correction d'un crash (NRE) lors de l'utilisation de la commande `/rel` (Release) par un Mimic.
 - [x] Fix : Correction de l'affichage des statistiques (/mbstats) via CL_SystemWindow.

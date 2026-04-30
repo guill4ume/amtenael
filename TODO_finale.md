@@ -13,6 +13,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [x] **Sorts/Potions manquants** : ✅ Injectés (IDs 8982, 8983, 31024, 31028, 31032).
 - [x] **Scripts manquants** : Restaurer les classes `TextNPCMerchant`, `AmteMob`, etc. ✅ Solutionné par l'implémentation de la classe générique `AvalonExchangerNPC`.
 - [ ] **Optimisation Bots** : Population réduite à 5 par royaume (15 total). ✅
+- [ ] **[PRIORITÉ] Redémarrage Auto** : Programmer le redémarrage automatique du serveur tous les jours à 04h00.
 
 ---
 
@@ -51,7 +52,6 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [ ] **À vérifier :**
     - [ ] Optimisation des performances (corriger les warnings `Long TimerService.Tick`).
     - [ ] Indexation régulière de la base de données pour accélérer la recherche des joueurs et objets.
-  - [ ] Programmer le redémarrage automatique du serveur tous les jours à 04h00 (via `ServerProperty` ?).
   - [ ] Développer un programme surveillant le dépôt GitHub pour poster un récapitulatif des mises à jour sur un channel Discord.
   - [x] **Audit & Documentation (Basse Priorité)** : 
     - [x] Documenter la structure de la base de données **Breamor** pour faciliter les requêtes IA et éviter les recherches répétitives chronophages.
@@ -65,6 +65,9 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] Correction de l'encodage et des erreurs de syntaxe sur les scripts custom (`Aerto.cs`).
   - [ ] **Traduction** : Vérifier en jeu la correspondance des noms d'objets en Français.
 - [ ] Tous les chevaux ont le même skin marron, remettre la correspondance entre les items achetés et les skins correspondant
+- [ ] **Client & Patches** :
+  - [ ] Appliquer le patch pour changer l'écran de chargement en **amtenaTEST**.
+  - [ ] **Fin de Beta** : Refaire un patch pour remettre l'écran de chargement **Amtenael** (Logo : "Le temps n'existe plus").
 
 ---
 
@@ -123,6 +126,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [ ] **Documenter les interactions entre factions sur le wiki**
   - [ ] **Marchands de Prestige** : Créer des PNJs dont l'inventaire se débloque selon le palier de réputation (Amical, Honoré, Exalté) avec des consommables et objets uniques.
 - [ ] **Événements Auto (PvE)** :
+  - [ ] **Objectif : Atteindre une fréquence de 1 événement par heure.**
   - [ ] Foire de Sombrelune (pop semi-aléatoire).
   - [ ] World Boss (Boss paliers Constructeur/Destructeur attaquant les villes).
   - [ ] Invasions de capitales orientées défense de PNJ/Cristal (ex: Fils Fraenir).
@@ -163,7 +167,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [ ] L'Agent Ticket convertit la conclusion en TODO assignée à l'Agent de Développement.
   - [ ] L'Agent Test valide le fix, met à jour le Wiki et notifie le joueur.
 - [ ] **Extensions Thématiques Saisonnières (Tous les 3 mois)** :
-  - [ ] *Flying Age Of Camelot / LOTR* : Montures volantes, Bolt, système d'Anneau Unique (Invisibilité, raid 20 ou 40 selon le pouvoir). Modèles Sauron/Nazghuls. Créer un patch client pour les musiques d'ambiance (ex: Thème de l'Isengard qui se déclenche à l'entrée de la map).
+  - [ ] *Flying Age Of Camelot / LOTR* : Montures volantes, tir du dragon (bolt eldritch), système d'Anneau Unique (Invisibilité, raid 20 ou 40 selon le pouvoir). Modèles Sauron/Nazghuls. Créer un patch client pour les musiques d'ambiance (ex: Thème de l'Isengard qui se déclenche à l'entrée de la map).
   - [ ] *Saison Dune.*
 - [ ] **Mécaniques Dynamiques Globales** : Maps débloquées en fonction de la population ou du karma.
 - [ ] **Rénovation Technique Ultime** : Etudier la viabilité du portage sous Unreal Engine.
