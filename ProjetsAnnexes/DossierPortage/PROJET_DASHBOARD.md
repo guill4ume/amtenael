@@ -51,11 +51,13 @@ Le projet est désormais unifié sur le serveur **OpenDAoC-SPB**. La version Cor
 - [x] **Groupement** : Surcharge de `GetLivingRealm` (Realm Lie) et `IsSameRealm`.
 - [x] **Diagnostic** : Intégration `log4net` pour suivi du chargement.
 - [x] **Zones de Combat (Thidranki)** :
-    - [x] Passage au niveau 50 pour tous les bots.
+    - [x] **Système Multi-Tiers (Tier 1/2/3)** : 
+        - [x] **Lourd** (MimicNPC) : 5/royaume (IA complexe).
+        - [x] **Léger** (LightMimic) : 50/royaume (IA optimisée).
+        - [x] **Ultra-Léger** (SwarmBot) : 100/royaume (Hibernation, Swarm intelligence).
     - [x] Fix de l'auto-spawn au démarrage du serveur.
-    - [x] Population stabilisée à 5 bots/royaume (15 total) pour performance et stabilité.
     - [x] Activation de l'agressivité des gardes (PVP). ✅ FIXÉ : Les gardes n'attaquent plus leurs alliés.
-    - [x] **Fix de Stabilité** : Correction du crash NRE lors du groupement Mimic en mode PvP. ✅ VALIDÉ.
+    - [x] **Fix de Stabilité** : Correction du crash NRE dans `MaxSpeedCalculator` et groupement Mimic. ✅ VALIDÉ.
 
 ### Tâches Secondaires
 - [ ] Traduction des races en Français (Basse priorité).
@@ -66,6 +68,7 @@ Le projet est désormais unifié sur le serveur **OpenDAoC-SPB**. La version Cor
 ## 📋 Checklist Globale (Prochaines Étapes)
 
 - [ ] **Phase 3 : Tests in-game** (Groupement Inter-Royaume, Interactions).
+- [ ] **Phase 4 : Optimisations IA** (Spatial Hashing, IA asynchrone).
 - [ ] **Phase 6 : Factions Jormtland** (Attente coordonnées SQL Map 163).
 - [ ] **Lot B : Économie** (Items, Loots, Mobilier via XML).
 - [ ] **Lot C : Quêtes Historiques**

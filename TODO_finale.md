@@ -13,6 +13,8 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
 - [x] **Sorts/Potions manquants** : ✅ Injectés (IDs 8982, 8983, 31024, 31028, 31032).
 - [x] **Scripts manquants** : Restaurer les classes `TextNPCMerchant`, `AmteMob`, etc. ✅ Solutionné par l'implémentation de la classe générique `AvalonExchangerNPC`.
 - [ ] **Optimisation Bots** : Population réduite à 5 par royaume (15 total). ✅
+- [ ] **Visuel Mobs** : Remplacer les boules rouges "New mob" par le modèle du mob le plus proche.
+- [ ] **Combat Aquatique** : Corriger l'impossibilité pour les joueurs de se battre dans l'eau.
 - [ ] **[PRIORITÉ] Redémarrage Auto** : Programmer le redémarrage automatique du serveur tous les jours à 04h00.
 
 ---
@@ -29,6 +31,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
       - [ ] Limiter le chargement des mobs aux régions actives (Map 51 et Thidranki) et ne charger le reste que lors de l'extension du contenu.
       - [ ] Nettoyage d'objets et optimisation des structures de données des bots pour maximiser le nombre de Mimics actifs.
     - [ ] **À vérifier** : Amélioration Bots (Siège & Eau) : implémenter le siège des forts (ouverture des portes) et corriger les bugs aquatiques restants (Voir `ProjetsAnnexes/DossierPortage/PLAN_AMELIORATION_BOTS.md`).
+  - [ ] **Ciblage** : Rendre les bots (Mimics) ciblables avec la touche Tabulation.
   - [x] Fix : Crash NRE (Groupes PvP) et Stats (/mbstats).
   - [x] Fix : Crash au démarrage (accès joueurs non connectés).
 - [x] **Documentation Wiki** : 
@@ -90,7 +93,7 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [x] **Correction Bug UI** : Corriger la visibilité partielle/incomplète des membres de groupe inter-royaumes dans l'interface.
     - [x] **Problème HP** : Les barres de vie ne descendent pas dans la fenêtre de groupe lors de la prise de dégâts (cross-realm).
     - [x] **Problème Map** : Les groupés n'apparaissent pas sur la carte.
-  - [ ] **Améliorations futures** : Ajouter confirmation du joueur invité + popup visuelle (éventuellement remplacer bouton invite dans l'UI).
+  - [ ] **Améliorations futures** : Remplacer `/invite` par `/gjoin` (ou intégrer la logique) pour proposer une popup UI de confirmation au joueur invité.
 - [ ] **Guildage Inter-Royaume** : À vérifier in game
 - [x] **Bases PvP & GvG** :
   - [x] Activer Thidranki avec bots Niveau 50 (Auto-start au démarrage). ✅ Configuré dans `MimicManager.cs`.
@@ -113,6 +116,9 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [ ] Restaurer le système d'échange des armes de Ma'ati (Essences/Tokens) auprès des marchands dédiés.
 - [ ] **Générateur de Quêtes / Animation** : Outil ig pour permettre aux joueurs de créer des quêtes (0 XP, 0 PR) pour leur rôleplay.
 - [ ] **Quêtes OpenDAOC ** : Traduction des quêtes de la db OpenDAOC une fois l'essentiel en place.
+- [ ] **Lore & Immersion** : 
+  - [ ] Rédiger et intégrer le Lore pour le **Golem de Glace : Jormag**.
+  - [ ] Rédiger et intégrer le Lore pour les **Démons de Khorne**.
 
 ---
 
@@ -155,6 +161,8 @@ Ce document fusionne et priorise les listes TODO_DOL.txt et TODO_OPENDAOC.txt.
   - [ ] **GvG Avalon** : Possibilité pour les guildes de revendiquer des camps/tours sur la map 51 pour des bonus passifs.
   - [ ] **Hauts Faits & Auras** : Débloquer des auras visuelles permanentes via des exploits (Kills, Exploration).
   - [ ] **Paris d'Arène** : Système de paris en or sur les vainqueurs des tournois et duels.
+- [ ] **Immersion & Monde Vivant** : 
+  - [ ] Réflexion globale : Comment rendre le monde plus vivant ? (PNJs d'ambiance, interactions aléatoires, sons d'ambiance, scripts de vie quotidienne).
 
 ---
 
