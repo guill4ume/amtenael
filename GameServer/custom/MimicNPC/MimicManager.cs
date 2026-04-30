@@ -177,10 +177,10 @@ namespace DOL.GS.Scripts
                 SpawnLists();
 
                 int totalMimics = m_albMimics.Count + m_hibMimics.Count + m_midMimics.Count;
-                log.Info("Alb: " + m_albMimics.Count + "/" + m_currentMaxAlb);
-                log.Info("Hib: " + m_hibMimics.Count + "/" + m_currentMaxHib);
-                log.Info("Mid: " + m_midMimics.Count + "/" + m_currentMaxMid);
-                log.Info("Total Mimics: " + totalMimics + "/" + m_currentMaxTotalMimics);
+                log.Info("[Heavy] Alb: " + m_albMimics.Count + "/" + m_currentMaxAlb);
+                log.Info("[Heavy] Hib: " + m_hibMimics.Count + "/" + m_currentMaxHib);
+                log.Info("[Heavy] Mid: " + m_midMimics.Count + "/" + m_currentMaxMid);
+                log.Info("[Heavy] Total Mimics: " + totalMimics + "/" + m_currentMaxTotalMimics);
 
                 return m_timerInterval + Util.Random(-5000, 5000); // 30 seconds + or - 5 seconds
             }
@@ -552,6 +552,8 @@ namespace DOL.GS.Scripts
             log.Info("MimicManager Initializing...");
 
             MimicBattlegrounds.Initialize();
+            LightMimicManager.InitializeThidranki();
+            SwarmManager.InitializeThidranki();
 
             return true;
         }

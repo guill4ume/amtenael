@@ -337,14 +337,52 @@ namespace DOL.GS.Keeps
 								Assembly asm = Assembly.GetExecutingAssembly();
 								IKeepItem obj = (IKeepItem)asm.CreateInstance(position.ClassType, true);
 								if (obj != null)
+								{
 									obj.LoadFromPosition(position, this);
 
-								if (ServerProperties.Properties.ENABLE_DEBUG)
-								{
-									if (obj is GameLiving living)
-										living.Name += " is living, component " + obj.Component.ID;
-									else if (obj is GameObject game)
-										game.Name += " is object, component " + obj.Component.ID;
+									// SPB - Double the number of "Renegade" guards in Thidranki (Region 252)
+									// These are spawned when the keep is neutral (Realm.None).
+									if (obj is GameKeepGuard && Keep.Region == 252 && Keep.Realm == eRealm.None)
+									{
+										try
+										{
+											IKeepItem obj2 = (IKeepItem)asm.CreateInstance(position.ClassType, true);
+											if (obj2 != null && obj2 is GameKeepGuard g2)
+											{
+												g2.TemplateID = position.TemplateID + "_clone";
+												g2.Component = this;
+												g2.Position = position;
+												
+												// Manually add to keep guards with unique key
+												if (!Keep.Guards.ContainsKey(g2.TemplateID + ID))
+												{
+													Keep.Guards.Add(g2.TemplateID + ID, g2);
+													
+													// Use the same position loading logic
+													PositionMgr.LoadGuardPosition(position, g2);
+													
+													// Offset slightly so they don't overlap perfectly
+													g2.X += Util.Random(-75, 75);
+													g2.Y += Util.Random(-75, 75);
+													
+													g2.RefreshTemplate();
+													g2.AddToWorld();
+												}
+											}
+										}
+										catch (Exception ex)
+										{
+											log.Error("Double Guard Spawn error", ex);
+										}
+									}
+
+									if (ServerProperties.Properties.ENABLE_DEBUG)
+									{
+										if (obj is GameLiving living)
+											living.Name += " is living, component " + obj.Component.ID;
+										else if (obj is GameObject game)
+											game.Name += " is object, component " + obj.Component.ID;
+									}
 								}
 							}
 							catch (Exception ex)

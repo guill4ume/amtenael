@@ -46,7 +46,9 @@ namespace DOL.GS.Scripts
 
         public override int CalcValue(GameLiving living, eProperty property)
         {
-            if ((living.IsMezzed || living.IsStunned) && living.effectListComponent.GetAllEffects().FirstOrDefault(x => x.GetType() == typeof(SpeedOfSoundECSEffect)) == null)
+            if (living == null) return 0;
+
+            if ((living.IsMezzed || living.IsStunned) && living.effectListComponent?.GetAllEffects().FirstOrDefault(x => x.GetType() == typeof(SpeedOfSoundECSEffect)) == null)
                 return 0;
 
             double speed = living.BuffBonusMultCategory1.Get((int)property);
