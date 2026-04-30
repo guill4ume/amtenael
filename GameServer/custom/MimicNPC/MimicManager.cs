@@ -553,7 +553,7 @@ namespace DOL.GS.Scripts
 
             MimicBattlegrounds.Initialize();
             LightMimicManager.InitializeThidranki();
-            SwarmManager.InitializeThidranki();
+            // SwarmManager.InitializeThidranki();
 
             return true;
         }
