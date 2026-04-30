@@ -9,7 +9,7 @@ volumes:
 
 services:
   db:
-    image: mariadb:10.6
+    image: mariadb:11
     container_name: openbots-db
     stdin_open: true
     tty: true
@@ -17,7 +17,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: opendaoc
-      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_ROOT_PASSWORD: 8I9ehCOtu20cQm8
     volumes:
       - openbots-db-data:/var/lib/mysql
       - ./db-init:/docker-entrypoint-initdb.d
@@ -31,7 +31,9 @@ services:
     tty: true
     ports:
       - "10300:10300"
+      - "10300:10300/udp"
       - "10400:10400"
+      - "10400:10400/udp"
     depends_on:
       - db
     environment:
@@ -42,7 +44,7 @@ services:
       CPU_USE: "8"
       DB_AUTOSAVE: "True"
       DB_AUTOSAVE_INTERVAL: "10"
-      DB_CONNECTION_STRING: "server=db;port=3306;database=opendaoc;userid=root;password=my-secret-pw;treattinyasboolean=true"
+      DB_CONNECTION_STRING: "server=db;port=3306;database=opendaoc;userid=root;password=8I9ehCOtu20cQm8;treattinyasboolean=true"
       DB_TYPE: "MYSQL"
       DETECT_REGION_IP: "True"
       ENABLE_COMPILATION: "False"
@@ -77,7 +79,7 @@ services:
     environment:
       PMA_HOST: db
       PMA_USER: root
-      PMA_PASSWORD: my-secret-pw
+      PMA_PASSWORD: 8I9ehCOtu20cQm8
     depends_on:
       - db
     networks:
