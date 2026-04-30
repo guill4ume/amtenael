@@ -1,5 +1,9 @@
 Note: Now requires the latest OpenDAoC Database https://github.com/OpenDAoC/OpenDAoC-Database or running the commands found in https://github.com/OpenDAoC/OpenDAoC-Database/commit/c6153398bf65faa61b665b6b4cae68b5fa8c0862 for AF buffs to work correctly.
 
+### Recent Stability Improvements (April 2026)
+- **Thidranki Bot Stability**: Resolved a recurring `NullReferenceException` in `MaxSpeedCalculator` that caused `NpcService` crashes.
+- **Hardenened Property Calculations**: Added robust null checks for `EffectListComponent`, `BuffBonusMultCategory1`, and player-specific account/client properties for MimicBots.
+
 This fork focuses on having bots that are treated as players as far as having player classes, give and take damage as players do, have player abilities, player specs, and can be grouped with for PvE or in RvR. RvR currently only includes Thidranki as far as automated spawning and grouping. As this is still being tested, some commands are available to players that normally shouldn't be.
 
 Everything is currently very command based. Bracketed commands are required, parenthesis commands are optional.

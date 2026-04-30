@@ -48,8 +48,12 @@ namespace DOL.GS.Scripts
         {
             if (living == null) return 0;
 
-            if ((living.IsMezzed || living.IsStunned) && living.effectListComponent?.GetAllEffects().FirstOrDefault(x => x.GetType() == typeof(SpeedOfSoundECSEffect)) == null)
+            if (living.effectListComponent == null) return 0;
+
+            if ((living.IsMezzed || living.IsStunned) && living.effectListComponent.GetAllEffects().FirstOrDefault(x => x.GetType() == typeof(SpeedOfSoundECSEffect)) == null)
                 return 0;
+
+            if (living.BuffBonusMultCategory1 == null) return 0;
 
             double speed = living.BuffBonusMultCategory1.Get((int)property);
 
@@ -73,11 +77,11 @@ namespace DOL.GS.Scripts
                 if (ServerProperties.Properties.ENABLE_PVE_SPEED)
                 {
                     // OF zones technically aren't in a RvR region.
-                    if (speed == 1 && !player.InCombat && !player.IsStealthed && !player.CurrentRegion.IsRvR && !player.CurrentZone.IsRvR)
+                    if (speed == 1 && !player.InCombat && !player.IsStealthed && player.CurrentRegion != null && !player.CurrentRegion.IsRvR && player.CurrentZone != null && !player.CurrentZone.IsRvR)
                         speed *= 1.25; // New run speed is 125% when no buff.
                 }
 
-                if (player.IsOverencumbered && player.Client.Account.PrivLevel == 1 && ServerProperties.Properties.ENABLE_ENCUMBERANCE_SPEED_LOSS)
+                if (player.IsOverencumbered && player.Client != null && player.Client.Account != null && player.Client.Account.PrivLevel == 1 && ServerProperties.Properties.ENABLE_ENCUMBERANCE_SPEED_LOSS)
                 {
                     double Enc = player.Encumberance; // Calculating player.Encumberance is a bit slow with all those locks, don't call it much.
 
@@ -92,7 +96,7 @@ namespace DOL.GS.Scripts
                         player.IsOverencumbered = false;
                 }
 
-                if (player.IsStealthed && player.Client.Account.PrivLevel == 1)
+                if (player.IsStealthed && player.Client != null && player.Client.Account != null && player.Client.Account.PrivLevel == 1)
                 {
                     AtlasOF_MasteryOfStealth mos = player.GetAbility<AtlasOF_MasteryOfStealth>();
                     //GameSpellEffect bloodrage = SpellHandler.FindEffectOnTarget(player, "BloodRage");
@@ -139,7 +143,7 @@ namespace DOL.GS.Scripts
                     if (brain?.Body != null)
                     {
                         GameLiving owner = brain.Owner;
-                        if (owner != null && owner == brain.Body.FollowTarget)
+                        if (owner != null && brain.Body != null && owner == brain.Body.FollowTarget)
                         {
                             if (owner is GameNPC && owner is not MimicNPC)
                                 owner = brain.GetLivingOwner();
